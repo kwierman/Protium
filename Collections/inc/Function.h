@@ -6,9 +6,9 @@ namespace Protium{
 	namespace Collections{
 
 		class FunctionPrototype{
-
+			FunctionPrototype(){}
+			virtual ~FunctionPrototype(){}
 		};
-
 
 		template<typename XType, typename YType>
 		class Function{

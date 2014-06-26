@@ -1,4 +1,4 @@
 Protium
 ----------------------
 
-Lowest Level Library for the 
+Lowest Level Library for the hydrogen isotope framework

@@ -15,21 +15,25 @@ namespace Protium{
 		};
 
 		//Concrete Example
-		template<typename T>
+		template<typename T, int dimensions=1>
 		class Histogram : HistogramPrototype{
-			//content
-			std::vector<T> bins_;
+			struct binContent{
+				T content_;
+				std::vector<T> bin_;
+			};
+
+			std::vector<binContent> bins_;
 
 		public:
-			int GetNBins() const;
+
+			//Step 1: Construction:
+			Histogram(){}
+			virtual ~Histogram(){};
+
+			int GetNBins() const {return bins.size(); }
+			int GetDimensions() const {return dimensions;}
 			T& GetBinContent(const int& bin) const;
 			void SetBinContent(const int& bin);
-			int 
-		};
-
-		template<typename T>
-		class Histogram1D : Histogram<T>{
-
 		};
 	}
 }
