@@ -4,37 +4,37 @@ namespace Protium{
 
 	namespace Math{
 
-		unsigned factorial(unsigned x){
-			unsigned y=1.0;
-			while(x>0)
-				y*=(x--);
-			return y;
-		}
+		/*
+		template<typename T>
+		T factorial(T x)
+		*/
 
-		double one_over_factorial(unsigned i){
+		long double one_over_factorial(unsigned long i){
 			unsigned temp = factorial(i+1);
-			if(temp>32767*2)
-				return 1./double(factorial(i));
-			return 1./double(factorial(i))+one_over_factorial(i+1);
+			if(temp>2.2204460492503131e9)
+				return 1./(double(factorial<unsigned long>(i)) );
+			return 1./(double(factorial<unsigned long>(i))+one_over_factorial(i+1) );
 
 		}
-		double compute_e(){
+		long double compute_e(){
 			return 1.+one_over_factorial(1);
 		}
 
 		double powerf3(double& x, double& y, unsigned iter){
-			if(iter > 17) return 1;
-			return double(iter+2)*(x+2.)-(2.*double(iter+1)-y*y)*x*x/powerf3(x,y,iter+2);
+			if(iter > 40) return 1.;
+			return double(iter+2)*(x+2.)-(2.*double(iter+1)-(y*y) )*(x*x)/powerf3(x,y,iter+2);
 		}
+
 		double powerf2(double& x, double& y){
-			return 2.+(1.-y)*x-(1-y*y)*x*x/powerf3(x,y,1);
+			return 2.+(1.-y)*x-(1-(y*y) )*x*x/powerf3(x,y,1);
 		}	
 
 		double power(double x, double y){
+			if(x==0) return 0;
 			if( y <= dbl_epsilon )
 		       	return 1.;
 		    double z = x-1;
-		    return 1+2.*(z*y)/powerf2(z,y);
+		    return 1.+2.*(z*y)/powerf2(z,y);
 		}  
 
 		double exponent(double x){

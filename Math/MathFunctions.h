@@ -6,12 +6,18 @@ namespace Protium{
 	namespace Math{
 
 		template<typename T>
-		T factorial(T x);
+		T factorial(T x){
+			T y=T(1.0);
+			while(x>0)
+				y*=(x--);
+			return y;
+		}
 
-		double one_over_factorial(unsigned i);
-		double compute_e();
+		long double one_over_factorial(unsigned long i);
+		long double compute_e();
 
-		//A couple of important numbers
+		//A couple of important numbers  
+		static const long double euler = 2.71828182845904523536028747135266249775724709369995;
 		static const double nat = compute_e();//2.71828182846;
 		static const double dbl_epsilon = 2.2204460492503131e-15;
 		static double dbl_omega =  1.7e308;
