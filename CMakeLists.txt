@@ -22,8 +22,6 @@ include_directories(${PROJECT_SOURCE_DIR}/..)
 add_subdirectory(Math)
 
 
-
-
 #----------------------------------------------------------------------------
 # Locate Executables, and link against all libraries
 file(GLOB applications ${PROJECT_SOURCE_DIR}/Applications/*.cxx)
