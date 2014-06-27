@@ -17,6 +17,14 @@ namespace Protium{
 			void Set(const XType& x, const YType& y) = 0;
 			YType Eval(const XType& x);
 		};//class function prototype
+
+		//statically define as follows
+
+
+		typedef FunctionPrototype<double, double> Function1D;
+		typedef FunctionPrototype< std::pair<double, double>, double > Function2D;
+
+
 	}//namespace collections
 }//namespace protium
 

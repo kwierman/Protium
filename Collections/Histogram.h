@@ -5,6 +5,8 @@ namespace Protium
 
 	namespace Collections{
 
+		template<class XType, typename YType>
+		class HistogramBase
 
 
 
@@ -17,13 +19,8 @@ namespace Protium
 			std::map<Xtype, YType>
 		};
 
-
-
-
-		typedef Histogram< int,HistogramContent<double> > Histogram1D;
-		typedef Histogram< int,HistogramContent<double> > Histogram2D;
-
-
+		typedef Histogram< ,HistogramContent<double> > Histogram1D;
+		typedef Histogram< , > Histogram2D;
 
 		//Concrete Example
 		template<typename T, int dimensions=1>
