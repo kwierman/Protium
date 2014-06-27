@@ -1,18 +1,29 @@
 #ifndef Protium_Histogram_h_
 #define Protium_Histogram_h_
 
-namespace Protium{
+namespace Protium
 
 	namespace Collections{
 
-		
-		class HistogramPrototype{
-		public:
-			//Interface Definition
-			HistogramPrototype(){}
-			virtual ~HistogramPrototype(){}
-			int GetNBins(int axis=0)=0;
+
+
+
+
+
+
+		//the idea is that the 
+		template<class Xtype, typename YType >
+		class HistogramBase{
+			std::map<Xtype, YType>
 		};
+
+
+
+
+		typedef Histogram< int,HistogramContent<double> > Histogram1D;
+		typedef Histogram< int,HistogramContent<double> > Histogram2D;
+
+
 
 		//Concrete Example
 		template<typename T, int dimensions=1>

@@ -8,15 +8,24 @@ namespace Protium{
 
 	namespace LinearAlgebra{
 
+		template<typename T, int n> class Vector;
 
-		class VectorPrototype{
-		public:
-			VectorPrototype(){}
-			virtual ~VectorPrototype(){}
+		template<typename T,int n>
+		struct SubVectorHelper{
+			Vector<T,n-1> GetSubVector(int i, const Vector<T,n>& vec){
+				Vector<T,n-1> temp;
+				int index=0;
+				for(int j=0; j< n;j++)
+					if(j!=i){
+						temp[index++] = vec.At(j);
+					}
+					return temp;
+			};
 		};
 
 		template <typename T, int n=3>
-		class Vector : public VectorPrototype {
+		class Vector {
+		protected:
 			std::vector<T> fComponents;
 			typedef typename std::vector<T>::iterator Titer;
 		public:
@@ -26,6 +35,12 @@ namespace Protium{
 				}
 				this->Normalize( amplitude );
 			}
+			Vector(const Vector<T,n>& other){
+				for(int i=0; i<n; i++){
+					fComponents.push_back( other.At(i) );
+				}
+			}
+
 			virtual ~Vector(){
 				fComponents.clear();
 			}
@@ -34,16 +49,21 @@ namespace Protium{
 				return n;
 			}
 
-		    T Norm() {
+		    virtual T Norm() {
 		      return sqrt( (*this)*(*this) );
 		    }
 
-		    T Normalize(const T& norm){
+		    virtual T Normalize(const T& norm){
 		    	T old_norm = this->Norm();
 		    	if(old_norm ==0) return 0;
 		    	for(Titer it = fComponents.begin(); it!=fComponents.end();++it )
 		    		(*it) *= (norm/old_norm);
 		    	return this->Norm();
+		    }
+
+		    Vector<T,n-1> GetSubVector(const int& i){
+		    	SubVectorHelper<T,n> helper;
+		    	return helper.GetSubVector(i, (*this) ); 
 		    }
 
 		    T& operator[](const int& index){

@@ -43,9 +43,30 @@ int main(int argc, char* argv[]){
 
 		Vector<double, 3> threeVector3 = threeVector1+threeVector2;
 		for(int i=0; i<3;i++)
-		std::cout<< threeVector3[i]<<std::endl;
+			std::cout<< threeVector3[i]<<std::endl;
 
+		Vector<double, 2> twoVector = threeVector3.GetSubVector(0);
+		for(int i=0; i<2;i++)
+			std::cout<<twoVector.At(i)<<"\t";
+		std::cout<<std::endl;
+
+/*
 		ThreeMatrix mat;
+		for(int i=0; i<3;i++)
+			for(int j=0; j<3;j++)
+				mat[i][j]= double( (i+j)*(i+j) );
+		for(int i=0; i<3;i++){
+			for(int j=0; j<3;j++)
+				std::cout<< mat.At(i,j)<<"\t";
+			std::cout<<std::endl;
+		}
+		TwoMatrix mat2 = mat.GetSubMatrix(0,0);
+		for(int i=0;i<2;i++)
+			for(int j=0; j<2;j++)
+				std::cout<<mat2.At(i,j)<<"\t";
+*/
+		//std::cout<<mat.Determinant()<<std::endl;
+
 	}
 
 }

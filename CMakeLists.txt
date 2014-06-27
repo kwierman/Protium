@@ -20,22 +20,16 @@ endif()
 # Locate sources and headers for this project
 include_directories(${PROJECT_SOURCE_DIR}/..)
 add_subdirectory(Math)
-
-
+add_subdirectory(LinearAlgebra)
+add_subdirectory(Collections)
+add_subdirectory(Applications)
 #----------------------------------------------------------------------------
 # Locate Executables, and link against all libraries
-file(GLOB applications ${PROJECT_SOURCE_DIR}/Applications/*.cxx)
-foreach(_app ${applications})
-	get_filename_component (name_without_extension ${_app} NAME_WE)
-	add_executable(${name_without_extension} ${_app} )
-	target_link_libraries(${name_without_extension} ProtiumMath)
-	install(TARGETS ${name_without_extension} DESTINATION bin)
-endforeach()
+
 #----------------------------------------------------------------------------
 #Add in Documentation
 #add_subdirectory(Documentation)
 #----------------------------------------------------------------------------
-
 
 # uninstall target
 configure_file(
