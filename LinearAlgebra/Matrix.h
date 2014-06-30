@@ -19,6 +19,7 @@ namespace Protium{
 
 		template<typename T, int n, int m>
 		struct SubMatrixHelper{
+			//Get a submatrix omitting row i, column j.
 			Matrix<T,n-1,m-1> GetSubMatrix(int i, int j, const Matrix<T,n,m>& mat){
 				Matrix<T,n-1,m-1> temp;
 				int current_index1 =0;
@@ -36,6 +37,8 @@ namespace Protium{
 				return temp;
 			}
 		};
+
+
 		/*
 		//helpers for the determinant
 		template<typename T, int n>
@@ -132,7 +135,7 @@ namespace Protium{
 		    }
 
 		    Vector<T,n> At(const int& i) const{
-		    	Vector<T,n>& temp(fComponents[i]);
+		    	Vector<T,n>& temp = fComponents[i];
 		    	return temp;
 		    }
 

@@ -8,23 +8,21 @@ namespace Protium{
 
 	namespace LinearAlgebra{
 
-		template<typename T, int n> class Vector;
-
-		template<typename T,int n>
-		struct SubVectorHelper{
-			Vector<T,n-1> GetSubVector(int i, const Vector<T,n>& vec){
-				Vector<T,n-1> temp;
-				int index=0;
-				for(int j=0; j< n;j++)
-					if(j!=i){
-						temp[index++] = vec.At(j);
-					}
-					return temp;
-			};
-		};
-
 		template <typename T, int n=3>
 		class Vector {
+
+			struct SubVectorHelper{
+				Vector<T,n-1> GetSubVector(int i, const Vector<T,n>& vec){
+					Vector<T,n-1> temp;
+					int index=0;
+					for(int j=0; j< n;j++)
+						if(j!=i){
+							temp[index++] = vec.At(j);
+						}
+						return temp;
+				};
+			};
+
 		protected:
 			std::vector<T> fComponents;
 			typedef typename std::vector<T>::iterator Titer;
@@ -37,7 +35,7 @@ namespace Protium{
 			}
 			Vector(const Vector<T,n>& other){
 				for(int i=0; i<n; i++){
-					fComponents.push_back( other.At(i) );
+					fComponents.push_back( T(other.At(i) ) );
 				}
 			}
 
@@ -62,7 +60,7 @@ namespace Protium{
 		    }
 
 		    Vector<T,n-1> GetSubVector(const int& i){
-		    	SubVectorHelper<T,n> helper;
+		    	SubVectorHelper helper;
 		    	return helper.GetSubVector(i, (*this) ); 
 		    }
 
@@ -71,7 +69,7 @@ namespace Protium{
 		    }
 
 		    //const access, instead of []operator
-		    T At(const int& index) const{
+		    const T& At(const int& index) const{
 		    	return fComponents[index];
 		    }
 
