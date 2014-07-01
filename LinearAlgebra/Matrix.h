@@ -6,13 +6,6 @@
 namespace Protium{
 	namespace LinearAlgebra{
 
-		//A matri
-		class MatrixPrototype{
-		public:
-			MatrixPrototype(){}
-			virtual ~MatrixPrototype(){}
-		};
-
 		//forward def for the helpers
 		template<typename T, int n, int m> class Matrix;
 
@@ -105,7 +98,7 @@ namespace Protium{
 
 
 		template<typename T, int n, int m>
-		class Matrix : public MatrixPrototype {
+		class Matrix {
 			std::vector< Vector<T,m> > fComponents;
 			typedef typename std::vector< Vector<T,m> >::iterator Titer;
 
