@@ -43,7 +43,6 @@ namespace Protium{
 
             static int AtomicAdd(volatile int& lhs, const int rhs);
             static int AtomicSubtract(volatile int& lhs, const int rhs) ;
-            static int AtomicAdd(volatile int& lhs, const int rhs) ;
             static int AtomicMultiply(volatile int& lhs, const int rhs) ;
             static int AtomicDivide(volatile int& lhs, const int rhs) ;
 
@@ -55,6 +54,59 @@ namespace Protium{
         //-----------------------------------------------------------------
         template<class Host, class MutexClass=Mutex>
         class InSingleThread : ThreadingPolicyProtoType<InSingleThread, Host, MutexClass >{
+            static int AtomicMultiply(volatile int& lval, const int val){                                                                                      
+                lval *= val;                   
+                return lval;                                                 
+            }                                                                                                                                  
+            static int AtomicDivide(volatile int& lval, const int val) {                                                                                      
+                lval /= val;                                                                    
+                return lval;                                                 
+            }                                                                
+                                                                         
+            static int AtomicIncrement(volatile int& lval){                                                                                      
+                ++lval;                                                                         
+                return lval;                                                 
+            }                                                                
+                                                                             
+            static int AtomicDecrement(volatile int& lval){                                                                                      
+                --lval;                                                                         
+                return lval;                                                 
+            }                                                                
+                                                                             
+            static void AtomicAssign(volatile int& lval, const int val){                                                                                      
+                lval = val;                                                                     
+                return lval;                                                 
+            }                                                                
+                                                                             
+            static void AtomicAssign(int& lval, volatile const int& val){                                                                                      
+                lval = val;                                                                     
+                return lval;                                                 
+            }                                                                
+                                                                             
+            static int AtomicIncrement(volatile int& lval, const int compare, bool& matches ){                                                                                      
+                ++lval;                                                      
+                matches = ( compare == lval );                                                  
+                return lval;                                                 
+            }                                                                
+                                                                             
+            static int AtomicDecrement(volatile int& lval, const int compare, bool& matches ){                                                                                      
+                --lval;                                                      
+                matches = ( compare == lval );                                                  
+                return lval;                                                 
+            }                                                                
+            static int AtomicMultiply(volatile int& lval, const int val, const int compare, bool& matches ){                                                                                    
+                lval *= val;                                                
+                matches = ( lval == compare );                                                
+                return lval;                                                
+            }                                                               
+                                                                            
+            static int AtomicDivide(volatile int& lval, const int val, const int compare, bool& matches ){                                                                                    
+                lval /= val;                                                
+                matches = ( lval == compare );                                                
+                return lval;                                                
+            }
+
+
         };
 
         template<class Host, class MutexClass=Mutex>
@@ -141,110 +193,43 @@ namespace Protium{
                 return lval;                                                
             }            
         };
+
+        template <class Derived, class MutexClass>
+        pthread_mutex_t InMultiThread<Derived, MutexClass>::fAtomicOPerationsMutex = PTHREAD_MUTEX_INITIALIZER;
         //-----------------------------------------------------------------
 
         //-----------------------------------------------------------------
         template<class Host, class MutexClass=Mutex>
         class LocksByObject : public InMultiThread<Host, Mutex>{
+            class Lock;
+            friend class Lock;
+
+            class Lock{
+                Lock();
+                Lock(const Lock&);
+                Lock& operator=(const Lock&);
+                const LocksByObject& fOwner;
+            public:
+
+                explicit Lock(const LocksByObject& own) : fOwner(own) {
+                    fOwner.fMtx.Lock();
+                }
+
+                explicit Lock(const LocksByObject* own) : fOwner(*own){
+                    fOwner.fMtx.Lock();
+                }
+
+                ~Lock(){
+                    fOwner.fMtx.Unlock();
+                }
+            }; 
 
         };
+
+
         template<class Host, class MutexClass=Mutex>
         class LocksByClass : public InMultiThread<Host, Mutex>{
 
-        };
-        //-----------------------------------------------------------------
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	template<class Derived, class MutexClass=Mutex>
-	class InSingleThread{
-
-        typedef Derived DerivedType;
-        
-		struct Lock{
-			Lock(){}
-			explicit Lock(const InSingleThread&){}
-			explicit Lock(const InSingleThread*){}
-		};
-
-	};
-
-
-
-
-
-    template <class Derived, class MutexClass = Mutex>
-    class LockByObject{
-        mutable MutexClass fMtx;
-        //statically lock all of the same objects
-        static pthread_mutex_t fMathMutex;
-        typedef Derived DerivedType;
-
-    public:
-        LockByObject() : fMtx() {}
-
-        LockByObject(const LockByObject&) : fMtx() {}
-
-        ~LockByObject() {}
-
-        class Lock;
-        friend class Lock;
-
-        class Lock{
-        	Lock();
-        	Lock(const Lock&);
-        	Lock& operator=(const Lock&);
-        	const LockByObject& fOwner;
-        public:
-
-            explicit Lock(const LockByObject& own) : fOwner(own) {
-                fOwner.fMtx.Lock();
-            }
-
-            explicit Lock(const LockByObject* own) : fOwner(*own){
-                fOwner.fMtx.Lock();
-            }
-
-            ~Lock(){
-                fOwner.fMtx.Unlock();
-            }
-        }; 
-
-    };
-
-	template <class Derived, class MutexClass>
-    pthread_mutex_t LockByObject<Derived, MutexClass>::fMathMutex = PTHREAD_MUTEX_INITIALIZER;
-
-
-
-   template <class Derived, class MutexClass = Mutex >
-    class ClassLevelLockable
-    {
         struct Initializer{
             bool fIsInit;
             MutexClass fMtx;
@@ -260,15 +245,12 @@ namespace Protium{
             }
         };
 
-        static Initializer fInit;
-        static pthread_mutex_t fMathMutex;
-        typedef Derived DerivedType;
-
-
-    public:
 
         class Lock;
         friend class Lock;
+
+
+
 
         ///  \struct Lock
         ///  Lock class to lock on class level
@@ -308,8 +290,30 @@ namespace Protium{
             Lock(const Lock&);
             Lock& operator=(const Lock&);
         };
+        };
+        //-----------------------------------------------------------------
+    }
+}
 
-    };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 
