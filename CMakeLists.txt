@@ -28,7 +28,7 @@ add_subdirectory(Applications)
 
 #----------------------------------------------------------------------------
 #Add in Documentation
-#add_subdirectory(Documentation)
+add_subdirectory(Documentation)
 #----------------------------------------------------------------------------
 
 # uninstall target
