@@ -2,6 +2,12 @@
 #----------------------------------------------------------------------------
 cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
 project(Protium)
+set(Protium_MAJOR_VERSION 0)
+set(Protium_MINOR_VERSION 1)
+set(Protium_PATCH_VERSION 0)
+set(Protium_VERSION
+  ${Protium_MAJOR_VERSION}.${Protium_MINOR_VERSION}.${Protium_PATCH_VERSION})
+
 #----------------------------------------------------------------------------
 if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
     message(STATUS ${PROJECT_NAME} " requires an out-of-source build.")

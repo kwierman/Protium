@@ -6,11 +6,10 @@
 #ifndef Protium_Threads_h_
 #define Protium_Threads_h_
 
-#include "Protium/Design/Assert.h"
+#include "Protium/Design/Assert.h" //For compile-time assertions
 
-//Note that at this point, threads belong exclusively to pthreads
-#include <pthread.h>
-#include <cassert>
+#include <pthread.h> //For access to pthreads
+#include <cassert> //For static-assertions
 
 namespace Protium{
     namespace Threads{
