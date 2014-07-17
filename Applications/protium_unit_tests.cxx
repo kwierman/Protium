@@ -53,6 +53,8 @@ int main(int argc, char* argv[]){
 			std::cout<<twoVector.At(i)<<"\t";
 		std::cout<<std::endl;
 
+		//Matrix<double, 2,2> mat2;
+
 		/*
 		ThreeMatrix mat;
 		for(int i=0; i<3;i++)

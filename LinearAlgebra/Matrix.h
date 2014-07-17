@@ -9,12 +9,13 @@ namespace Protium{
 
 		//! A class to hold a vector of vectors
 		template <typename T, int n, int m>
-		class Matrix : public Vector< Vector<T>, m >, n >{
+		class Matrix : public Vector< Vector<T, m>, n > {
+
 
 		};
 
 
-
+		/*
 
 		//forward def for the helpers
 		template<typename T, int n, int m> class Matrix;
@@ -85,7 +86,7 @@ namespace Protium{
 				return temp;
 			}
 		};
-		*/
+		
 
 		template<typename T, int n>
 		struct DeterminantHelper{
@@ -225,16 +226,17 @@ namespace Protium{
 	    		return !(*this == rhs);
 	  		}
 
-	  			*/
+	  			
 
 
 		};
 
-		
 
-		typedef Matrix<double,2,2> TwoMatrix;
-		typedef Matrix<double,3,3> ThreeMatrix;
-		typedef Matrix<double,4,4> FourMatrix;
+
+		typedef Matrix<double,2> TwoMatrix;
+		typedef Matrix<double,3> ThreeMatrix;
+		typedef Matrix<double,4> FourMatrix;
+		*/
 	}
 }
 
