@@ -6,6 +6,16 @@
 namespace Protium{
 	namespace LinearAlgebra{
 
+
+		//! A class to hold a vector of vectors
+		template <typename T, int n, int m>
+		class Matrix : public Vector< Vector<T>, m >, n >{
+
+		};
+
+
+
+
 		//forward def for the helpers
 		template<typename T, int n, int m> class Matrix;
 
@@ -220,7 +230,9 @@ namespace Protium{
 
 		};
 
-		typedef Matrix<double, 2,2> TwoMatrix;
+		
+
+		typedef Matrix<double,2,2> TwoMatrix;
 		typedef Matrix<double,3,3> ThreeMatrix;
 		typedef Matrix<double,4,4> FourMatrix;
 	}

@@ -8,17 +8,13 @@
 #include <signal.h>
 
 //---------------------------------------------------------------------
-void Protium::Utilities::signal_callback_handler(int signum)
-{
-  std::cout<<"Caught Signal: "<<signum<<std::endl;;
-  SignalCatcher::GetIntance().Handle(signum);
-  //print_stacktrace();//print out the stack trace.
-  //exit(-1);
+void Protium::Private::signal_callback_handler(int signum){
+  Protium::Utilities::SignalCatcher::GetIntance().Handle(signum);
 }
 //---------------------------------------------------------------------
 
 //---------------------------------------------------------------------
-static inline void Protium::Utilities::print_stacktrace(unsigned int stack_depth)
+static inline void Protium::Private::print_stacktrace(unsigned int stack_depth)
 {
 
 	std::cout<<"Stack Trace:"<<std::endl;;
@@ -86,18 +82,15 @@ static inline void Protium::Utilities::print_stacktrace(unsigned int stack_depth
     free(trace_symbols);
 }
 //---------------------------------------------------------------------
-namespace TriForbidden{
-	TriUtilities* TriUtilities::instance = TriUtilities::GetInstance();
-
-	TriUtilities* TriUtilities::GetInstance(){
-		if(!instance) instance =  new TriUtilities();
-		return instance;
+namespace Protium{
+	namespace Utilities{
+		SignalCatcher::GetInstance();
 	}
+}
+
+
 	TriUtilities::TriUtilities(){
-		signal(SIGINT, signal_callback_handler);
-		signal(SIGABRT, signal_callback_handler);
-		signal(SIGBUS ,signal_callback_handler);
-		signal(SIGSEGV ,signal_callback_handler);
+
 	}
 }
 //---------------------------------------------------------------------

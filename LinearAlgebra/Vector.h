@@ -8,17 +8,17 @@ namespace Protium{
 
 	namespace LinearAlgebra{
 
+		//! Class For 
 		template <typename T, int n=3>
 		class Vector {
 
 			struct SubVectorHelper{
 				Vector<T,n-1> GetSubVector(int i, const Vector<T,n>& vec){
 					Vector<T,n-1> temp;
-					int index=0;
+					int index = 0;
 					for(int j=0; j< n;j++)
-						if(j!=i){
+						if(j!=i)
 							temp[index++] = vec.At(j);
-						}
 						return temp;
 				};
 			};
