@@ -36,9 +36,11 @@ endif()
 #----------------------------------------------------------------------------
 # Locate sources and headers for this project
 include_directories(${PROJECT_SOURCE_DIR}/..)
+add_subdirectory(Design)
+add_subdirectory(Threads)
 add_subdirectory(Math)
-add_subdirectory(LinearAlgebra)
-add_subdirectory(Collections)
+#add_subdirectory(LinearAlgebra)
+#add_subdirectory(Collections)
 add_subdirectory(Applications)
 #----------------------------------------------------------------------------
 #Add in Documentation

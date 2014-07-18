@@ -4,60 +4,60 @@
 #include <malloc>
 
 namespace Protium{
-	namespace Lifetime{
+	namespace Singleton{
     
+    	//! Helper Struct to create with new operator
+    	//! \param T The class to be created
 	    template <class T> 
-		struct CreateUsingNew
-	    {
-	        static T* Create()
-	        { return new T; }
+		struct CreateNew{
+			//! Creates instance
+	        static T* Create() { return new T; }
 	        
-	        static void Destroy(T* p)
-	        { delete p; }
+	        //! Destroys instance
+	        static void Destroy(T* p) { delete p; }
 	    };
 
+	    //! Helper struct to create classes with a specific allocator
+	    //! \param Alloc the allocator class to be used
 		template< template<class> class Alloc>
-	    struct CreateUsingAllocator
-	    {
+	    struct CreateAlloc{
+	    	//! Helper interior struct for allocating resources
+	    	//! \param T the class to be created
 	        template <class T>
-	        struct Allocator
-	        {
+	        struct Allocator{
+	        	//! The allocator for all of these type classes
 	            static Alloc<T> allocator;
+	            //! Creates instance
+	            static T* Create(){return new ( allocator.allocate(1) ) T;}
 
-	            static T* Create()
-	            {
-	                return new ( allocator.allocate(1) ) T;
-	            }
-
-	            static void Destroy(T* p)
-	            {
+	            //! Destroys instance
+	            static void Destroy(T* p){
 	                p->~T();
 	                allocator.deallocate(p,1);
 	            }
 	        };
 	    };
 
+	    //! Helper struct to create instances with malloc, and deallocate with free
 	    template <class T> 
-	    struct CreateUsingMalloc{
-	        static T* Create()
-	        {
+	    struct CreateMalloc{
+	        static T* Create(){
 	            void* p = std::malloc(sizeof(T));
-	            if (!p) return 0;
+	            if (!p) return NULL;
 	            return new(p) T;
 	        }
 	        
-	        static void Destroy(T* p)
-	        {
+	        static void Destroy(T* p){
 	            p->~T();
 	            std::free(p);
 	        }
 	    };
 
-
+	    //!Helper struct to create static instances of classes
 	    template <class T> 
-	    struct CreateStatic
-	    {
-	        
+	    struct CreateStatic{
+
+	        //! Used to determine max type size
 	        union MaxAlign
 	        {
 	            char t_[sizeof(T)];
@@ -71,21 +71,17 @@ namespace Protium{
 	            int Test::* pMember_;
 	            int (Test::*pMemberFn_)(int);
 	        };
-	        
-	        static T* Create()
-	        {
+	       
+	        static T* Create(){
 	            static MaxAlign staticMemory_;
 	            return new(&staticMemory_) T;
 	        }
 	        
-	        static void Destroy(T* p)
-	        {
+	        static void Destroy(T* p){
 	            p->~T();
 	        }
 	    };
-
 	}
-
 }
 
 
