@@ -1,6 +1,11 @@
 #ifndef Protium_DeletionPolicies_h_
 #define Protium_DeletionPolicies_h_
 
+#include <list>
+#include <vector>
+#include <algorithm>
+#include <stdexcept>
+
 namespace Protium{
 
 	namespace Singleton{
@@ -9,7 +14,7 @@ namespace Protium{
         typedef void (*exit_function_pointer_type)();
 
         //! Gets added to the std::atexit queue every time a singleton get created. Called once for every singleton at end of execution. Deletes singletons in order.
-        void AtExiFn();
+        void AtExitFn();
 
 		//! Helper struct for deleting classes
 		//! \param T The class to be deleted
@@ -53,7 +58,7 @@ namespace Protium{
         inline DeletionTracker::~DeletionTracker(){}
 
         //! Queue for deletion. Elements may be added, subtracted, and at the end of exection finalized.
-        typedef std::list<DeletionTracker*> DeletionTrackers;
+        std::list<DeletionTracker*> TrackerList;
 
         //! Concrete templated instance of a deletion tracker
         //! \param Host Type of object to be tracked
@@ -86,15 +91,15 @@ namespace Protium{
         template <typename Host, typename Destroyer>
         void SetPriority(Host* pDynObject, unsigned int priority, Destroyer d){
             DeletionTracker* p  = new ConcreteDeletionTracker<Host, Destroyer>(pDynObject, priority, d);
-            std::list<DeletionTrackers*>::iterator pos = std::upper_bound(TrackerArray.begin(), TrackerArray.end(), p, DeletionTracker::Compare);
-            TrackerArray.insert(pos, p);
+            std::list<DeletionTracker*>::iterator pos = std::upper_bound( TrackerList.begin(), TrackerList.end(), p, DeletionTracker::Compare );
+            TrackerList.insert(pos, p);
             std::atexit(AtExitFn);
         }
 
         //! Helper function for setting singleton deletion priority
         template <typename Host>
         void SetPriority(Host* pDynObject, unsigned int priority,typename Deleter< Host >::Type d = Deleter< Host >::Delete ){
-           SetPriority<Host, typename Deleter< Host >::Type >(pDynObject, longevity, d);
+           SetPriority<Host, typename Deleter< Host >::Type >(pDynObject, priority, d);
         }
 
         template <class Host>
@@ -137,7 +142,7 @@ namespace Protium{
                 fDead = false;
                 deleter = pFun;
                 if(firstTime || fNeedsCallback){
-                    std::atexit(atexitCallback)
+                    std::atexit(atexitCallback);
                     firstTime=false;
                     fNeedsCallback = false;
                 }
@@ -159,13 +164,13 @@ namespace Protium{
         };
 
         template <class Host>
-        exit_function_pointer_type DeleteRandom<T>::deleter = NULL;
+        exit_function_pointer_type DeleteRandom<Host>::deleter = NULL;
     
         template <class Host>
-        bool DeleteRandom<T>::fDead = true;
+        bool DeleteRandom<Host>::fDead = true;
     
         template <class Host>
-        bool DeleteRandom<T>::fNeedsCallback = true;
+        bool DeleteRandom<Host>::fNeedsCallback = true;
 
 
         template <class Host>
@@ -213,7 +218,7 @@ namespace Protium{
                 static void Initialize(){
                     static bool done = false;
                     if(!done){
-                        fContainer = new fContainer;
+                        fContainer = new Container;
                         done=true;
                     }
                 }
