@@ -10,71 +10,83 @@ namespace Protium{
 
 	namespace LinearAlgebra{
 
+		template<typename T, int n>
+		class Vector;
+
+
+		template<typename T, int n>
+		struct SubVector{
+			Vector<T, n-1> Of(const Vector<T,n>& other, int i=0){
+				Vector<T,n-1> temp;
+				int index=0;
+				for(int j=0; j<n;j++ ){
+					if(j!=i)
+						temp[index++] = other.At(j);
+				}
+				return temp;
+			}
+		};
+
+
+		template<typename T>
+		struct SubVector<T,1>{
+			Vector<T, 0> Of(const Vector<T,1>& other, int i=0){
+				Vector<T,0> temp;
+				if(i==0)
+					temp[0] = other.At(1);
+				else
+					temp[0] = other.At(0);
+				return temp;
+			}
+		};
 
 		//! Implements vector multiplication, addition, subtraction.
 		template <typename T, int n=3>
-		class Vector : public Protium::Allocation::DefaultSmallObject {//: public Protium::Allocation::DefaultSmallObject {
+		class Vector : public Protium::Allocation::DefaultSmallObject {
 
-			//! Required to get sub vectors of a vector
-			struct SubVectorHelper{
-				//! Returns a subvector of one less dimension than the current one
-				Vector<T,n-1> GetSubVector(int i, const Vector<T,n>& vec){
-					Vector<T,n-1> temp;
-					int index = 0;
-					for(int j=0; j< n;j++)
-						if(j!=i)
-							temp[index++] = vec.At(j);
-						return temp;
-				};
-			};
-
-		protected:
 			//! Holds the components of the vector
-			T* fComponents;
+			std::vector<T> fComponents;
 
 		public:
 
 			/** Default Constructor.
 				\param amplitude the amplitude of the vector
 			**/
-			Vector(const T& amplitude=1) : Protium::Allocation::DefaultSmallObject() {
-				fComponents = new T[n];
-
-				for(int i=0; i<n; i++){
-					fComponents[i] =T();
-				}
+			Vector<T,n>(const T& amplitude=1) : Protium::Allocation::DefaultSmallObject() {
+				fComponents.reserve(n);
 				this->Normalize( amplitude );
 			}
 
 			/** Construct from an array. Copies contents.
 				\param input An array of size n and type T
 			**/
-			Vector(const T* input) : Protium::Allocation::DefaultSmallObject(){
-				fComponents = new T[n];
+			Vector<T,n>(const T* input) : Protium::Allocation::DefaultSmallObject(){
+				fComponents.reserve(n);
 				for(int i=0; i<n; i++)
 					fComponents[i] = T(input[i]);
 			}
 
 			/** Construct from STL Vector
 			**/
-			Vector(const std::vector<T>& vec) : Protium::Allocation::DefaultSmallObject(){
-				fComponents = new T[n];
+			Vector<T,n>(const std::vector<T>& vec) : Protium::Allocation::DefaultSmallObject(){
+				fComponents.reserve(n);
 				for(int i=0; i<n;i++)
-					fComponents[i] = vec[i];
+					fComponents[i] = T(vec[i] );
 			}
 
 			/** Copy constructor.
 			**/
-			Vector(const Vector<T,n>& other) : Protium::Allocation::DefaultSmallObject(){
+			Vector<T,n>(const Vector<T,n>& other) : Protium::Allocation::DefaultSmallObject(){
+				fComponents.reserve(n);
 				for(int i=0; i<n; i++){
-					fComponents[i] =  T(other.At(i) );
+					fComponents[i] =  T( other.At(i) );
 				}
 			}
 
 			/** Default Destructor
 			**/
 			virtual ~Vector(){
-				delete fComponents;
+				fComponents.clear();
 			}
 
 			/**
@@ -107,11 +119,12 @@ namespace Protium{
 		    	\param i The index of the element to be left out
 		    	\return A vector of one less dimension
 		    **/
+		   
 		    Vector<T,n-1> GetSubVector(const int& i){
-		    	SubVectorHelper helper;
-		    	return helper.GetSubVector(i, (*this) ); 
+		    	SubVector<T,n> helper;
+		    	return helper.Of( (*this), i ); 
 		    }
-
+		    
 		    /** Access operator.
 		    **/
 		    T& operator[](const int& index){
@@ -127,7 +140,7 @@ namespace Protium{
 		    /** Increment operator
 		    	\param rhs Vector to increment by (increments each element by it's corresponding one)
 		    **/
-			Vector& operator+=(const Vector& rhs) {
+			Vector<T,n>& operator+=(const Vector<T,n>& rhs) {
 				//PROTIUM_STATIC_ASSERT(n == m,"Vector Dimensions Must Match");
 				for(int i=0; i<n;i++)
 					 (*this)[i]  += rhs.At(i);
@@ -136,7 +149,7 @@ namespace Protium{
 
 	  		/** Operator only defined for multiplying by another type
 	  		**/
-			Vector& operator*=(const T& rhs) {
+			Vector<T,n>& operator*=(const T& rhs) {
 				//PROTIUM_STATIC_ASSERT(n == m,"Vector Dimensions Must Match");
 				for(int i=0; i<n;i++)
 					 (*this)[i] *=rhs;
@@ -145,7 +158,7 @@ namespace Protium{
 
 	  		/** Decrement operator
 	  		**/
-			Vector& operator-=(const Vector& rhs) {
+			Vector<T,n>& operator-=(const Vector<T,n>& rhs) {
 				//PROTIUM_STATIC_ASSERT(n == m,"Vector Dimensions Must Match");
 				for(int i=0; i<n;i++)
 					 (*this)[i] -=rhs.At(i);
@@ -154,13 +167,13 @@ namespace Protium{
 
 	  		/** Addition operator
 	  		**/
-	  		const Vector operator+(const Vector& rhs) const {
+	  		const Vector<T,n> operator+(const Vector<T,n>& rhs) const {
 	    		return Vector(*this) += rhs;
 	  		}
 
 	  		/** Subtraction operator
 	  		**/
-	  		const Vector operator-(const Vector& rhs) const {
+	  		const Vector<T,n> operator-(const Vector<T,n>& rhs) const {
 	    		return Vector(*this) -= rhs;
 	  		}
 
@@ -168,7 +181,7 @@ namespace Protium{
 	  			\param rhs A vector of same type and size
 	  			\return constant of vector type
 	  		**/
-	  		const T operator*(const Vector& rhs) const {
+	  		const T operator*(const Vector<T,n>& rhs) const {
 	  			T ret=0;
 				//PROTIUM_STATIC_ASSERT(n == m,"Vector Dimensions Must Match");
 				for(int i=0; i<n;i++)
@@ -181,22 +194,30 @@ namespace Protium{
 	  			\param rhs Of vector type
 	  			\return Vector of same size and type as current one
 	  		**/
-			const Vector operator*(const T& rhs) const {
+			const Vector<T,n> operator*(const T& rhs) const {
 	  			return Vector(*this) *=rhs;
 	  		}
 
+	  		/** Assignment Operator
+	  		**/
+	  		Vector<T,n>& operator=( const Vector<T,n>& rhs ){
+      			for(int i=0; i<n;i++)fComponents[i] = rhs.At(i);
+      			return *this;
+  			}
+
 	  		/** Comparison operator
 	  		**/
-	  		bool operator==( const Vector &rhs) const {
+	  		bool operator==( const Vector<T,n> &rhs) const {
 	  			bool ret=true;
 				//PROTIUM_STATIC_ASSERT(n == m,"Vector Dimensions Must Match");
 	  			for(int i=0; i<n;i++)
 	  				ret &= ( this->At(i) == rhs.At(i) );
 	  			return ret;
 	  		}
+
 	  		/** Negative comparison operator
 	  		**/
-		  	bool operator!=( const Vector &rhs) const {
+		  	bool operator!=( const Vector<T,n> &rhs) const {
 	    		return !(*this == rhs);
 	  		}
 

@@ -1,14 +1,18 @@
 //#include "Protium/Collections/Histogram.h"
 //#include "Protium/Collections/Function.h"
-#include "Protium/LinearAlgebra/Vector.h"
+#include "Protium/LinearAlgebra/LinearAlgebra.h"
 //#include "Protium/LinearAlgebra/Matrix.h"
 #include "Protium/Math/MathFunctions.h"
+#include "Protium/Utilities/SignalCatching.h"
 
 #include <iostream>
 #include <iomanip>
+#include <vector>
 
 using namespace Protium;
 int main(int argc, char* argv[]){
+
+	Protium::Utilities::SignalCatcher::Instance().Setup();
 
 	std::cout<<"Starting Basic Unit Tests"<<std::endl;
 	std::cout<<"\tMath tests"<<std::setprecision(16)<<std::endl;
@@ -33,41 +37,58 @@ int main(int argc, char* argv[]){
 	std::cout<<"\tLinear Algebra Tests"<<std::endl;
 	{
 		using namespace LinearAlgebra;
-		Vector<double, 3> threeVector1;
-		Vector<double, 3> threeVector2;
-		/*	
+		ThreeVector threeVector1;
+		ThreeVector threeVector2;
+			
 
 
 		for(int i=0; i<3;i++){
-			std::cout<<threeVector1[i]<<std::endl;
+			std::cout<<threeVector1[i]<<"\t";
 			threeVector1[i]=double(i);
 			threeVector2[i]=double(i+i);
 		}
+		std::cout<<std::endl;
+
+		double dot_product = threeVector1* threeVector2;
+		std::cout<<"Dot Product: "<<dot_product<<std::endl;
 		
 
-		Vector<double, 3> threeVector3 = threeVector1+threeVector2;
+		ThreeVector threeVector3 = threeVector1+threeVector2;
 		for(int i=0; i<3;i++)
-			std::cout<< threeVector3[i]<<std::endl;
+			std::cout<< threeVector3[i]<<"\t";
+		std::cout<<std::endl;
 
-		Vector<double, 2> twoVector = threeVector3.GetSubVector(2);
+		
+
+		TwoVector twoVector = threeVector3.GetSubVector(2);
 		for(int i=0; i<2;i++)
 			std::cout<<twoVector.At(i)<<"\t";
 		std::cout<<std::endl;
 
-		//Matrix<double, 2,2> mat2;
 
-		/*
+		const TwoVector copy1 = twoVector;
+		TwoVector copy2(copy1);
+		
+		
 		ThreeMatrix mat;
-		for(int i=0; i<3;i++)
-			for(int j=0; j<3;j++)
-				mat[i][j]= double( (i+j)*(i+j) );
+		std::cout<<mat.GetNRows()<<"\t"<<mat.GetNColumns()<<std::endl;
+		ThreeVector temp = mat[0];
+		std::cout<<mat.At(0,0)<<std::endl;
 
+		
+		for(int i=0; i<3;i++){
+			ThreeVector& temp = mat[i];
+			for(int j=0; j<3;j++)
+				temp[j] = i*j+j*j+i*i;
+		}
+		
 		for(int i=0; i<3;i++){
 			for(int j=0; j<3;j++)
-				std::cout<< mat.At(i,j)<<"\t";
+				std::cout<< mat[i][j]<<"\t";
 			std::cout<<std::endl;
 		}
 
+/*
 		TwoMatrix mat2 = mat.GetSubMatrix(0,0);
 		for(int i=0;i<2;i++)
 			for(int j=0; j<2;j++)

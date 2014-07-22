@@ -42,14 +42,14 @@ namespace Protium{
 	    template <class T> 
 	    struct CreateMalloc{
 	        static T* Create(){
-	            void* p = std::malloc(sizeof(T));
+	            void* p = malloc(sizeof(T));
 	            if (!p) return NULL;
 	            return new(p) T;
 	        }
 	        
 	        static void Destroy(T* p){
 	            p->~T();
-	            std::free(p);
+	            free(p);
 	        }
 	    };
 

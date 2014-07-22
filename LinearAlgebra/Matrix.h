@@ -3,238 +3,167 @@
 
 #include "Protium/LinearAlgebra/Vector.h"
 
+#include <vector>
+
 namespace Protium{
 	namespace LinearAlgebra{
 
-
-		//! A class to hold a vector of vectors
-		//template <typename T, int n, int m>
-		//class Matrix : public Vector< Vector<T, m>, n > {
-
-		//};
-
-		/*
-
-		//forward def for the helpers
-		template<typename T, int n, int m> class Matrix;
-
-
+		//! Implements matrix operations
 		template<typename T, int n, int m>
-		struct SubMatrixHelper{
-			//Get a submatrix omitting row i, column j.
-			Matrix<T,n-1,m-1> GetSubMatrix(int i, int j, const Matrix<T,n,m>& mat){
-				Matrix<T,n-1,m-1> temp;
-				int current_index1 =0;
-				int current_index2 =0;
-				for(int k=0;k<i;k++){
-					if(k!=i){
-						for(int l=0;l<j;l++){
-							if(l!=j)
-								temp[current_index1][current_index2++] = mat.At(k,l);
-						}
-					current_index1++;
-					current_index2=0;
-					}
-				}
-				return temp;
-			}
-		};
-
-
-		/*
-		//helpers for the determinant
-		template<typename T, int n>
-		struct SubMatrixHelper<T, n,n>{
-			Matrix<T,n-1, n-1> GetSubMatrix(const int& i, const int& j, const Matrix<T,n,n>& mat){
-				Matrix<T,n-1, n-1> temp;
-				int current_index1=0;
-				int current_index2=0;
-
-				for(int k=0; k<n;k++){
-					if(k!=i){
-						for(int l=0; l<n;l++){
-							if( l!=j )
-								temp[current_index1][current_index2++] = mat.At(k,l);
-						}
-						current_index1++;
-						current_index2=0;
-					}
-				}
-				return temp;
-			}
-		};
-
-		template<typename T>
-		struct SubMatrixHelper<T,2,2>{
-			Matrix<T,1,1> GetSubMatrix(const int& i, const int& j, const Matrix<T,2,2>& mat){
-				Matrix<T,1,1> temp;
-				int current_index1=0;
-				int current_index2=0;
-
-				for(int k=0; k<2;k++){
-					if(k!=i){
-						for(int l=0; l<2;l++){
-							if( l!=j )
-								temp[current_index1][current_index2++] = mat.At(k,l);
-						}
-						current_index1++;
-						current_index2=0;
-					}
-				}
-				return temp;
-			}
-		};
-		
-
-		template<typename T, int n>
-		struct DeterminantHelper{
-			T Determinant(const Matrix<T,n,n>& mat){
-				T det=0.;
-				DeterminantHelper<T,n-1> helper;
-				for(int i=0; i<n;i++){
-					det-=mat.At(0,i)* (helper.Determinant( mat.GetSubMatrix(0,i) ));
-				}
-				return det;
-			}
-		};
-
-		template<typename T>
-		struct DeterminantHelper<T,1>{
-			T Determinant(const Matrix<T,1,1>& mat){
-				return -mat.At(0,0);
-			}
-		};
-
-
-		template<typename T, int n, int m>
-		class Matrix {
-			std::vector< Vector<T,m> > fComponents;
-			typedef typename std::vector< Vector<T,m> >::iterator Titer;
-
+		class Matrix : public Protium::Allocation::DefaultSmallObject {
+			std::vector<Vector<T, n> > fComponents;
 		public:
-			Matrix(){
-				for(int i=0; i<n;i++)
-					fComponents.push_back(Vector<T,m>());
+			Matrix() : Protium::Allocation::DefaultSmallObject() {
+				for(int i=0; i< m;i++)fComponents.push_back(Vector<T,n>() );
 			}
-			Matrix(const Matrix<T,n,m>& other){
-				for(int i=0; i<n;i++)
-					fComponents.push_back(Vector<T,m>(other.At(i) ));
+			~Matrix(){
+				fComponents.clear();
 			}
 
+			inline static int GetNRows(){return n;}
+			inline static int GetNColumns(){return m;}
 
-			virtual ~Matrix(){fComponents.clear(); }
-
-			//Produces the transpose of this
-			Matrix& Transpose() const{
-				Matrix<T,m,n> ret;
-				for(int i=0;i<n;i++)for(int j=0; j<m;j++)
-					ret[j][i] = this->At(i,j);
-				return ret;
-			}
-
-			Vector<T,n>& operator[](const int& index){
-		    	return fComponents[index];
+		    /** Reference Access operator.
+		    **/
+		    Vector<T, n>& operator[](const int& row){
+		    	return fComponents[row];
 		    }
 
-		    Vector<T,n> At(const int& i) const{
-		    	Vector<T,n>& temp = fComponents[i];
-		    	return temp;
+		    /** Const Reference operator
+		    **/
+		    const T& At(const int& row, const int& column){
+		    	return fComponents[row][column];
 		    }
 
-		    T At(const int& i, const int& j) const{
-		    	const Vector<T,n>& temp = fComponents[i];
-		    	return temp.At(j);
+		    Matrix<T,m,n> Transpose(){
+		    	Matrix<T,m,n> trans;
+		    	for(int i =0;i<n;i++)for(int j=0;j<m;j++)
+		    		trans[i][j]=fComponents[j][i];
+		    	return trans;
 		    }
 
-		    Matrix<T,n-1,m-1> GetSubMatrix(const int& i, const int& j)const {
-		    	SubMatrixHelper<T,n,m> helper;
-		    	return helper.GetSubMatrix(i,j, (*this) );
-		    }
-
-/*
-			double Determinant() const{
-				if(n==1 && m==1)
-					return this->At(0,0);
-				DeterminantHelper<T,n> helper;
-				return helper.Determinant( (*this) );
-			}
-
-/*
-
-
-			Matrix& operator+=(const Matrix& rhs) {
-				//PROTIUM_STATIC_ASSERT(n == m,"Vector Dimensions Must Match");
+		    /** Increment operator
+		    	\param rhs Matrix to increment by (increments each element by it's corresponding one)
+		    **/
+			Matrix<T,n,m>& operator+=(const Matrix<T,n,m>& rhs) {
 				for(int i=0; i<n;i++)
 					 (*this)[i]  += rhs.At(i);
 	    		return *this;
 	  		}
 
-	  		//only want to be able to multiply by 
-			Matrix& operator*=(const T& rhs) {
+	  		/** Operator only defined for multiplying by another type
+	  		**/
+			Matrix<T,n,m>& operator*=(const T& rhs) {
 				//PROTIUM_STATIC_ASSERT(n == m,"Vector Dimensions Must Match");
 				for(int i=0; i<n;i++)
 					 (*this)[i] *=rhs;
 	    		return *this;
 	  		}
 
-	  		Vector<T,m> operator*=(const Vector<T,n>& rhs) {
-	  			Vector<T,n> ret;
-	  			for(int i=0; i<n;i++)
-	  				ret[i] = (*this)[i] * rhs;
-	  			return ret;
+			Vector<T,m> operator*=(const Vector<T,n>& rhs) {
+				Vector<T,m> other;
+
+				for(int i=0; i<m;i++)
+					other[i] = fComponents[i]*rhs;
+	    		return other;
 	  		}
 
-	  		Matrix& operator*=(const Matrix& rhs){
-	  			for(int i=0; i<n;i++)
-	  				for(int j=0; j<n;j++)
-	  					(*this)[i][j] *= rhs.At(i,j);
-	  			return (*this);
+	  		template<int k>
+	  		Matrix<T,n,k> operator*=(const Matrix<T,m,k>& rhs) const {
+	  			Matrix<T,k,m> transpose = rhs.Transpose();
+	  			Matrix<T,n,k> ret;
+				for(int i=0; i<n;i++)
+					for(int j=0;j<k;j++)
+						ret[i][j] = ((*this)[i]) * (transpose[j]);
+	    		return ret;
 	  		}
 
-			Matrix& operator-=(const Matrix& rhs) {
+	  		/** Decrement operator
+	  		**/
+			Matrix<T,n,m>& operator-=(const Matrix<T,n,m>& rhs) {
 				//PROTIUM_STATIC_ASSERT(n == m,"Vector Dimensions Must Match");
 				for(int i=0; i<n;i++)
 					 (*this)[i] -=rhs.At(i);
 	    		return *this;
 	  		}
 
-	  		const Matrix operator+(const Matrix& rhs) const {
-	    		return Matrix(*this) += rhs;
-	  		}
-	  		const Matrix operator-(const Matrix& rhs) const {
-	    		return Matrix(*this) -= rhs;
-	  		}
-
-	  		const Matrix operator*(const Matrix& rhs) const {
-	    		return Matrix(this) *= rhs;
+	  		/** Addition operator
+	  		**/
+	  		const Matrix<T,n,m> operator+(const Matrix<T,n,m>& rhs) const {
+	    		return Matrix<T,n,m>(*this) += rhs;
 	  		}
 
-			const Matrix operator*(const T& rhs) const {
-	  			return Matrix(*this) *=rhs;
+	  		/** Subtraction operator
+	  		**/
+	  		const Matrix<T,n,m> operator-(const Matrix<T,n,m>& rhs) const {
+	    		return Matrix<T,n,m>(*this) -= rhs;
 	  		}
 
-	  		bool operator==( const Matrix &rhs) const {
+	  		/** Multiplication Operator
+	  			on the lhs we have this, a matrix of dimensions nxm or m vectors of n length
+	  			on the rhs, we have a matrix of dimensions mxk or k vectors of m length
+	  			the product is a vector of size nxk
+	  			transpose the 
+	  			\param rhs A vector of same type and size
+	  			\return constant of vector type
+	  		**/
+	  		template<int k>
+	  		const Matrix<T,n,k> operator*(const Matrix<T,m,k>& rhs) const {
+	  			Matrix<T,k,m> transpose = rhs.Transpose();
+	  			Matrix<T,n,k> ret;
+				for(int i=0; i<n;i++)
+					for(int j=0;j<k;j++)
+						ret[i][j] = ((*this)[i]) * (transpose[j]);
+	    		return ret;
+	  		}
+
+	  		/** Multiplication Operator
+	  			\param rhs Of vector type
+	  			\return Vector of same size and type as current one
+	  		**/
+			const Matrix<T,n,m> operator*(const T& rhs) const {
+	  			return Matrix<T,n,m>(*this) *=rhs;
+	  		}
+
+	  		const Vector<T,m> operator*(const Vector<T,n>& rhs) {
+				Vector<T,m> other;
+
+				for(int i=0; i<m;i++)
+					other[i] = fComponents[i]*rhs;
+	    		return other;
+	  		}
+
+
+	  		/** Assignment Operator
+	  		**/
+	  		Matrix<T,n,m>& operator=( const Matrix<T,n,m>& rhs ){
+      			for(int i=0; i<n;i++)fComponents[i] = rhs.At(i);
+      			return *this;
+  			}
+
+	  		/** Comparison operator
+	  		**/
+	  		bool operator==( const Matrix<T,n,m> &rhs) const {
 	  			bool ret=true;
 				//PROTIUM_STATIC_ASSERT(n == m,"Vector Dimensions Must Match");
 	  			for(int i=0; i<n;i++)
 	  				ret &= ( this->At(i) == rhs.At(i) );
 	  			return ret;
 	  		}
-		  	bool operator!=( const Matrix &rhs) const {
+
+	  		/** Negative comparison operator
+	  		**/
+		  	bool operator!=( const Matrix<T,n,m>&rhs) const {
 	    		return !(*this == rhs);
 	  		}
-
-	  			
 
 
 		};
 
+		typedef Matrix<double, 2,2> TwoMatrix;
+		typedef Matrix<double, 3,3> ThreeMatrix;
+		typedef Matrix<double, 4,4> FourMatrix;
 
-
-		typedef Matrix<double,2> TwoMatrix;
-		typedef Matrix<double,3> ThreeMatrix;
-		typedef Matrix<double,4> FourMatrix;
-		*/
 	}
 }
 

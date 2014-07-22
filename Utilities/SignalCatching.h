@@ -1,9 +1,13 @@
 #ifndef Protium_SignalCatching_h_
 #define Protium_SignalCatching_h_ 
 
-//---------------------------------------------------------------------
+#include "Protium/Singleton/Singleton.h"
+#include "Protium/Threads/ThreadingPolicy.h"
+#include "Protium/Threads/Mutex.h"
 
-//---------------------------------------------------------------------
+#include <signal.h>
+
+#include <iostream>
 
 namespace Protium{
 
@@ -13,53 +17,40 @@ namespace Protium{
 
 	}
 
-
 	namespace Utilities{
 
-		//! Default Signal callback handler. This needs to be deleted pronto
+		class SignalCatchingImplementation{
+			protected: 
+				SignalCatchingImplementation(){}
+				virtual ~SignalCatchingImplementation(){}
+			public:
+				void Setup(){
+					std::cout<<"IN SETUP!!!!!!!!!!!!!!!!!!!!!!!!!!"<<std::endl;
+					signal(SIGINT, Protium::Private::signal_callback_handler);
+					signal(SIGABRT, Protium::Private::signal_callback_handler);
+					signal(SIGBUS , Protium::Private::signal_callback_handler);
+					signal(SIGSEGV , Protium::Private::signal_callback_handler);
+					std::cout<<"IN SETUP!!!!!!!"<<std::endl;
+				}
+			private:
+	    	    SignalCatchingImplementation( const SignalCatchingImplementation & );
+	    	    SignalCatchingImplementation & operator = ( const SignalCatchingImplementation & );
+		};
 
 
+		class SignalCatcher: public SignalCatchingImplementation{
 
-		class SignalCatcher{
-		public:
-			static SignalCatcher& GetInstance(){
-				static SignalCatcher instance();
-				return;
-			}
-			static void AddHandle(int signum, const Functor<void>& handle){
+	        typedef Protium::Singleton::Singleton< SignalCatcher, Protium::Singleton::CreateStatic,
+	            Protium::Singleton::DeleteLast, Protium::Threads::InSingleThread > SignalCatcherSingleton;
 
-				fSignalCatchers.insert(std );
+	    public:
 
-			}
+	        inline static SignalCatcher& Instance(){
+	            return SignalCatcherSingleton::Instance();
+	        }
 
-			static void Handle(int signum);
-
-
-		protected:
-
-			void DefaultSigIntHandler(){}
-			void DefaultAbortHandler(){}
-			void DefaultSigBusHandler(){}
-			void DefaultSigSegFaultHandler(){}
-
-			Functor<void> fSigIntHandle;
-			Functor<void> fSigAbortHandle;
-			Functor<void> fSigBusHandle;
-			Functor<void> fSigSegFaultHandle;
-
-		private:
-
-			SignalCatcher() {
-				signal(SIGINT, Protium::Private::signal_callback_handler);
-				signal(SIGABRT, Protium::Private::signal_callback_handler);
-				signal(SIGBUS , Protium::Private::signal_callback_handler);
-				signal(SIGSEGV , Protium::Private::signal_callback_handler);
-			}
-
-			SignalCatcher(const SignalCatcher& other){}
-			const SignalCatcher& operator=(const SignalCatcher other);
-			virtual ~SignalCatcher(){}
-
+	        inline SignalCatcher() : SignalCatchingImplementation() {}
+	        inline ~SignalCatcher( void ) {}
 		};
 
 	}

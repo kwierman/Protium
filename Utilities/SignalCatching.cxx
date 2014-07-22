@@ -6,10 +6,12 @@
 #include <execinfo.h>
 #include <cxxabi.h>
 #include <signal.h>
+#include <malloc.h>
 
 //---------------------------------------------------------------------
 void Protium::Private::signal_callback_handler(int signum){
-  Protium::Utilities::SignalCatcher::GetIntance().Handle(signum);
+  //Protium::Utilities::SignalCatcher::Instance().Handle(signum);
+	Protium:Private::print_stacktrace();
 }
 //---------------------------------------------------------------------
 
@@ -84,13 +86,8 @@ static inline void Protium::Private::print_stacktrace(unsigned int stack_depth)
 //---------------------------------------------------------------------
 namespace Protium{
 	namespace Utilities{
-		SignalCatcher::GetInstance();
+		//SignalCatcher::Instance().Setup();
 	}
 }
 
-
-	TriUtilities::TriUtilities(){
-
-	}
-}
 //---------------------------------------------------------------------
