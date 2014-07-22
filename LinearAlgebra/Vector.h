@@ -4,6 +4,8 @@
 #include <vector>
 #include <cmath>
 
+#include "Protium/Allocation/SmallObject"
+
 namespace Protium{
 
 	namespace LinearAlgebra{
@@ -11,7 +13,7 @@ namespace Protium{
 
 		//! Implements vector multiplication, addition, subtraction.
 		template <typename T, int n=3>
-		class Vector {
+		class Vector  : public Protium::Allocation::SmallObject {
 
 			//! Required to get sub vectors of a vector
 			struct SubVectorHelper{

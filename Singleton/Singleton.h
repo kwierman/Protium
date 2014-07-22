@@ -20,10 +20,10 @@ namespace Protium{
             \param MutexPolicy Defined the mutex-ability of the class
         **/
         template<   class Host,
-                    template <class> class CreationPolicy = CreateUsingNew,
-                    template <class> class DeletionPolicy = DefaultLifetime,
-                    template <class, class> class ThreadingPolicy = ClassLevelLockable,
-                    class MutexPolicy = Mutex>
+                    template <class> class CreationPolicy = CreateNew,
+                    template <class> class DeletionPolicy = DeleteNever,
+                    template <class, class> class ThreadingPolicy = Protium::Threads::InstanceLocked,
+                    class MutexPolicy = Protium::Threads::Mutex>
         class Singleton{
         public:
             //! Declaration of the host interior to the class
@@ -84,7 +84,7 @@ namespace Protium{
         }
 
     ////////////////////////////////////////////////////////////////////////////////
-    // SingletonHolder::MakeInstance (helper for Instance)
+    // Singleton::MakeInstance (helper for Instance)
     ////////////////////////////////////////////////////////////////////////////////
 
         template<   class Host,
@@ -94,9 +94,9 @@ namespace Protium{
                     class MutexPolicy >
         void Singleton<Host, CreationPolicy, DeletionPolicy, ThreadingPolicy, MutexPolicy>::MakeInstance(){
         
-            typename ThreadingModel<SingletonHolder,MutexPolicy>::Lock lock;
+            typename ThreadingPolicy<Singleton,MutexPolicy>::Lock lock;
         
-            lock l;
+            (void)lock;
         
             if (!fInstance){
                 if (fDestroyed){

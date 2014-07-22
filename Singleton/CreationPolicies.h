@@ -1,7 +1,7 @@
 #ifndef Protium_CreationPolicies_h_
 #define Protium_CreationPolicies_h_
 
-#include <malloc>
+#include <malloc.h>
 
 namespace Protium{
 	namespace Singleton{
