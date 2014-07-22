@@ -1,10 +1,10 @@
 #ifndef Protium_Vector_h_
 #define Protium_Vector_h_
 
+#include "Protium/Allocation/SmallObject.h"
+
 #include <vector>
 #include <cmath>
-
-#include "Protium/Allocation/SmallObject"
 
 namespace Protium{
 
@@ -13,7 +13,7 @@ namespace Protium{
 
 		//! Implements vector multiplication, addition, subtraction.
 		template <typename T, int n=3>
-		class Vector  : public Protium::Allocation::SmallObject {
+		class Vector : public Protium::Allocation::DefaultSmallObject {//: public Protium::Allocation::DefaultSmallObject {
 
 			//! Required to get sub vectors of a vector
 			struct SubVectorHelper{
@@ -37,7 +37,7 @@ namespace Protium{
 			/** Default Constructor.
 				\param amplitude the amplitude of the vector
 			**/
-			Vector(const T& amplitude=1){
+			Vector(const T& amplitude=1) : Protium::Allocation::DefaultSmallObject() {
 				fComponents = new T[n];
 
 				for(int i=0; i<n; i++){
@@ -49,7 +49,7 @@ namespace Protium{
 			/** Construct from an array. Copies contents.
 				\param input An array of size n and type T
 			**/
-			Vector(const T* input){
+			Vector(const T* input) : Protium::Allocation::DefaultSmallObject(){
 				fComponents = new T[n];
 				for(int i=0; i<n; i++)
 					fComponents[i] = T(input[i]);
@@ -57,7 +57,7 @@ namespace Protium{
 
 			/** Construct from STL Vector
 			**/
-			Vector(const std::vector<T>& vec){
+			Vector(const std::vector<T>& vec) : Protium::Allocation::DefaultSmallObject(){
 				fComponents = new T[n];
 				for(int i=0; i<n;i++)
 					fComponents[i] = vec[i];
@@ -65,7 +65,7 @@ namespace Protium{
 
 			/** Copy constructor.
 			**/
-			Vector(const Vector<T,n>& other){
+			Vector(const Vector<T,n>& other) : Protium::Allocation::DefaultSmallObject(){
 				for(int i=0; i<n; i++){
 					fComponents[i] =  T(other.At(i) );
 				}
@@ -98,8 +98,8 @@ namespace Protium{
 		    virtual T Normalize(const T& norm){
 		    	T old_norm = this->Norm();
 		    	if(old_norm ==0) return 0;
-		    	for(Titer it = fComponents.begin(); it!=fComponents.end();++it )
-		    		(*it) *= (norm/old_norm);
+		    	for(int i=0 ;i<n; i++ )
+		    		fComponents[i] *= (norm/old_norm);
 		    	return this->Norm();
 		    }
 

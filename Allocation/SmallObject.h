@@ -102,7 +102,7 @@ namespace Protium{
 
         template
         <
-            template <class, class> class ThreadingModel = Protium::Threads::InstanceLocked,
+            template <class, class> class ThreadingModel = Protium::Threads::InSingleThread,
             std::size_t chunkSize = 4096,
             std::size_t maxSmallObjectSize = 256,
             std::size_t objectAlignSize = 4,
@@ -123,9 +123,7 @@ namespace Protium{
             SmallObject & operator = ( const SmallObject & );
         };
 
-
-
-        template< template <class, class> class ThreadingModel = Protium::Threads::InstanceLocked,
+        template< template <class, class> class ThreadingModel = Protium::Threads::InSingleThread,
             std::size_t chunkSize = 4096,
             std::size_t maxSmallObjectSize = 256,
             std::size_t objectAlignSize = 4,
@@ -142,8 +140,8 @@ namespace Protium{
             inline ~SmallValueObject() {}
         }; // end class SmallValueObject
 
-        typedef SmallObject DefaultSmallObject;
-        typedef SmallValueObject DefaultSmallValueObject;
+        typedef SmallObject<> DefaultSmallObject;
+        typedef SmallValueObject<> DefaultSmallValueObject;
 
     }
 }

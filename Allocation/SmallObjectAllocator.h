@@ -40,7 +40,7 @@ namespace Protium{
     };
 
 
-    template < template <class, class> class ThreadingModel = Protium::Threads::InstanceLocked,
+    template < template <class, class> class ThreadingModel = Protium::Threads::InSingleThread,
         std::size_t chunkSize = 4096,
         std::size_t maxSmallObjectSize = 256,
         std::size_t objectAlignSize = 4,
@@ -92,8 +92,8 @@ namespace Protium{
 	        template <class> class L,
 	        class X
 	    >
-	    inline unsigned int GetLongevity(
-	        SmallObjectAllocator< T, C, M, O, L, X > * )
+	    inline unsigned int GetPriority(
+	        SmallObjectAllocator< T, C, M, O, L, X >* )
 	    {
 	        return 0xFFFFFFFF;
 	    }

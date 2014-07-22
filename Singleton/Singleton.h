@@ -53,13 +53,16 @@ namespace Protium{
         };
 
 
+
+
+
         template<   class Host,
                     template <class> class CreationPolicy,
                     template <class> class DeletionPolicy,
                     template <class, class> class ThreadingPolicy,
                     class MutexPolicy >
         typename Singleton<Host, CreationPolicy, DeletionPolicy, ThreadingPolicy, MutexPolicy>::PtrInstanceType
-            Singleton<Host, CreationPolicy, DeletionPolicy, ThreadingPolicy, MutexPolicy>::fInstance = NULL;
+            Singleton<Host, CreationPolicy, DeletionPolicy, ThreadingPolicy, MutexPolicy>::fInstance = 0;
 
         template<   class Host,
                     template <class> class CreationPolicy,
@@ -80,7 +83,7 @@ namespace Protium{
         inline Host& Singleton<Host, CreationPolicy, DeletionPolicy, ThreadingPolicy, MutexPolicy>::Instance(){
             if (!fInstance)
                 MakeInstance();
-            return fInstance;
+            return *fInstance;
         }
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -101,7 +104,7 @@ namespace Protium{
             if (!fInstance){
                 if (fDestroyed){
                     fDestroyed = false;
-                DeletionPolicy<Host>::OnDeadReference();
+                    DeletionPolicy<Host>::OnDeadReference();
                 }
                 fInstance = CreationPolicy<Host>::Create();
                 DeletionPolicy<Host>::ScheduleDestruction(fInstance, &DestroySingleton);

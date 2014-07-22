@@ -8,12 +8,10 @@ namespace Protium{
 
 
 		//! A class to hold a vector of vectors
-		template <typename T, int n, int m>
-		class Matrix : public Vector< Vector<T, m>, n > {
+		//template <typename T, int n, int m>
+		//class Matrix : public Vector< Vector<T, m>, n > {
 
-
-		};
-
+		//};
 
 		/*
 

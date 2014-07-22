@@ -191,7 +191,7 @@ namespace Protium{
             
             static void ScheduleDestruction(Host* pObj, exit_function_pointer_type pFun){
                 Adapter<Host> adapter = { pFun };
-                SetLongevity(pObj, priority , adapter);
+                SetPriority(pObj, priority , adapter);
             }
             
             static void OnDeadReference() { throw std::logic_error("Dead Reference Detected"); }

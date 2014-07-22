@@ -41,7 +41,7 @@ add_subdirectory(Threads)
 add_subdirectory(Singleton)
 add_subdirectory(Allocation)
 add_subdirectory(Math)
-#add_subdirectory(LinearAlgebra)
+add_subdirectory(LinearAlgebra)
 #add_subdirectory(Collections)
 add_subdirectory(Applications)
 #----------------------------------------------------------------------------
