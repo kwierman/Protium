@@ -7,10 +7,16 @@
 
 var indexSectionsWithContent =
 {
+  0: "pt",
+  1: "p",
+  2: "t"
 };
 
 var indexSectionNames =
 {
+  0: "all",
+  1: "namespaces",
+  2: "pages"
 };
 
 function convertToId(search)
