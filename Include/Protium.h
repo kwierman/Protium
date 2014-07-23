@@ -111,6 +111,7 @@
 #ifndef Protium_h_
 #define Protium_h_
 
+#include "Protium/Design/Assert.h"
 
 
 #include "Protium/LinearAlgebra/LinearAlgebra.h"
