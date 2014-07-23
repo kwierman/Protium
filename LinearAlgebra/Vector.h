@@ -2,9 +2,12 @@
 #define Protium_Vector_h_
 
 #include "Protium/Allocation/SmallObject.h"
+#include "Protium/Design/Assert.h"
 
 #include <vector>
 #include <cmath>
+
+#include <iostream>
 
 namespace Protium{
 
@@ -13,30 +16,35 @@ namespace Protium{
 		template<typename T, int n>
 		class Vector;
 
-
 		template<typename T, int n>
 		struct SubVector{
-			Vector<T, n-1> Of(const Vector<T,n>& other, int i=0){
+			Vector<T, n-1> Of(const Vector<T,n>& other, const int& i=0){
 				Vector<T,n-1> temp;
 				int index=0;
 				for(int j=0; j<n;j++ ){
 					if(j!=i)
-						temp[index++] = other.At(j);
+						temp[index++] = T(other.At(j) );
 				}
 				return temp;
 			}
 		};
 
+		template<typename T>
+		struct SubVector<T,2>{
+			Vector<T, 1> Of(const Vector<T,2>& other, const int& i=0){
+				Vector<T,1> temp;
+				if(i==0)
+					temp[0] = T(other.At(1) );
+				else
+					temp[0] = T(other.At(0) );
+				return temp;
+			}
+		};
 
 		template<typename T>
 		struct SubVector<T,1>{
-			Vector<T, 0> Of(const Vector<T,1>& other, int i=0){
-				Vector<T,0> temp;
-				if(i==0)
-					temp[0] = other.At(1);
-				else
-					temp[0] = other.At(0);
-				return temp;
+			Vector<T, 0> Of(const Vector<T,1>& other, const int& i=0){
+				PROTIUM_STATIC_ASSERT(false, ERROR_NO_SUBVECTOR_OF_LENGTH_0() );
 			}
 		};
 
@@ -49,11 +57,18 @@ namespace Protium{
 
 		public:
 
+			void Init(){
+				fComponents.clear();
+				for(int i=0; i<n;i++)fComponents.push_back( T(1) );
+			}
+
 			/** Default Constructor.
 				\param amplitude the amplitude of the vector
 			**/
 			Vector<T,n>(const T& amplitude=1) : Protium::Allocation::DefaultSmallObject() {
-				fComponents.reserve(n);
+				
+				Init();
+
 				this->Normalize( amplitude );
 			}
 
@@ -61,7 +76,7 @@ namespace Protium{
 				\param input An array of size n and type T
 			**/
 			Vector<T,n>(const T* input) : Protium::Allocation::DefaultSmallObject(){
-				fComponents.reserve(n);
+				Init();
 				for(int i=0; i<n; i++)
 					fComponents[i] = T(input[i]);
 			}
@@ -69,7 +84,7 @@ namespace Protium{
 			/** Construct from STL Vector
 			**/
 			Vector<T,n>(const std::vector<T>& vec) : Protium::Allocation::DefaultSmallObject(){
-				fComponents.reserve(n);
+				Init();
 				for(int i=0; i<n;i++)
 					fComponents[i] = T(vec[i] );
 			}
@@ -77,7 +92,7 @@ namespace Protium{
 			/** Copy constructor.
 			**/
 			Vector<T,n>(const Vector<T,n>& other) : Protium::Allocation::DefaultSmallObject(){
-				fComponents.reserve(n);
+				Init();
 				for(int i=0; i<n; i++){
 					fComponents[i] =  T( other.At(i) );
 				}
@@ -134,7 +149,7 @@ namespace Protium{
 		    /** Const access operator
 		    **/
 		    const T& At(const int& index) const{
-		    	return fComponents[index];
+		    	return fComponents.at(index);
 		    }
 
 		    /** Increment operator
@@ -168,13 +183,13 @@ namespace Protium{
 	  		/** Addition operator
 	  		**/
 	  		const Vector<T,n> operator+(const Vector<T,n>& rhs) const {
-	    		return Vector(*this) += rhs;
+	    		return Vector<T,n>(*this) += rhs;
 	  		}
 
 	  		/** Subtraction operator
 	  		**/
 	  		const Vector<T,n> operator-(const Vector<T,n>& rhs) const {
-	    		return Vector(*this) -= rhs;
+	    		return Vector<T,n>(*this) -= rhs;
 	  		}
 
 	  		/** Multiplication Operator
@@ -184,8 +199,9 @@ namespace Protium{
 	  		const T operator*(const Vector<T,n>& rhs) const {
 	  			T ret=0;
 				//PROTIUM_STATIC_ASSERT(n == m,"Vector Dimensions Must Match");
-				for(int i=0; i<n;i++)
-					ret+= this->At(i) * rhs.At(i);
+				for(int i=0; i<n;i++){
+					ret+= (this->At(i)) * (rhs.At(i) );
+				}
 
 	    		return ret;
 	  		}
@@ -195,13 +211,13 @@ namespace Protium{
 	  			\return Vector of same size and type as current one
 	  		**/
 			const Vector<T,n> operator*(const T& rhs) const {
-	  			return Vector(*this) *=rhs;
+	  			return Vector<T,n>(*this) *=rhs;
 	  		}
 
 	  		/** Assignment Operator
 	  		**/
 	  		Vector<T,n>& operator=( const Vector<T,n>& rhs ){
-      			for(int i=0; i<n;i++)fComponents[i] = rhs.At(i);
+      			for(int i=0; i<n;i++) fComponents.at(i) = T(rhs.At(i) );
       			return *this;
   			}
 
@@ -221,6 +237,17 @@ namespace Protium{
 	    		return !(*this == rhs);
 	  		}
 
+
+	  		static Vector<T,n> UnitVector(int dim=0){
+	  			Vector<T,n> vec;
+	  			for(int i=0;i<n;i++)
+	  				if(i==dim)
+	  					vec[i]=T(1);
+	  				else
+	  					vec[i]=T(0);
+	  			return vec;
+	  		}
+
 		};
 
 		//! Convenience Typedef of a double twovector
@@ -229,6 +256,17 @@ namespace Protium{
 		typedef Vector<double, 3> ThreeVector;
 		//! Convenience typedef of a double four vector
 		typedef Vector<double, 4> FourVector;
+		typedef Vector<double, 5> FiveVector;
+		typedef Vector<double, 6> SixVector;
+		typedef Vector<double, 7> SevenVector;
+		typedef Vector<double, 8> EightVector;
+		typedef Vector<double, 9> NineVector;
+		typedef Vector<double, 10> TenVector;
+		typedef Vector<double, 11> ElevenVector;
+		typedef Vector<double, 12> TwelveVector;
+		typedef Vector<double, 13> ThirteenVector;
+		typedef Vector<double, 14> FourteenVector;
+		typedef Vector<double, 15> FifteenVector;
 	}
 }
 

@@ -12,6 +12,7 @@
 void Protium::Private::signal_callback_handler(int signum){
   //Protium::Utilities::SignalCatcher::Instance().Handle(signum);
 	Protium:Private::print_stacktrace();
+	exit(-1);
 }
 //---------------------------------------------------------------------
 

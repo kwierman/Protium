@@ -10,6 +10,27 @@
 #include <vector>
 
 using namespace Protium;
+
+template<typename T, int n>
+void PrintVector(const LinearAlgebra::Vector<T,n>& vector){
+	std::cout<<"Vector of Length: "<<n<<std::endl;
+	for(int i=0; i<n;i++)std::cout<<" "<<vector.At(i);
+	std::cout<<std::endl;
+}
+
+template<typename T, int n, int m>
+void PrintMatrix(const LinearAlgebra::Matrix<T,n,m>& matrix){
+	std::cout<<"Matrix of Dimensions: "<<n<<" X "<<m<<std::endl;
+	for(int i=0; i<n;i++){
+		for(int j=0; j<m;j++)
+			std::cout<<" "<<matrix.At(i,j);
+		std::cout<<std::endl;
+	}
+	std::cout<<std::endl;
+}
+
+
+
 int main(int argc, char* argv[]){
 
 	Protium::Utilities::SignalCatcher::Instance().Setup();
@@ -37,63 +58,112 @@ int main(int argc, char* argv[]){
 	std::cout<<"\tLinear Algebra Tests"<<std::endl;
 	{
 		using namespace LinearAlgebra;
-		ThreeVector threeVector1;
-		ThreeVector threeVector2;
-			
-
-
-		for(int i=0; i<3;i++){
-			std::cout<<threeVector1[i]<<"\t";
-			threeVector1[i]=double(i);
-			threeVector2[i]=double(i+i);
+		std::cout<<"Testing Vectors"<<std::endl;
+		{
+			TwoVector vec;
+			PrintVector(vec);
+			PrintVector(TwoVector::UnitVector());
+			PrintVector(vec.GetSubVector(1));
 		}
-		std::cout<<std::endl;
-
-		double dot_product = threeVector1* threeVector2;
-		std::cout<<"Dot Product: "<<dot_product<<std::endl;
-		
-
-		ThreeVector threeVector3 = threeVector1+threeVector2;
-		for(int i=0; i<3;i++)
-			std::cout<< threeVector3[i]<<"\t";
-		std::cout<<std::endl;
-
-		
-
-		TwoVector twoVector = threeVector3.GetSubVector(2);
-		for(int i=0; i<2;i++)
-			std::cout<<twoVector.At(i)<<"\t";
-		std::cout<<std::endl;
-
-
-		const TwoVector copy1 = twoVector;
-		TwoVector copy2(copy1);
-		
-		
-		ThreeMatrix mat;
-		std::cout<<mat.GetNRows()<<"\t"<<mat.GetNColumns()<<std::endl;
-		ThreeVector temp = mat[0];
-		std::cout<<mat.At(0,0)<<std::endl;
-
-		
-		for(int i=0; i<3;i++){
-			ThreeVector& temp = mat[i];
-			for(int j=0; j<3;j++)
-				temp[j] = i*j+j*j+i*i;
+		{
+			ThreeVector vec;
+			PrintVector(vec);
+			PrintVector(ThreeVector::UnitVector());
+			PrintVector(vec.GetSubVector(1));
+			PrintVector(vec.GetSubVector(1).GetSubVector(1));
 		}
-		
-		for(int i=0; i<3;i++){
-			for(int j=0; j<3;j++)
-				std::cout<< mat[i][j]<<"\t";
-			std::cout<<std::endl;
+		{
+			FourVector vec;
+			PrintVector(vec);
+			PrintVector(FourVector::UnitVector());
+			PrintVector(vec.GetSubVector(1));
+			PrintVector(vec.GetSubVector(1).GetSubVector(1));
+			PrintVector(vec.GetSubVector(1).GetSubVector(1).GetSubVector(1));
 		}
-
-/*
-		TwoMatrix mat2 = mat.GetSubMatrix(0,0);
-		for(int i=0;i<2;i++)
-			for(int j=0; j<2;j++)
-				std::cout<<mat2.At(i,j)<<"\t";
-*/
+		{
+			FiveVector vec;
+			PrintVector(vec);
+			PrintVector(FiveVector::UnitVector());
+			std::cout<< (vec*FiveVector::UnitVector()) <<std::endl;
+			PrintVector(vec+FiveVector::UnitVector());
+			PrintVector(vec-FiveVector::UnitVector());
+		}
+		{
+			SixVector vec;
+			PrintVector(vec);
+			PrintVector(SixVector::UnitVector());
+		}
+		{
+			SevenVector vec;
+			PrintVector(vec);
+			PrintVector(SevenVector::UnitVector());
+		}
+		{
+			EightVector vec;
+			PrintVector(vec);
+			PrintVector(EightVector::UnitVector());
+		}
+		{
+			NineVector vec;
+			PrintVector(vec);
+			PrintVector(NineVector::UnitVector());
+		}
+		{
+			TenVector vec;
+			PrintVector(vec);
+			PrintVector(TenVector::UnitVector());
+		}
+		{
+			ElevenVector vec;
+			PrintVector(vec);
+			PrintVector(ElevenVector::UnitVector());
+		}
+		{
+			TwelveVector vec;
+			PrintVector(vec);
+			PrintVector(TwelveVector::UnitVector());
+		}
+		{
+			ThirteenVector vec;
+			PrintVector(vec);
+			PrintVector(ThirteenVector::UnitVector());
+		}
+		{
+			FourteenVector vec;
+			PrintVector(vec);
+			PrintVector(FourteenVector::UnitVector());
+		}
+		{
+			FifteenVector vec;
+			PrintVector(vec);
+			PrintVector(FifteenVector::UnitVector());
+			std::cout<< (vec==FifteenVector::UnitVector() )<<std::endl;
+			std::cout<< (vec!=FifteenVector::UnitVector() )<<std::endl;
+			std::cout<< (FifteenVector::UnitVector()==FifteenVector::UnitVector() )<<std::endl;
+			FifteenVector copy(FifteenVector::UnitVector() );
+			PrintVector(copy);
+			copy=vec;
+			PrintVector(copy);
+		}
+		std::cout<<"Testing Matrices"<<std::endl;
+		{
+			TwoMatrix mat;
+		}
+		{
+			ThreeMatrix mat;
+		}
+		{
+			FourMatrix mat;
+		}
+		{
+			FiveMatrix mat;
+		}
+		{
+			SixMatrix mat;
+		}
+		{
+			SevenMatrix mat;
+		}
 	}
 
 }
