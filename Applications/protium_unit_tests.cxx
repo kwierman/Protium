@@ -148,22 +148,63 @@ int main(int argc, char* argv[]){
 		std::cout<<"Testing Matrices"<<std::endl;
 		{
 			TwoMatrix mat;
+			PrintMatrix(mat);
+			PrintMatrix(TwoMatrix::Unit());
 		}
 		{
 			ThreeMatrix mat;
+			PrintMatrix(mat);
+			PrintMatrix(ThreeMatrix::Unit());
 		}
 		{
 			FourMatrix mat;
+			PrintMatrix(mat);
+			PrintMatrix(FourMatrix::Unit());
 		}
 		{
 			FiveMatrix mat;
+			PrintMatrix(mat);
+			PrintMatrix(FiveMatrix::Unit());
 		}
 		{
 			SixMatrix mat;
+			PrintMatrix(mat);
+			PrintMatrix(SixMatrix::Unit());
 		}
 		{
 			SevenMatrix mat;
+			PrintMatrix(mat);
+			PrintMatrix(SevenMatrix::Unit());
+			SevenMatrix copy(SevenMatrix::Unit() );
+			PrintMatrix(copy);
+			copy=mat;
+			PrintMatrix(copy);
+			copy=SevenMatrix::Unit();
+			for(int i=0; i<7;i++)for(int j=0; j<7;j++) copy[i][j]=1+(i-j)*(i-j)*(i-j)*(i-j)*(i-j);
+			PrintMatrix( copy );
+			PrintMatrix(copy.GetSubMatrix(0,0) );
+			PrintMatrix(copy.GetSubMatrix(0,0).GetSubMatrix(0,0) );
+			PrintMatrix(copy.GetSubMatrix(0,0).GetSubMatrix(0,0).GetSubMatrix(0,0) );
+			PrintMatrix(copy.GetSubMatrix(0,0).GetSubMatrix(0,0).GetSubMatrix(0,0).GetSubMatrix(0,0) );
+			PrintMatrix(copy.GetSubMatrix(0,0).GetSubMatrix(0,0).GetSubMatrix(0,0).GetSubMatrix(0,0).GetSubMatrix(0,0) );
+			PrintMatrix(copy.GetSubMatrix(0,0).GetSubMatrix(0,0).GetSubMatrix(0,0).GetSubMatrix(0,0).GetSubMatrix(0,0).GetSubMatrix(0,0) );
+
+			PrintMatrix( copy );
+			std::cout<<copy.GetSubMatrix(0,0).GetDeterminant()<<std::endl;
+			std::cout<<copy.GetSubMatrix(0,0).GetSubMatrix(0,0).GetDeterminant()<<std::endl;
+			std::cout<<copy.GetSubMatrix(0,0).GetSubMatrix(0,0).GetSubMatrix(0,0).GetDeterminant()<<std::endl;
+			std::cout<<copy.GetSubMatrix(0,0).GetSubMatrix(0,0).GetSubMatrix(0,0).GetSubMatrix(0,0).GetDeterminant()<<std::endl;
+			std::cout<<copy.GetSubMatrix(0,0).GetSubMatrix(0,0).GetSubMatrix(0,0).GetSubMatrix(0,0).GetSubMatrix(0,0).GetDeterminant()<<std::endl;
+			std::cout<<copy.GetSubMatrix(0,0).GetSubMatrix(0,0).GetSubMatrix(0,0).GetSubMatrix(0,0).GetSubMatrix(0,0).GetSubMatrix(0,0).GetDeterminant()<<std::endl;
+		}
+
+		{
+			std::cout<<"Vector Times Matrix Multiplication"<<std::endl;
+			SevenVector vec;
+			for(int i=0; i<7;i++)vec[i]=i;
+			SevenMatrix mat = SevenMatrix::Unit();
+			for(int i=0; i<7;i++)mat[0][i]=i;
+			PrintVector(mat*vec );
 		}
 	}
-
 }

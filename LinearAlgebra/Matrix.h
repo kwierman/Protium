@@ -85,14 +85,11 @@ namespace Protium{
 		template<typename T, int n>
 		struct Determinant<T,n,n>{
 			T Of(const Matrix<T,n,n>& other){
-				T det=T(0);
+				T det = T(0);
 				T s = T(1);
 				for(int i=0;i<n;i++){
-					Matrix<T,n-1,n-1> otherOther = other.GetSubMatrix(i,0);
-					T subdet = otherOther.GetDeterminant();
-					T component = other.At(i,0);
-					det+= s * component*subdet;
-					s -= T(2)*s;
+					det+= (s)*(other.At(0,i) )*(other.GetSubMatrix(i,0).GetDeterminant() );
+					s = -s;
 				}
 				return det;
 			}
@@ -114,7 +111,6 @@ namespace Protium{
 
 			void Init(){
 				for(int i=0; i< m;i++)fComponents.push_back(Vector<T,n>() );
-
 			}
 
 			Matrix() : Protium::Allocation::DefaultSmallObject() {
@@ -124,7 +120,7 @@ namespace Protium{
 				Init();
 				for(int i=0; i<n;i++)
 					for(int j=0; j<m;j++)
-					fComponents[i][j] = T(other.At(i,j) );
+						fComponents[i][j] = T(other.At(i,j) );
 			}
 
 

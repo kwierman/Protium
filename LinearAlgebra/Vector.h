@@ -124,6 +124,7 @@ namespace Protium{
 		    **/
 		    virtual T Normalize(const T& norm){
 		    	T old_norm = this->Norm();
+		    	if(old_norm == norm) return norm;
 		    	if(old_norm ==0) return 0;
 		    	for(int i=0 ;i<n; i++ )
 		    		fComponents[i] *= (norm/old_norm);
