@@ -4,6 +4,7 @@
 //#include "Protium/LinearAlgebra/Matrix.h"
 #include "Protium/Math/MathFunctions.h"
 #include "Protium/Utilities/SignalCatching.h"
+#include "Protium/Containers/Histogram.h"
 
 #include <iostream>
 #include <iomanip>
@@ -206,5 +207,9 @@ int main(int argc, char* argv[]){
 			for(int i=0; i<7;i++)mat[0][i]=i;
 			PrintVector(mat*vec );
 		}
+	}
+	std::cout<<"Testing Histogram Classes"<<std::endl;
+	{
+		using namespace Containers;
 	}
 }

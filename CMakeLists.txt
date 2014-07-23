@@ -43,7 +43,7 @@ add_subdirectory(Allocation)
 add_subdirectory(Utilities)
 add_subdirectory(Math)
 add_subdirectory(LinearAlgebra)
-#add_subdirectory(Collections)
+add_subdirectory(Containers)
 add_subdirectory(Applications)
 #----------------------------------------------------------------------------
 #Add in Documentation
