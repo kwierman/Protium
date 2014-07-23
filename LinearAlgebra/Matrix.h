@@ -102,11 +102,10 @@ namespace Protium{
 			}
 		};
 
-
 		//! Implements matrix operations
 		template<typename T, int n, int m>
 		class Matrix : public Protium::Allocation::DefaultSmallObject {
-			std::vector<Vector<T, n> > fComponents;
+			std::vector<  Vector<T,n>, Protium::Allocation::STLAdapter< Vector<T, n> > > fComponents;
 		public:
 
 			void Init(){
@@ -122,7 +121,6 @@ namespace Protium{
 					for(int j=0; j<m;j++)
 						fComponents[i][j] = T(other.At(i,j) );
 			}
-
 
 			~Matrix(){
 				fComponents.clear();

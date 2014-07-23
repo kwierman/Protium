@@ -146,4 +146,6 @@ namespace Protium{
     }
 }
 
+#include "Protium/Allocation/STLAdapter.h"
+
 #endif //Protium_SmallObject_h_
