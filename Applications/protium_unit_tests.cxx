@@ -31,6 +31,15 @@ void PrintMatrix(const LinearAlgebra::Matrix<T,n,m>& matrix){
 }
 
 
+void PrintHistogram(const Containers::Histo1D& h){
+	unsigned nBins = h.GetNBins();
+	std::cout<<"Getting Histogram of "<<nBins<<" bins"<<std::endl;
+	for(unsigned i=0;i<nBins;i++){
+		std::cout<<"  Bin Number: "<<i<<" Lower Edge: "<<h.GetLowerEdgeByI(i)<<" Width: "<<h.GetBinWidthByI(i)<<" Content: "<<h.GetBinContentByI(i)<<std::endl;
+	}
+
+}
+
 
 int main(int argc, char* argv[]){
 
@@ -211,5 +220,10 @@ int main(int argc, char* argv[]){
 	std::cout<<"Testing Histogram Classes"<<std::endl;
 	{
 		using namespace Containers;
+		{
+			Histo1D h(0.0, 100.0, 1000);
+			PrintHistogram(h);
+			h.SetNewBin(98.75, 1.0);
+		}
 	}
 }
