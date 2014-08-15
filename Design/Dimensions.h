@@ -6,6 +6,7 @@
 namespace Protium{
 	namespace Design{
 		
+		//! Helper template to add dimensions on quantitites
 		template<class Seq1, class Seq2>
 		struct DimensionAdd{
 			typedef typename Sequence<int, 	IntType< Seq1::Tail::Head::value + Seq2::Tail::Head::value >,
@@ -17,7 +18,8 @@ namespace Protium{
 										IntType< Seq1::Tail::Tail::Tail::Tail::Tail::Tail::Tail::Head::value + Seq2::Tail::Tail::Tail::Tail::Tail::Tail::Tail::Head::value >
 			 >::Type Type;
 		};
-		//For Dividing Quantities, subtract dimensions
+
+		//! Helper template to subtract dimensions on quantities
 		template<class Seq1, class Seq2>
 		struct DimensionSubtract{
 			typedef typename Sequence<int, 	IntType< Seq1::Tail::Head::value - Seq2::Tail::Head::value >,
@@ -30,9 +32,9 @@ namespace Protium{
 			 >::Type Type;
 		};
 		
-
-
-		//base dimensions
+		/**
+			Base dimensions
+		**/
 		typedef Sequence<int, IntType<0>,IntType<0>,IntType<0>,IntType<0>,IntType<0>,IntType<0>,IntType<0> >::Type scalar;
 		typedef Sequence<int, IntType<0>,IntType<0>,IntType<0>,IntType<1>,IntType<0>,IntType<0>,IntType<0> >::Type charge;
 		typedef Sequence<int, IntType<1>,IntType<0>,IntType<0>,IntType<0>,IntType<0>,IntType<0>,IntType<0> >::Type mass;

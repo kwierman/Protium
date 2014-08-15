@@ -4,59 +4,76 @@
 namespace Protium{
 
 	namespace Design{
-	    ///Dummy Null Class
+
+		//! Emmpty struct. To be used as header or footer.
 	    struct NullType{};
+	    //! Empty class. To be used as header or footer.
 	    class EmptyType {};
-	        
+	    
+	    //! Empty types are always equal
 	    inline bool operator==(const EmptyType&, const EmptyType&){return true;}   
 
-	    inline bool operator<(const EmptyType&, const EmptyType&){return false;}
+		//! Empty types are always equal
+		inline bool operator<(const EmptyType&, const EmptyType&){return false;}
 
+		//! Empty types are always equal
 	    inline bool operator>(const EmptyType&, const EmptyType&){return false;}
 
+	    //! Maps type to integer
 	    template <int v>
 	    struct IntType{
 	        enum { value = v };
 	    };
 	    
+	    //! Maps type to another type
 	    template <typename T>
 	    struct TypeType{
 	        typedef T OType;
 	    };
 
+	    //! Maps to types to a new type
 	    template <typename T, typename U>
 	    struct SameType
 	    {
 	        enum { value = false };
 	    };
 	    
+	    //! Specialization of SameType for identical types
 	    template <typename T>
 	    struct SameType<T,T>
 	    {
 	        enum { value = true };
 	    };
 
+	    //! General list of types. Points to Head and Tail
+	    /*!
+	    	Use like `Typelist<MyClass, NullType>;`
+	    */
 	    template <class H, class T>
 	    struct Typelist{
 	       typedef H Head;
 	       typedef T Tail;
 	    };        
 
+	    //! Empty Astract Index class. Never Use directly.
         template <class TList, class T> 
         struct IndexOf;
         
+        //! The Last element in a list is always NUllType at position -1
         template <class T>
         struct IndexOf<NullType, T>
         {
             enum { value = -1 };
         };
         
+        //! Every Typelist has index of 0
         template <class T, class Tail>
         struct IndexOf<Typelist<T, Tail>, T>
         {
             enum { value = 0 };
         };
         
+        //! Every item in typelist has index (typelist) + 1
         template <class Head, class Tail, class T>
         struct IndexOf<Typelist<Head, Tail>, T>
         {
@@ -67,6 +84,7 @@ namespace Protium{
         };
 
 
+        //! Sequence of types. 
 	    template<	class T1=NullType,
 	    			class T2=NullType,
 	    			class T3=NullType,
@@ -113,6 +131,7 @@ namespace Protium{
 	        typedef Typelist<T1, TailResult> Type;
 	    };
 	        
+	    //! Specialization of empty sequence
 	    template<>
 	    struct Sequence<>{
 	        typedef NullType Type;

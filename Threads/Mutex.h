@@ -30,7 +30,7 @@ namespace Protium{
             void Lock();
             //! Unlocks the mutex for the next usage.
             void Unlock();
-            /*! Checks to see if the  
+            /*! Checks to see if the  mutex if locked
             *   \return True if the mutex is locked elsewhere. False otherwise.
             */
             bool IsLocked();

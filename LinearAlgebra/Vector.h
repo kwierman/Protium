@@ -13,9 +13,11 @@ namespace Protium{
 
 	namespace LinearAlgebra{
 
+		//! Implementation of vector to be used in Linear Algebra
 		template<typename T, int n>
 		class Vector;
 
+		//! Helper template for generating subvectors of vectors
 		template<typename T, int n>
 		struct SubVector{
 			Vector<T, n-1> Of(const Vector<T,n>& other, const int& i=0){
@@ -29,6 +31,7 @@ namespace Protium{
 			}
 		};
 
+		//! Template specialization for lowest possible dimension subvector
 		template<typename T>
 		struct SubVector<T,2>{
 			Vector<T, 1> Of(const Vector<T,2>& other, const int& i=0){
@@ -41,6 +44,7 @@ namespace Protium{
 			}
 		};
 
+		//! Compiler error for vectors wishing too low in dimension
 		template<typename T>
 		struct SubVector<T,1>{
 			Vector<T, 0> Of(const Vector<T,1>& other, const int& i=0){
@@ -48,7 +52,6 @@ namespace Protium{
 			}
 		};
 
-		//! Implements vector multiplication, addition, subtraction.
 		template <typename T, int n=3>
 		class Vector : public Protium::Allocation::DefaultSmallObject {
 
@@ -57,7 +60,9 @@ namespace Protium{
 
 		public:
 
+			//! Initialization of vector components to 
 			void Init(){
+				PROTIUM_STATIC_ASSERT(n>0, ERROR_NO_SUBVECTOR_OF_LENGTH_0 );
 				fComponents.clear();
 				for(int i=0; i<n;i++)fComponents.push_back( T(1) );
 			}
@@ -238,7 +243,7 @@ namespace Protium{
 	    		return !(*this == rhs);
 	  		}
 
-
+	  		//! Constructs a unit vector in the given dimension
 	  		static Vector<T,n> UnitVector(int dim=0){
 	  			Vector<T,n> vec;
 	  			for(int i=0;i<n;i++)

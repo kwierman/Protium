@@ -10,10 +10,11 @@
 namespace Protium{
 	namespace LinearAlgebra{
 
+		//! Implements matrix addition, subtraction, multiplication
 		template<typename T, int n, int m>
 		class Matrix;
 
-		//! Helper struct to retrieve out a submatrix missing it's
+		//! Helper template to get submatrices for a given matrix
 		template<typename T, int n, int m>
 		struct SubMatrix{
 			Matrix<T, n-1,m-1> Of(const Matrix<T,n,m>& other, const int& i=0, const int& j=0){
@@ -28,6 +29,7 @@ namespace Protium{
 			}
 		};
 
+		//! Template specialization for matrices to fetch row vectors
 		template<typename T, int n>
 		struct SubMatrix<T,n,0>{
 			Matrix<T, n-1,0> Of(const Matrix<T,n,2>& other, const int& i=0, const int& j=0){
@@ -41,6 +43,7 @@ namespace Protium{
 			}
 		};
 
+		//! Template specialization for matrices to fetch column vectors
 		template<typename T, int m>
 		struct SubMatrix<T,0,m>{
 			Matrix<T,0,m-1> Of(const Matrix<T,2,m>& other, const int& i=0, const int& j=0){
@@ -54,7 +57,7 @@ namespace Protium{
 			}
 		};
 
-
+		//! Template specialization for matrices to fetch element
 		template<typename T>
 		struct SubMatrix<T,2,2>{
 			Matrix<T,1,1> Of(const Matrix<T,2,2>& other, const int& i=0, const int& j=0){
@@ -75,6 +78,7 @@ namespace Protium{
 			}
 		};
 
+		//! Helper template produces NaN Determinant in general
 		template<typename T, int n, int m>
 		struct Determinant{
 			T Of(const Matrix<T,n,m>& other){
@@ -82,6 +86,7 @@ namespace Protium{
 			}
 		};
 
+		//!  Helper template produces determinant of square matrices
 		template<typename T, int n>
 		struct Determinant<T,n,n>{
 			T Of(const Matrix<T,n,n>& other){
@@ -95,6 +100,7 @@ namespace Protium{
 			}
 		};
 
+		//! Template specialization for lowest dimension matrices
 		template<typename T>
 		struct Determinant<T,1,1>{
 			T Of(const Matrix<T,1,1>& other){
@@ -102,19 +108,23 @@ namespace Protium{
 			}
 		};
 
-		//! Implements matrix operations
 		template<typename T, int n, int m>
 		class Matrix : public Protium::Allocation::DefaultSmallObject {
+			//! Data implementation
 			std::vector<  Vector<T,n>, Protium::Allocation::STLAdapter< Vector<T, n> > > fComponents;
 		public:
 
+			//! Standard initialization 
 			void Init(){
 				for(int i=0; i< m;i++)fComponents.push_back(Vector<T,n>() );
 			}
 
+			//! Default constructor
 			Matrix() : Protium::Allocation::DefaultSmallObject() {
 				Init();
 			}
+
+			//! Copy Constructor
 			Matrix(const Matrix<T,n,m>& other) {
 				Init();
 				for(int i=0; i<n;i++)
@@ -122,11 +132,14 @@ namespace Protium{
 						fComponents[i][j] = T(other.At(i,j) );
 			}
 
-			~Matrix(){
+			//! Default Destructor
+			virtual ~Matrix(){
 				fComponents.clear();
 			}
 
+			//! Retrieves ordinant dimension
 			inline static int GetNRows(){return n;}
+			//! Retrieves abcissa dimension
 			inline static int GetNColumns(){return m;}
 
 		    /** Reference Access operator.
@@ -135,6 +148,9 @@ namespace Protium{
 		    	return fComponents[row];
 		    }
 
+		    /**
+		    	Non-const access operator
+		    **/
 		    Vector<T,n> At(const int& row) const{
 		    	return fComponents.at(row);
 		    }
@@ -145,6 +161,7 @@ namespace Protium{
 		    	return fComponents.at(row).At(column);
 		    }
 
+		    //! Computes matrix transpose
 		    Matrix<T,m,n> Transpose() const{
 		    	Matrix<T,m,n> trans;
 		    	for(int i =0;i<n;i++)for(int j=0;j<m;j++)
@@ -152,11 +169,13 @@ namespace Protium{
 		    	return trans;
 		    }
 
+		    //! Get submatrix
 		    Matrix<T,m-1,n-1> GetSubMatrix(const int& i, const int& j) const{
 		    	SubMatrix<T, m,n> helper;
 		    	return helper.Of( (*this) , i,j);
 		    }
 
+		    //! Gets determinant
 		    T GetDeterminant() const{
 		    	Determinant<T,m,n> helper;
 		    	return helper.Of(*this );
@@ -180,6 +199,8 @@ namespace Protium{
 	    		return *this;
 	  		}
 
+	  		/** Operator defined for vector multiplication
+	  		**/
 			Vector<T,m> operator*=(const Vector<T,n>& rhs) {
 				Vector<T,m> other;
 
@@ -188,6 +209,8 @@ namespace Protium{
 	    		return other;
 	  		}
 
+	  		/** Inner product operator
+	  		**/
 	  		template<int k>
 	  		Matrix<T,n,k> operator*=(const Matrix<T,m,k>& rhs) const {
 	  			Matrix<T,k,m> transpose = rhs.Transpose();
@@ -245,6 +268,8 @@ namespace Protium{
 	  			return Matrix<T,n,m>(*this) *=rhs;
 	  		}
 
+	  		/** Vector multiplication operator
+	  		**/
 	  		const Vector<T,m> operator*(const Vector<T,n>& rhs) {
 				Vector<T,m> other;
 
@@ -277,6 +302,8 @@ namespace Protium{
 	    		return !(*this == rhs);
 	  		}
 
+	  		/** Produces unit matrix of same dimension
+	  		**/
 	  		static Matrix<T,n,m> Unit(){
 	  			Matrix<T,n,m> temp;
 	  			for(int i=0; i<m;i++)

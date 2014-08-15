@@ -1,3 +1,7 @@
+/*! \file protium_thread_tests.cxx
+
+*/
+
 #include "Protium/Threads/Mutex.h"
 #include "Protium/Threads/ThreadingPolicy.h"
 

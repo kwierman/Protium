@@ -10,6 +10,18 @@ namespace Protium{
 
     namespace Allocation{
 
+        /*! \class SmallObjectBase
+            \brief Base class for small objects to be used in the small object allocation scheme 
+            \param ThreadPolicy Include threading policy here from ThreadingPolicy.h
+            \param chunkSize defines the size of chunks
+            \param maxSmallObjectSize objects exceeding this size will default to standard alloction (new or malloc)
+            \param objectAlignSize used by allocator for default object alignment
+            \param LifetimePolicy Determines the lifetime of the allocator singleton from DeletionPolicies.h
+            \param MutexPolicy Determines the mutex type to be used. (see Mutex.h)
+
+            Use as a base class for small objects in order to utilize the SmallObjectAllocator.
+
+        */
         template< template <class, class> class ThreadPolicy,
             std::size_t chunkSize,
             std::size_t maxSmallObjectSize,
@@ -18,6 +30,7 @@ namespace Protium{
             class MutexPolicy>
         class SmallObjectBase{
         public:
+            //! Type of allocator to host the allocator singleton
             typedef Protium::Allocation::SmallObjectAllocator< ThreadPolicy, chunkSize,
                 maxSmallObjectSize, objectAlignSize, LifetimePolicy > ObjAllocator;
         
@@ -100,6 +113,12 @@ namespace Protium{
             inline ~SmallObjectBase() {}
         };
 
+
+        /*! \class SmallObject
+            \brief Inherit from this in order to benefit from small object allocation.
+
+            Base class for small objects less than 256 bytes in size. If object is a valueobject, use SmallValueObject instead.
+        */
         template
         <
             template <class, class> class ThreadingModel = Protium::Threads::InSingleThread,
@@ -121,8 +140,15 @@ namespace Protium{
         private:
             SmallObject( const SmallObject & );
             SmallObject & operator = ( const SmallObject & );
-        };
+        }; //end class small object
 
+
+        /*! \class SmallValueObject
+            \brief Inherit from this in order to benefit from small object allocation.
+            
+
+            Base class for small objects less than 256 bytes in size. If object is a valueobject, use SmallValueObject instead.
+        */
         template< template <class, class> class ThreadingModel = Protium::Threads::InSingleThread,
             std::size_t chunkSize = 4096,
             std::size_t maxSmallObjectSize = 256,
@@ -140,6 +166,10 @@ namespace Protium{
             inline ~SmallValueObject() {}
         }; // end class SmallValueObject
 
+        //! A default small obect type.
+        /*!
+            \warning Do not use if you are using as a base class for a singleton object
+        */
         typedef SmallObject<> DefaultSmallObject;
         typedef SmallValueObject<> DefaultSmallValueObject;
 

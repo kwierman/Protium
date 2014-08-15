@@ -25,12 +25,10 @@ namespace Protium{
 				virtual ~SignalCatchingImplementation(){}
 			public:
 				void Setup(){
-					std::cout<<"IN SETUP!!!!!!!!!!!!!!!!!!!!!!!!!!"<<std::endl;
 					signal(SIGINT, Protium::Private::signal_callback_handler);
 					signal(SIGABRT, Protium::Private::signal_callback_handler);
 					signal(SIGBUS , Protium::Private::signal_callback_handler);
 					signal(SIGSEGV , Protium::Private::signal_callback_handler);
-					std::cout<<"IN SETUP!!!!!!!"<<std::endl;
 				}
 			private:
 	    	    SignalCatchingImplementation( const SignalCatchingImplementation & );
@@ -41,7 +39,7 @@ namespace Protium{
 		class SignalCatcher: public SignalCatchingImplementation{
 
 	        typedef Protium::Singleton::Singleton< SignalCatcher, Protium::Singleton::CreateStatic,
-	            Protium::Singleton::DeleteLast, Protium::Threads::InSingleThread > SignalCatcherSingleton;
+	            Protium::Singleton::DeleteLast, Protium::Threads::StaticLocked > SignalCatcherSingleton;
 
 	    public:
 

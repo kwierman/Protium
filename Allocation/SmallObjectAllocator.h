@@ -15,8 +15,7 @@ namespace Protium{
 
         class FixedAllocator;
 
-		/** Manages a pool of fixed allocators
-		**/
+		//! Manages a pool of fixed allocators
 	    class SmallObjectAllocatorImplementation{
 	    private:
 	    	Protium::Allocation::FixedAllocator* fPool;
@@ -39,7 +38,7 @@ namespace Protium{
     	    SmallObjectAllocatorImplementation & operator = ( const SmallObjectAllocatorImplementation & );
     };
 
-
+    //! Singleton small object allocator
     template < template <class, class> class ThreadingModel = Protium::Threads::InSingleThread,
         std::size_t chunkSize = 4096,
         std::size_t maxSmallObjectSize = 256,

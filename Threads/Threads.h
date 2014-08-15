@@ -3,11 +3,8 @@
 
 namespace Protium{
 
-	namespace Threads{
-
-
-
-	}
+	//! Encapsulates threading policies and objects
+	namespace Threads{}
 }
 
 

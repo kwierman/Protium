@@ -9,6 +9,9 @@ namespace Protium{
 
 	namespace Design{
 
+		//! Defines a dimensionful quantities
+		/** \note Does not define a unit-ful quantity, unless SI units are defined
+		**/
 		template <typename T, class Dimensions>
 		struct Quantity{
 		    explicit Quantity(T x) : fValue(x) {}
@@ -25,23 +28,30 @@ namespace Protium{
 		    T fValue;
 		};
 
+		//! Defines dimensionful quantity addition
+		/** \note Undefined for unequal dimensions
+		**/
 		template <class T, class D>
 		Quantity<T,D> operator+(Quantity<T,D> x, Quantity<T,D> y) {
 			return Quantity<T,D>(x.Value() + y.Value());
 		}
 
+		//! Defines dimensionful quantity subtraction
+		/** \note Undefined for unequal dimensions
+		**/
 		template <class T, class D>
 		Quantity<T,D> operator-(Quantity<T,D> x, Quantity<T,D> y) {
 			return Quantity<T,D>(x.Value() - y.Value());
 		}
 
+		//! Defines dimensionful multiplication
 		template <class T, class D1, class D2>
 		Quantity< T, typename DimensionAdd<D1,D2>::Type >  operator*(Quantity<T,D1> x, Quantity<T,D2> y) {
 	    	typedef typename DimensionAdd<D1,D2>::Type dim;
 	    	return Quantity<T,dim>( x.Value() * y.Value() );
 		}
 
-		//Division
+		//! Defines dimensionful Division
 		template <class T, class D1, class D2>
 		Quantity< T, typename DimensionSubtract<D1,D2>::Type > operator/(Quantity<T,D1> x, Quantity<T,D2> y) {
 	    	typedef typename DimensionSubtract<D1,D2>::Type dim;

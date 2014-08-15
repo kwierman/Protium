@@ -1,3 +1,7 @@
+/*!
+	\file LinearAlgebra.h
+	\brief Includes and namespace definition for linear algebra objects
+ */
 #ifndef Protium_LinearAlgebra_h_
 #define Protium_LinearAlgebra_h_
 

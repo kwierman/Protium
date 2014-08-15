@@ -6,7 +6,7 @@
 	\section intro Introduction
 
 	This is the placeholder simulation for Neutron Flux at low depths (NeutronFlux, or NeuFlux for short).
-	The prupose of this software is to 
+	The purpose of this software is to 
 	
 	\section downloading Downloading Software
 
@@ -41,22 +41,35 @@
 	-  CMake
 		- <a href="http://www.cmake.org/">CMake Website</a>
 		- Required for building the program
+	- pthread.h
+	    - Required for threading models
+	    - Available on most Unix platforms
 
 
 	---
 
 	\section building Building
 
-	In order to generate build files for the program, issue the following command:
+	Protium prohibits building within the directory tree. Therefore the following definitions will be made:
+
+	- <source_directory>
+	    - Where the source is located
+	- <build_directory>
+	    - Where the build will be located
+	    - It's advised that for naming conventions, that this be similar to the source directory
+
+	In order to generate build files for the program, issue the following command(s):
 
 	~~~~~~~~~~~~~~~~~~~~~
-	cmake <directory where code resides>
+	cd <build_directory>
+	cmake <source_directory>
 	~~~~~~~~~~~~~~~~~~~~~
 
 	Or, to use the graphical editor:
 
 	~~~~~~~~~~~~~~~~~~~~~
-	ccmake <directorys where the code resides>
+	cd <build_directory>
+	ccmake <source_directory>
 	~~~~~~~~~~~~~~~~~~~~~
 	
 	If configuring cmake and generating build files 
@@ -71,13 +84,16 @@
 	make install
 	~~~~~~~~~~~~~~~~~~~~~
 
-	Make sure to set `LD_LIBRARY_PATH` or, on Darwin, `DYLD_LIBRARY_PATH` to the location of the libraries
+	Make sure to set `LD_LIBRARY_PATH` or, on Darwin, `DYLD_LIBRARY_PATH` to the location of the libraries.
+	This will be automated in the future.
 
 	\subsection windows_build Windows
 
 	Open the build solution in windows by either clicking on `Protium.vcproj`, or opening 'Visual Studio' and open the solution 'Protium'.
 
 	Once Visual Studio has ompleted parsing the documents, navigate `Solution->Build->Release` or hit the green arrow.
+
+	\warning The Windows build solution will not be included in the source tree until the threading model can include windows threads.
 
 	---
 	\section running Running
@@ -94,29 +110,70 @@
 
 	\section code_hierarchy Code Hierarchy
 
-	All necessary headers are included in the top-down file, Protium.h .
+	Protium is designed to be a <b>VERY</b> modular library. Every module will have a header for the full library located in the directory.
+
+	\note Example:
+	~~~~~~~~~~~~~~~~~~~~~
+	#include <Protium/LinearAlgebra/LinearAlgebra.h>
+	~~~~~~~~~~~~~~~~~~~~~	
+
+	All headers are included in the top-down file, Protium.h .
+
+	The following modules are part of the Protium libraries
+
+	 - Design
+	 	- Provides design technologies. Specifically, assertions, dimensionful quantities and types
+	 	- Dependencies:
+	 		- None
+	 - Threads
+	 	- Provides threading technologies
+	 	- Explicit Dependencies:
+	 		- Design
+	 - Singleton
+	 	- Defines singleton utilities such as creation and deletion policies
+	 	- Explicit Dependencies:
+	 		- Threads
+	 		- Design
+	 - Utilites
+	 	- Miscellanious utility functions
+	 	- Explicit Dependencies:
+	 		- Singleton
+	 - Allocation
+	 	- Provides base classes for small object allocation
+	 	- Explicit Dependencies:
+	 		- Threads
+	 		- Design
+	 		- Singleton
+	 - Linear Algebra
+	 	- Provides matrix and vector classes to perform linear algebra
+	 	- Explicit Dependencies:
+	 		- Allocation
+	 - Containers
+	 	- Provides histogram and function classes for data storage
+	 	- Explicit Dependencies:
+	 		- Allocation
+
 
 	---
 
 	\section contact Contact
 
-	Please contact Kevin Wierman at kwierman@email.unc.edu with issues, flaws or questions
+	Please contact Kevin Wierman at kwierman@gmail.com with issues, flaws or questions
 */
 
-/** \file Protium.h
+/*! \file Protium.h
 	\author Kevin Wierman
 	\email kwierman@gmail.com
 	\breif Umbrella include file for all of the protium libraries
-**/
+*/
 #ifndef Protium_h_
 #define Protium_h_
 
 #include "Protium/Design/Assert.h"
-
-
 #include "Protium/LinearAlgebra/LinearAlgebra.h"
 
-//! Umbrella namespace for Protium Libraries
+//! Encapsulates all Protium Modules
 namespace Protium{}
 
-#endif
+#endif //File Guardian
+
