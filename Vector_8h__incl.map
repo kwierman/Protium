@@ -1,0 +1,8 @@
+<map id="Vector.h" name="Vector.h">
+<area shape="rect" id="node2" href="$SmallObject_8h.html" title="Protium/Allocation\l/SmallObject.h" alt="" coords="595,81,723,122"/>
+<area shape="rect" id="node6" href="$Assert_8h.html" title="Protium/Design/Assert.h" alt="" coords="833,517,992,544"/>
+<area shape="rect" id="node3" href="$SmallObjectAllocator_8h.html" title="Protium/Allocation\l/SmallObjectAllocator.h" alt="" coords="478,262,636,303"/>
+<area shape="rect" id="node4" href="$ThreadingPolicy_8h.html" title="Protium/Threads/Threading\lPolicy.h" alt="" coords="5,353,184,394"/>
+<area shape="rect" id="node15" href="$STLAdapter_8h.html" title="Protium/Allocation\l/STLAdapter.h" alt="" coords="595,171,723,213"/>
+<area shape="rect" id="node5" href="$Mutex_8h.html" title="Defines mutexes and policies to be used by threaded objects. " alt="" coords="138,443,304,469"/>
+</map>

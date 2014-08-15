@@ -1,0 +1,4 @@
+var structProtium_1_1Design_1_1IndexOf_3_01Typelist_3_01T_00_01Tail_01_4_00_01T_01_4 =
+[
+    [ "value", "structProtium_1_1Design_1_1IndexOf_3_01Typelist_3_01T_00_01Tail_01_4_00_01T_01_4.html#a295e635a45869fd806d80a7ada51c01ca40b9f2779e018542dbca8bb7c704d1c5", null ]
+];

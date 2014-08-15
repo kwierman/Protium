@@ -1,0 +1,4 @@
+<map id="Protium::LinearAlgebra::Vector&lt; T, n &gt;" name="Protium::LinearAlgebra::Vector&lt; T, n &gt;">
+<area shape="rect" id="node2" href="$classProtium_1_1Allocation_1_1SmallObject.html" title="Inherit from this in order to benefit from small object allocation. " alt="" coords="289,27,429,69"/>
+<area shape="rect" id="node3" href="$classProtium_1_1Allocation_1_1SmallObjectBase.html" title="Protium::Allocation\l::SmallObjectBase\&lt; Threading\lModel, chunkSize, maxSmallObject\lSize, objectAlignSize, LifetimePolicy,\l MutexPolicy \&gt;" alt="" coords="5,5,240,91"/>
+</map>

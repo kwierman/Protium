@@ -8,6 +8,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -40,6 +47,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -59,12 +68,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('index.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -75,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">The <a class="el" href="namespaceProtium.html" title="Umbrella namespace for Protium Libraries. ">Protium</a> Libraries </div>  </div>
+<div class="title">The <a class="el" href="namespaceProtium.html" title="Encapsulates all Protium Modules. ">Protium</a> Libraries </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
@@ -93,7 +116,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="textblock"><h1><a class="anchor" id="intro"></a>
 Introduction</h1>
-<p>This is the placeholder simulation for Neutron Flux at low depths (NeutronFlux, or NeuFlux for short). The prupose of this software is to</p>
+<p>This is the placeholder simulation for Neutron Flux at low depths (NeutronFlux, or NeuFlux for short). The purpose of this software is to</p>
 <h1><a class="anchor" id="downloading"></a>
 Downloading Software</h1>
 <p>This software is hosted on <a href="https://github.com/">GitHub</a>. The URL for the repository is: <a href="https://github.com/kwierman/Protium">https://github.com/kwierman/Protium</a> .</p>
@@ -113,45 +136,133 @@ Dependencies</h1>
 <li>Required for building the program</li>
 </ul>
 </li>
+<li>pthread.h<ul>
+<li>Required for threading models</li>
+<li>Available on most Unix platforms</li>
+</ul>
+</li>
 </ul>
 <hr/>
 <h1><a class="anchor" id="building"></a>
 Building</h1>
-<p>In order to generate build files for the program, issue the following command:</p>
-<div class="fragment"><div class="line">cmake &lt;directory where code resides&gt;</div>
+<p><a class="el" href="namespaceProtium.html" title="Encapsulates all Protium Modules. ">Protium</a> prohibits building within the directory tree. Therefore the following definitions will be made:</p>
+<ul>
+<li>&lt;source_directory&gt;<ul>
+<li>Where the source is located</li>
+</ul>
+</li>
+<li>&lt;build_directory&gt;<ul>
+<li>Where the build will be located</li>
+<li>It's advised that for naming conventions, that this be similar to the source directory</li>
+</ul>
+</li>
+</ul>
+<p>In order to generate build files for the program, issue the following command(s):</p>
+<div class="fragment"><div class="line">cd &lt;build_directory&gt;</div>
+<div class="line">cmake &lt;source_directory&gt;</div>
 </div><!-- fragment --><p>Or, to use the graphical editor:</p>
-<div class="fragment"><div class="line">ccmake &lt;directorys where the code resides&gt;</div>
+<div class="fragment"><div class="line">cd &lt;build_directory&gt;</div>
+<div class="line">ccmake &lt;source_directory&gt;</div>
 </div><!-- fragment --><p>If configuring cmake and generating build files</p>
 <h2><a class="anchor" id="nix_build"></a>
 Unix-Like Systems</h2>
 <p>This includes MacOSX (Darwin). The commands to issue at this point are:</p>
 <div class="fragment"><div class="line">make</div>
 <div class="line">make install</div>
-</div><!-- fragment --><p>Make sure to set <code>LD_LIBRARY_PATH</code> or, on Darwin, <code>DYLD_LIBRARY_PATH</code> to the location of the libraries</p>
+</div><!-- fragment --><p>Make sure to set <code>LD_LIBRARY_PATH</code> or, on Darwin, <code>DYLD_LIBRARY_PATH</code> to the location of the libraries. This will be automated in the future.</p>
 <h2><a class="anchor" id="windows_build"></a>
 Windows</h2>
-<p>Open the build solution in windows by either clicking on <code>Protium.vcproj</code>, or opening 'Visual Studio' and open the solution '<a class="el" href="namespaceProtium.html" title="Umbrella namespace for Protium Libraries. ">Protium</a>'.</p>
-<p>Once Visual Studio has ompleted parsing the documents, navigate <code>Solution-&gt;Build-&gt;Release</code> or hit the green arrow. </p>
-<hr/>
- <h1><a class="anchor" id="running"></a>
+<p>Open the build solution in windows by either clicking on <code>Protium.vcproj</code>, or opening 'Visual Studio' and open the solution '<a class="el" href="namespaceProtium.html" title="Encapsulates all Protium Modules. ">Protium</a>'.</p>
+<p>Once Visual Studio has ompleted parsing the documents, navigate <code>Solution-&gt;Build-&gt;Release</code> or hit the green arrow.</p>
+<dl class="section warning"><dt>Warning</dt><dd>The Windows build solution will not be included in the source tree until the threading model can include windows threads. <hr/>
+ </dd></dl>
+<h1><a class="anchor" id="running"></a>
 Running</h1>
-<p><a class="el" href="namespaceProtium.html" title="Umbrella namespace for Protium Libraries. ">Protium</a> will include unit tests</p>
+<p><a class="el" href="namespaceProtium.html" title="Encapsulates all Protium Modules. ">Protium</a> will include unit tests</p>
 <div class="fragment"><div class="line">&lt;name of exec&gt; &lt;optional path to macro&gt;</div>
 </div><!-- fragment --><p>The source code for the main executables is found in the Applications/ folder </p>
 <hr/>
 <h1><a class="anchor" id="code_hierarchy"></a>
 Code Hierarchy</h1>
-<p>All necessary headers are included in the top-down file, <a class="el" href="Protium_8h_source.html">Protium.h</a> . </p>
+<p><a class="el" href="namespaceProtium.html" title="Encapsulates all Protium Modules. ">Protium</a> is designed to be a <b>VERY</b> modular library. Every module will have a header for the full library located in the directory.</p>
+<dl class="section note"><dt>Note</dt><dd>Example: <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="LinearAlgebra_8h.html">Protium/LinearAlgebra/LinearAlgebra.h</a>&gt;</span></div>
+</div><!-- fragment --></dd></dl>
+<p>All headers are included in the top-down file, <a class="el" href="Protium_8h.html">Protium.h</a> .</p>
+<p>The following modules are part of the <a class="el" href="namespaceProtium.html" title="Encapsulates all Protium Modules. ">Protium</a> libraries</p>
+<ul>
+<li>Design<ul>
+<li>Provides design technologies. Specifically, assertions, dimensionful quantities and types</li>
+<li>Dependencies:<ul>
+<li>None</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Threads<ul>
+<li>Provides threading technologies</li>
+<li>Explicit Dependencies:<ul>
+<li>Design</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Singleton<ul>
+<li>Defines singleton utilities such as creation and deletion policies</li>
+<li>Explicit Dependencies:<ul>
+<li>Threads</li>
+<li>Design</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Utilites<ul>
+<li>Miscellanious utility functions</li>
+<li>Explicit Dependencies:<ul>
+<li>Singleton</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Allocation<ul>
+<li>Provides base classes for small object allocation</li>
+<li>Explicit Dependencies:<ul>
+<li>Threads</li>
+<li>Design</li>
+<li>Singleton</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Linear Algebra<ul>
+<li>Provides matrix and vector classes to perform linear algebra</li>
+<li>Explicit Dependencies:<ul>
+<li>Allocation</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Containers<ul>
+<li>Provides histogram and function classes for data storage</li>
+<li>Explicit Dependencies:<ul>
+<li>Allocation</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <hr/>
 <h1><a class="anchor" id="contact"></a>
 Contact</h1>
-<p>Please contact Kevin Wierman at <a href="#" onclick="location.href='mai'+'lto:'+'kwi'+'er'+'man'+'@e'+'mai'+'l.'+'unc'+'.e'+'du'; return false;">kwier<span style="display: none;">.nosp@m.</span>man@<span style="display: none;">.nosp@m.</span>email<span style="display: none;">.nosp@m.</span>.unc<span style="display: none;">.nosp@m.</span>.edu</a> with issues, flaws or questions </p>
+<p>Please contact Kevin Wierman at <a href="#" onclick="location.href='mai'+'lto:'+'kwi'+'er'+'man'+'@g'+'mai'+'l.'+'com'; return false;">kwier<span style="display: none;">.nosp@m.</span>man@<span style="display: none;">.nosp@m.</span>gmail<span style="display: none;">.nosp@m.</span>.com</a> with issues, flaws or questions </p>
 </div></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 23 2014 13:30:08 for Protium by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Fri Aug 15 2014 12:59:50 for Protium by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

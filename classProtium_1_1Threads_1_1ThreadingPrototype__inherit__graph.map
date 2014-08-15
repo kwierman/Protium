@@ -1,0 +1,5 @@
+<map id="Protium::Threads::ThreadingPrototype&lt; Host &gt;" name="Protium::Threads::ThreadingPrototype&lt; Host &gt;">
+<area shape="rect" id="node2" href="$classProtium_1_1Threads_1_1InSingleThread.html" title="Use to specify non&#45;thread safe classes. " alt="" coords="239,5,411,46"/>
+<area shape="rect" id="node3" href="$classProtium_1_1Threads_1_1InstanceLocked.html" title="Use to specify instance&#45;locked items. " alt="" coords="238,70,413,111"/>
+<area shape="rect" id="node4" href="$classProtium_1_1Threads_1_1StaticLocked.html" title="Use to specify objects which lock by class. " alt="" coords="246,135,405,177"/>
+</map>
