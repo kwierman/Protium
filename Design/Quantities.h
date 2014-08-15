@@ -2,8 +2,7 @@
 #define Protium_Quantities_h_ 
 
 #include "Protium/Design/Assert.h"
-#include "Protium/Design/"
-#include "Dimensions.h"
+#include "Protium/Design/Dimensions.h"
 
 namespace Protium{
 

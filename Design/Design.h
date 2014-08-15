@@ -3,7 +3,6 @@
 
 #include "Protium/Design/Assert.h"
 #include "Protium/Design/Dimensions.h"
-#include "Protium/Design/HierarchyGenerator.h"
 #include "Protium/Design/Quantities.h"
 #include "Protium/Design/RefToValue.h"
 #include "Protium/Design/Types.h"

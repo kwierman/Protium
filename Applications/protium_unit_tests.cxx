@@ -1,10 +1,11 @@
-//#include "Protium/Collections/Histogram.h"
-//#include "Protium/Collections/Function.h"
-#include "Protium/LinearAlgebra/LinearAlgebra.h"
-//#include "Protium/LinearAlgebra/Matrix.h"
-#include "Protium/Math/MathFunctions.h"
+/*! \file protium_init_tets.cxx
+	\brief Home-brew unit tests. To be replaces by google tests in the future.
+**/
+
 #include "Protium/Utilities/SignalCatching.h"
+#include "Protium/LinearAlgebra/Matrix.h"
 #include "Protium/Containers/Histogram.h"
+#include "Protium/Math/MathFunctions.h"
 
 #include <iostream>
 #include <iomanip>

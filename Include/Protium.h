@@ -89,11 +89,12 @@
 
 	\subsection windows_build Windows
 
-	Open the build solution in windows by either clicking on `Protium.vcproj`, or opening 'Visual Studio' and open the solution 'Protium'.
+	<!--Open the build solution in windows by either clicking on `Protium.vcproj`, or opening 'Visual Studio' and open the solution 'Protium'.
 
-	Once Visual Studio has ompleted parsing the documents, navigate `Solution->Build->Release` or hit the green arrow.
+	Once Visual Studio has completed parsing the documents, navigate `Solution->Build->Release` or hit the green arrow.
+	-->
 
-	\warning The Windows build solution will not be included in the source tree until the threading model can include windows threads.
+	\warning There are no plans to make Protium Windows-compatable.
 
 	---
 	\section running Running
@@ -169,8 +170,13 @@
 #ifndef Protium_h_
 #define Protium_h_
 
-#include "Protium/Design/Assert.h"
+#include "Protium/Design/Design.h"
+#include "Protium/Threads/Threads.h"
+#include "Protium/Singleton/Singleton.h"
+#include "Protium/Utilities/SignalCatching.h"
+#include "Protium/Allocation/Allocation.h"
 #include "Protium/LinearAlgebra/LinearAlgebra.h"
+
 
 //! Encapsulates all Protium Modules
 namespace Protium{}

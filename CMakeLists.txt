@@ -27,7 +27,7 @@ if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "Install path prefix, prepended onto install directories." FORCE)
 endif()
 #----------------------------------------------------------------------------
-#export(package Protium)
+#
 #file(RELATIVE_PATH REL_INCLUDE_DIR "${INSTALL_CMAKE_DIR}" "${INSTALL_INCLUDE_DIR}")
 #set(CONF_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}" "${PROJECT_BINARY_DIR}")
 #configure_file(ProtiumConfig.cmake.in "${PROJECT_BINARY_DIR}/ProtiumConfig.cmake" @ONLY)
@@ -45,6 +45,8 @@ add_subdirectory(Math)
 add_subdirectory(LinearAlgebra)
 add_subdirectory(Containers)
 add_subdirectory(Applications)
+#THIS ONE ALWAYS COMES LAST
+add_subdirectory(Include)
 #----------------------------------------------------------------------------
 #Add in Documentation
 add_subdirectory(Documentation)
@@ -58,3 +60,5 @@ configure_file(
 add_custom_target(uninstall
     COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake)
 #----------------------------------------------------------------------------
+#Export everything just made
+install(EXPORT ProtiumConfig DESTINATION lib/Protium)

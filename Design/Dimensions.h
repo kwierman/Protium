@@ -1,7 +1,7 @@
 #ifndef Protium_Dimensions_h
 #define Protium_Dimensions_h
 
-#include "Types.h"
+#include "Protium/Design/Types.h"
 
 namespace Protium{
 	namespace Design{

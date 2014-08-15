@@ -4,7 +4,7 @@ file(GLOB module_headers *.h)
 
 #Make the library
 add_library(ProtiumMath SHARED ${module_sources} ${module_headers})
-install(TARGETS ProtiumMath DESTINATION lib)
+install(TARGETS ProtiumMath DESTINATION lib EXPORT ProtiumConfig)
 
 #Install Headers
 install(FILES ${module_headers} DESTINATION include/Protium/Math)
