@@ -8,5 +8,6 @@ var searchData=
   ['const_5fhostref',['const_hostRef',['../classProtium_1_1Allocation_1_1STLAdapter.html#adbad2b73ae8528747f2756266e9aeff2',1,'Protium::Allocation::STLAdapter']]],
   ['const_5fpointer',['const_pointer',['../classProtium_1_1Allocation_1_1STLAdapter.html#ac8b303cbdfda70a639a84ce0a1df6653',1,'Protium::Allocation::STLAdapter']]],
   ['const_5freference',['const_reference',['../classProtium_1_1Allocation_1_1STLAdapter.html#ad30ecedf125829418d271a19317123ab',1,'Protium::Allocation::STLAdapter']]],
+  ['container',['Container',['../classProtium_1_1Singleton_1_1DeleteComposite_1_1Composite.html#a2d97ce988f5a844b76a08b330d6d669c',1,'Protium::Singleton::DeleteComposite::Composite']]],
   ['current',['current',['../namespaceProtium_1_1Design.html#ac02c7e61e0b800a8c296c4c15d49ba5c',1,'Protium::Design']]]
 ];

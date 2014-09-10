@@ -6,5 +6,6 @@ var searchData=
   ['elevenvector',['ElevenVector',['../namespaceProtium_1_1LinearAlgebra.html#a0d716a41a9c117633bcdcfe6e10400b6',1,'Protium::LinearAlgebra']]],
   ['emptychunk_5f',['emptyChunk_',['../classProtium_1_1Allocation_1_1FixedAllocator.html#acc10a7f7ec7130f7a49abc249ba7c0cd',1,'Protium::Allocation::FixedAllocator']]],
   ['emptytype',['EmptyType',['../classProtium_1_1Design_1_1EmptyType.html',1,'Protium::Design']]],
-  ['energy',['energy',['../namespaceProtium_1_1Design.html#aa18a139dfb4b4572578818a9a667de6d',1,'Protium::Design::energy()'],['../namespaceProtium.html#a087b6b9049ae26aabe7e76563103b6ab',1,'Protium::Energy()']]]
+  ['energy',['energy',['../namespaceProtium_1_1Design.html#aa18a139dfb4b4572578818a9a667de6d',1,'Protium::Design::energy()'],['../namespaceProtium.html#a087b6b9049ae26aabe7e76563103b6ab',1,'Protium::Energy()']]],
+  ['exit_5ffunction_5fpointer_5ftype',['exit_function_pointer_type',['../namespaceProtium_1_1Singleton.html#aa22eb6898d78c9b57833c1d39fbb3b74',1,'Protium::Singleton']]]
 ];

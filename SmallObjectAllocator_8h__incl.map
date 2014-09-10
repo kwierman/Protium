@@ -1,5 +1,8 @@
 <map id="SmallObjectAllocator.h" name="SmallObjectAllocator.h">
-<area shape="rect" id="node2" href="$ThreadingPolicy_8h.html" title="Protium/Threads/Threading\lPolicy.h" alt="" coords="75,81,253,122"/>
-<area shape="rect" id="node3" href="$Mutex_8h.html" title="Defines mutexes and policies to be used by threaded objects. " alt="" coords="143,171,309,197"/>
-<area shape="rect" id="node4" href="$Assert_8h.html" title="Protium/Design/Assert.h" alt="" coords="5,245,164,272"/>
+<area shape="rect" id="node2" href="$ThreadingPolicy_8h.html" title="Protium/Threads/Threading\lPolicy.h" alt="" coords="153,155,332,197"/>
+<area shape="rect" id="node3" href="$Mutex_8h.html" title="Defines mutexes and policies to be used by threaded objects. " alt="" coords="143,245,309,272"/>
+<area shape="rect" id="node9" href="$DeletionPolicies_8h.html" title="Protium/Singleton/Deletion\lPolicies.h" alt="" coords="407,155,583,197"/>
+<area shape="rect" id="node14" href="$CreationPolicies_8h.html" title="Protium/Singleton/Creation\lPolicies.h" alt="" coords="607,155,784,197"/>
+<area shape="rect" id="node16" href="$Singleton_8h.html" title="Protium/Singleton/Singleton.h" alt="" coords="277,80,469,107"/>
+<area shape="rect" id="node4" href="$Assert_8h.html" title="Protium/Design/Assert.h" alt="" coords="5,320,164,347"/>
 </map>

@@ -3,10 +3,13 @@ var searchData=
   ['allocation',['Allocation',['../namespaceProtium_1_1Allocation.html',1,'Protium']]],
   ['design',['Design',['../namespaceProtium_1_1Design.html',1,'Protium']]],
   ['linearalgebra',['LinearAlgebra',['../namespaceProtium_1_1LinearAlgebra.html',1,'Protium']]],
+  ['pmember_5f',['pMember_',['../unionProtium_1_1Singleton_1_1CreateStatic_1_1MaxAlign.html#a1dcf34c2310584035055331968f1de78',1,'Protium::Singleton::CreateStatic::MaxAlign']]],
+  ['pmemberfn_5f',['pMemberFn_',['../unionProtium_1_1Singleton_1_1CreateStatic_1_1MaxAlign.html#afa541ceb051921208c64ee9a1d012a3d',1,'Protium::Singleton::CreateStatic::MaxAlign']]],
   ['pointer',['pointer',['../classProtium_1_1Allocation_1_1STLAdapter.html#afba9a8981de0c9eb174f5a53c8b1f6bf',1,'Protium::Allocation::STLAdapter']]],
   ['printhistogram',['PrintHistogram',['../protium__unit__tests_8cxx.html#a5644cbd462530d2908350f489278ad1f',1,'protium_unit_tests.cxx']]],
   ['printmatrix',['PrintMatrix',['../protium__unit__tests_8cxx.html#a2acfec5612b7d3f9b2fffdab2d3c2da2',1,'protium_unit_tests.cxx']]],
   ['printvector',['PrintVector',['../protium__unit__tests_8cxx.html#a32ee88b04ae6944832b94bf7dd4d8208',1,'protium_unit_tests.cxx']]],
+  ['private',['Private',['../namespaceProtium_1_1Private.html',1,'Protium']]],
   ['protium',['Protium',['../namespaceProtium.html',1,'']]],
   ['protium_2eh',['Protium.h',['../Protium_8h.html',1,'']]],
   ['protium_5fdebug',['PROTIUM_DEBUG',['../Design_8h.html#a96aecc159070e7cf8e0c87e1b42835a3',1,'Design.h']]],
@@ -14,5 +17,8 @@ var searchData=
   ['protium_5fstatic_5fassert',['PROTIUM_STATIC_ASSERT',['../Assert_8h.html#a8ee7ae9a07572e6f79960995a44a595d',1,'Assert.h']]],
   ['protium_5fthread_5ftests_2ecxx',['protium_thread_tests.cxx',['../protium__thread__tests_8cxx.html',1,'']]],
   ['protium_5funit_5ftests_2ecxx',['protium_unit_tests.cxx',['../protium__unit__tests_8cxx.html',1,'']]],
-  ['threads',['Threads',['../namespaceProtium_1_1Threads.html',1,'Protium']]]
+  ['ptrinstancetype',['PtrInstanceType',['../classProtium_1_1Singleton_1_1Singleton.html#a6d2a9a9d2756db80324fff5eb436f206',1,'Protium::Singleton::Singleton']]],
+  ['singleton',['Singleton',['../namespaceProtium_1_1Singleton.html',1,'Protium']]],
+  ['threads',['Threads',['../namespaceProtium_1_1Threads.html',1,'Protium']]],
+  ['utilities',['Utilities',['../namespaceProtium_1_1Utilities.html',1,'Protium']]]
 ];

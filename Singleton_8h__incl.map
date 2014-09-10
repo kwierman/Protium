@@ -1,0 +1,7 @@
+<map id="Singleton.h" name="Singleton.h">
+<area shape="rect" id="node2" href="$CreationPolicies_8h.html" title="Protium/Singleton/Creation\lPolicies.h" alt="" coords="5,81,181,122"/>
+<area shape="rect" id="node4" href="$DeletionPolicies_8h.html" title="Protium/Singleton/Deletion\lPolicies.h" alt="" coords="207,81,383,122"/>
+<area shape="rect" id="node9" href="$ThreadingPolicy_8h.html" title="Protium/Threads/Threading\lPolicy.h" alt="" coords="407,81,585,122"/>
+<area shape="rect" id="node10" href="$Mutex_8h.html" title="Defines mutexes and policies to be used by threaded objects. " alt="" coords="529,171,695,197"/>
+<area shape="rect" id="node11" href="$Assert_8h.html" title="Protium/Design/Assert.h" alt="" coords="391,245,549,272"/>
+</map>

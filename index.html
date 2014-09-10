@@ -116,7 +116,26 @@ $(document).ready(function(){initNavTree('index.html','');});
 </div>
 <div class="textblock"><h1><a class="anchor" id="intro"></a>
 Introduction</h1>
-<p>This is the placeholder simulation for Neutron Flux at low depths (NeutronFlux, or NeuFlux for short). The purpose of this software is to</p>
+<p>The Tritium APIs are designed to provide a highly modular approach to cross-machine analysis and simulation tasks. The API's are split into 3 levels to isolate functionality between systems to avoid a "Do-All" API.</p>
+<p>The three API's are:</p>
+<ul>
+<li><a class="el" href="namespaceProtium.html" title="Encapsulates all Protium Modules. ">Protium</a><ul>
+<li>Base framework and primitive functionality.</li>
+<li>Designed to run on low-level systems.</li>
+</ul>
+</li>
+<li>Deuterium<ul>
+<li>Networking and Filesystem functionality. Future scripting functionality.</li>
+<li>Designed to run on host-side machines.</li>
+</ul>
+</li>
+<li>Tritium<ul>
+<li>Graphics and advanced mathematical functionality.</li>
+<li>Designed to run on client machines.</li>
+<li></li>
+</ul>
+</li>
+</ul>
 <h1><a class="anchor" id="downloading"></a>
 Downloading Software</h1>
 <p>This software is hosted on <a href="https://github.com/">GitHub</a>. The URL for the repository is: <a href="https://github.com/kwierman/Protium">https://github.com/kwierman/Protium</a> .</p>
@@ -172,9 +191,7 @@ Unix-Like Systems</h2>
 </div><!-- fragment --><p>Make sure to set <code>LD_LIBRARY_PATH</code> or, on Darwin, <code>DYLD_LIBRARY_PATH</code> to the location of the libraries. This will be automated in the future.</p>
 <h2><a class="anchor" id="windows_build"></a>
 Windows</h2>
-<p>Open the build solution in windows by either clicking on <code>Protium.vcproj</code>, or opening 'Visual Studio' and open the solution '<a class="el" href="namespaceProtium.html" title="Encapsulates all Protium Modules. ">Protium</a>'.</p>
-<p>Once Visual Studio has ompleted parsing the documents, navigate <code>Solution-&gt;Build-&gt;Release</code> or hit the green arrow.</p>
-<dl class="section warning"><dt>Warning</dt><dd>The Windows build solution will not be included in the source tree until the threading model can include windows threads. <hr/>
+<dl class="section warning"><dt>Warning</dt><dd>There are no plans to make <a class="el" href="namespaceProtium.html" title="Encapsulates all Protium Modules. ">Protium</a> Windows-compatable. <hr/>
  </dd></dl>
 <h1><a class="anchor" id="running"></a>
 Running</h1>
@@ -259,7 +276,7 @@ Contact</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Aug 15 2014 12:59:50 for Protium by
+    <li class="footer">Generated on Wed Sep 10 2014 05:43:21 for Protium by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

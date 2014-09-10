@@ -8,5 +8,6 @@ var searchData=
   ['force',['force',['../namespaceProtium_1_1Design.html#a9afcca80cab77c2abefe6a9b4b9383c3',1,'Protium::Design']]],
   ['fourmatrix',['FourMatrix',['../namespaceProtium_1_1LinearAlgebra.html#ae788b5909601dda2934eddfd1aa8e636',1,'Protium::LinearAlgebra']]],
   ['fourteenvector',['FourteenVector',['../namespaceProtium_1_1LinearAlgebra.html#a5374a5bdfe8a306c5e2c6c43a8c04cc9',1,'Protium::LinearAlgebra']]],
-  ['fourvector',['FourVector',['../namespaceProtium_1_1LinearAlgebra.html#aab247d2c0b89457b35567d84de4f71f8',1,'Protium::LinearAlgebra']]]
+  ['fourvector',['FourVector',['../namespaceProtium_1_1LinearAlgebra.html#aab247d2c0b89457b35567d84de4f71f8',1,'Protium::LinearAlgebra']]],
+  ['func_5fmap',['func_map',['../classProtium_1_1Design_1_1FunctionMapped.html#a3126b719b65f505337e1683592c94893',1,'Protium::Design::FunctionMapped']]]
 ];

@@ -1,6 +1,5 @@
 <map id="protium_thread_tests.cxx" name="protium_thread_tests.cxx">
-<area shape="rect" id="node2" href="$Mutex_8h.html" title="Defines mutexes and policies to be used by threaded objects. " alt="" coords="143,171,309,197"/>
-<area shape="rect" id="node8" href="$ThreadingPolicy_8h.html" title="Protium/Threads/Threading\lPolicy.h" alt="" coords="173,81,352,122"/>
-<area shape="rect" id="node9" href="$Threads_8h.html" title="Protium/Threads/Threads.h" alt="" coords="427,88,604,115"/>
-<area shape="rect" id="node3" href="$Assert_8h.html" title="Protium/Design/Assert.h" alt="" coords="5,245,164,272"/>
+<area shape="rect" id="node2" href="$ThreadingPolicy_8h.html" title="Protium/Threads/Threading\lPolicy.h" alt="" coords="156,81,335,122"/>
+<area shape="rect" id="node3" href="$Mutex_8h.html" title="Defines mutexes and policies to be used by threaded objects. " alt="" coords="153,171,319,197"/>
+<area shape="rect" id="node4" href="$Assert_8h.html" title="Protium/Design/Assert.h" alt="" coords="5,245,164,272"/>
 </map>

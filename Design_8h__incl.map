@@ -1,7 +1,7 @@
 <map id="Design.h" name="Design.h">
-<area shape="rect" id="node2" href="$Assert_8h.html" title="Protium/Design/Assert.h" alt="" coords="5,171,164,197"/>
-<area shape="rect" id="node5" href="$Dimensions_8h.html" title="Protium/Design/Dimensions.h" alt="" coords="379,171,569,197"/>
-<area shape="rect" id="node6" href="$Types_8h.html" title="Types.h" alt="" coords="321,245,388,272"/>
-<area shape="rect" id="node8" href="$Quantities_8h.html" title="Protium/Design/Quantities.h" alt="" coords="241,88,423,115"/>
-<area shape="rect" id="node10" href="$RefToValue_8h.html" title="Protium/Design/RefToValue.h" alt="" coords="691,88,881,115"/>
+<area shape="rect" id="node2" href="$Assert_8h.html" title="Protium/Design/Assert.h" alt="" coords="5,155,164,181"/>
+<area shape="rect" id="node5" href="$Dimensions_8h.html" title="Protium/Design/Dimensions.h" alt="" coords="190,155,380,181"/>
+<area shape="rect" id="node6" href="$Types_8h.html" title="Protium/Design/Types.h" alt="" coords="279,229,437,256"/>
+<area shape="rect" id="node7" href="$Quantities_8h.html" title="Protium/Design/Quantities.h" alt="" coords="142,80,324,107"/>
+<area shape="rect" id="node8" href="$RefToValue_8h.html" title="Protium/Design/RefToValue.h" alt="" coords="457,80,647,107"/>
 </map>

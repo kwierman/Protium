@@ -1,9 +1,9 @@
 <map id="STLAdapter.h" name="STLAdapter.h">
-<area shape="rect" id="node2" href="$SmallObject_8h.html" title="SmallObject.h" alt="" coords="113,80,215,107"/>
-<area shape="rect" id="node3" href="$Vector_8h.html" title="Vector.h" alt="" coords="77,155,147,181"/>
-<area shape="rect" id="node8" href="$Allocation_8h.html" title="Allocation.h" alt="" coords="171,155,260,181"/>
-<area shape="rect" id="node4" href="$LinearAlgebra_8h.html" title="Includes and namespace definition for linear algebra objects. " alt="" coords="57,304,167,331"/>
-<area shape="rect" id="node7" href="$Matrix_8h.html" title="Matrix.h" alt="" coords="115,229,181,256"/>
-<area shape="rect" id="node5" href="$Protium_8h.html" title="Protium.h" alt="" coords="5,379,81,405"/>
-<area shape="rect" id="node6" href="$protium__unit__tests_8cxx.html" title="protium_unit_tests.cxx" alt="" coords="107,379,255,405"/>
+<area shape="rect" id="node2" href="$SmallObject_8h.html" title="SmallObject.h" alt="" coords="169,80,271,107"/>
+<area shape="rect" id="node3" href="$Vector_8h.html" title="Vector.h" alt="" coords="131,155,200,181"/>
+<area shape="rect" id="node8" href="$Allocation_8h.html" title="Allocation.h" alt="" coords="270,229,359,256"/>
+<area shape="rect" id="node4" href="$LinearAlgebra_8h.html" title="Includes and namespace definition for linear algebra objects. " alt="" coords="5,304,115,331"/>
+<area shape="rect" id="node6" href="$Matrix_8h.html" title="Matrix.h" alt="" coords="132,229,199,256"/>
+<area shape="rect" id="node5" href="$Protium_8h.html" title="Protium.h" alt="" coords="155,379,231,405"/>
+<area shape="rect" id="node7" href="$protium__unit__tests_8cxx.html" title="protium_unit_tests.cxx" alt="" coords="140,304,288,331"/>
 </map>

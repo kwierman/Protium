@@ -1,8 +1,13 @@
 var searchData=
 [
-  ['determinant',['Determinant',['../structProtium_1_1LinearAlgebra_1_1Determinant.html',1,'Protium::LinearAlgebra']]],
-  ['determinant_3c_20t_2c_201_2c_201_20_3e',['Determinant&lt; T, 1, 1 &gt;',['../structProtium_1_1LinearAlgebra_1_1Determinant_3_01T_00_011_00_011_01_4.html',1,'Protium::LinearAlgebra']]],
-  ['determinant_3c_20t_2c_20n_2c_20n_20_3e',['Determinant&lt; T, n, n &gt;',['../structProtium_1_1LinearAlgebra_1_1Determinant_3_01T_00_01n_00_01n_01_4.html',1,'Protium::LinearAlgebra']]],
-  ['dimensionadd',['DimensionAdd',['../structProtium_1_1Design_1_1DimensionAdd.html',1,'Protium::Design']]],
-  ['dimensionsubtract',['DimensionSubtract',['../structProtium_1_1Design_1_1DimensionSubtract.html',1,'Protium::Design']]]
+  ['chunk',['Chunk',['../classProtium_1_1Allocation_1_1Chunk.html',1,'Protium::Allocation']]],
+  ['compiletimeerror',['CompileTimeError',['../structCompileTimeError.html',1,'']]],
+  ['compiletimeerror_3c_20true_20_3e',['CompileTimeError&lt; true &gt;',['../structCompileTimeError_3_01true_01_4.html',1,'']]],
+  ['composite',['Composite',['../classProtium_1_1Singleton_1_1DeleteComposite_1_1Composite.html',1,'Protium::Singleton::DeleteComposite']]],
+  ['concretedeletiontracker',['ConcreteDeletionTracker',['../classProtium_1_1Singleton_1_1ConcreteDeletionTracker.html',1,'Protium::Singleton']]],
+  ['constructableprototype',['ConstructablePrototype',['../structProtium_1_1Design_1_1ConstructablePrototype.html',1,'Protium::Design']]],
+  ['createalloc',['CreateAlloc',['../structProtium_1_1Singleton_1_1CreateAlloc.html',1,'Protium::Singleton']]],
+  ['createmalloc',['CreateMalloc',['../structProtium_1_1Singleton_1_1CreateMalloc.html',1,'Protium::Singleton']]],
+  ['createnew',['CreateNew',['../structProtium_1_1Singleton_1_1CreateNew.html',1,'Protium::Singleton']]],
+  ['createstatic',['CreateStatic',['../structProtium_1_1Singleton_1_1CreateStatic.html',1,'Protium::Singleton']]]
 ];

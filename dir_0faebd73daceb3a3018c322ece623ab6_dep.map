@@ -1,6 +1,9 @@
 <map id="Allocation" name="Allocation">
 <area shape="rect" id="node1" href="dir_0faebd73daceb3a3018c322ece623ab6.html" title="Allocation" alt="" coords="27,52,105,100"/>
-<area shape="rect" id="node2" href="dir_c79eace5a984b700f2f1858f77962141.html" title="Threads" alt="" coords="31,148,103,196"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000003_000006.html" title="3" alt="" coords="71,122,79,137"/>
+<area shape="rect" id="node2" href="dir_c79eace5a984b700f2f1858f77962141.html" title="Threads" alt="" coords="31,244,103,292"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000003_000007.html" title="3" alt="" coords="63,217,71,232"/>
+<area shape="rect" id="node3" href="dir_065ebfe48a9372b6f4e0c744e5d1df7c.html" title="Singleton" alt="" coords="67,148,143,196"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000003_000005.html" title="4" alt="" coords="93,121,101,135"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000005_000007.html" title="2" alt="" coords="87,223,95,238"/>
 <area shape="rect" id="clust1" href="dir_873148cdef4a9fd6a2ed6fb8a488566b.html" title="Protium" alt="" coords="16,16,117,111"/>
 </map>

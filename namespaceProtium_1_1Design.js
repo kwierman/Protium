@@ -1,8 +1,12 @@
 var namespaceProtium_1_1Design =
 [
+    [ "ConstructablePrototype", "structProtium_1_1Design_1_1ConstructablePrototype.html", "structProtium_1_1Design_1_1ConstructablePrototype" ],
+    [ "DerivedRegister", "structProtium_1_1Design_1_1DerivedRegister.html", "structProtium_1_1Design_1_1DerivedRegister" ],
     [ "DimensionAdd", "structProtium_1_1Design_1_1DimensionAdd.html", "structProtium_1_1Design_1_1DimensionAdd" ],
     [ "DimensionSubtract", "structProtium_1_1Design_1_1DimensionSubtract.html", "structProtium_1_1Design_1_1DimensionSubtract" ],
     [ "EmptyType", "classProtium_1_1Design_1_1EmptyType.html", null ],
+    [ "FunctionMapped", "classProtium_1_1Design_1_1FunctionMapped.html", "classProtium_1_1Design_1_1FunctionMapped" ],
+    [ "FunctionMappedPrototype", "classProtium_1_1Design_1_1FunctionMappedPrototype.html", "classProtium_1_1Design_1_1FunctionMappedPrototype" ],
     [ "IndexOf", "structProtium_1_1Design_1_1IndexOf.html", null ],
     [ "IndexOf< NullType, T >", "structProtium_1_1Design_1_1IndexOf_3_01NullType_00_01T_01_4.html", "structProtium_1_1Design_1_1IndexOf_3_01NullType_00_01T_01_4" ],
     [ "IndexOf< Typelist< Head, Tail >, T >", "structProtium_1_1Design_1_1IndexOf_3_01Typelist_3_01Head_00_01Tail_01_4_00_01T_01_4.html", "structProtium_1_1Design_1_1IndexOf_3_01Typelist_3_01Head_00_01Tail_01_4_00_01T_01_4" ],
@@ -16,5 +20,6 @@ var namespaceProtium_1_1Design =
     [ "Sequence", "structProtium_1_1Design_1_1Sequence.html", "structProtium_1_1Design_1_1Sequence" ],
     [ "Sequence<>", "structProtium_1_1Design_1_1Sequence_3_4.html", "structProtium_1_1Design_1_1Sequence_3_4" ],
     [ "Typelist", "structProtium_1_1Design_1_1Typelist.html", "structProtium_1_1Design_1_1Typelist" ],
-    [ "TypeType", "structProtium_1_1Design_1_1TypeType.html", "structProtium_1_1Design_1_1TypeType" ]
+    [ "TypeType", "structProtium_1_1Design_1_1TypeType.html", "structProtium_1_1Design_1_1TypeType" ],
+    [ "VirtualFactory", "structProtium_1_1Design_1_1VirtualFactory.html", "structProtium_1_1Design_1_1VirtualFactory" ]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fixedallocator',['FixedAllocator',['../classProtium_1_1Allocation_1_1FixedAllocator.html',1,'Protium::Allocation']]]
+  ['emptytype',['EmptyType',['../classProtium_1_1Design_1_1EmptyType.html',1,'Protium::Design']]]
 ];

@@ -18,6 +18,7 @@ var NAVTREE =
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
+        [ "Variables", "namespacemembers_vars.html", null ],
         [ "Typedefs", "namespacemembers_type.html", null ]
       ] ]
     ] ],
@@ -27,7 +28,7 @@ var NAVTREE =
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", null ],
+        [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
         [ "Enumerator", "functions_eval.html", null ],
@@ -49,7 +50,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Allocation_8h.html",
-"classProtium_1_1LinearAlgebra_1_1Matrix.html#a971d441e08ba910d7c3d85cc29a96f3a"
+"classProtium_1_1Allocation_1_1SmallValueObject.html#a92c1a1805629f0100427175d74fd46ef",
+"structProtium_1_1Design_1_1IndexOf.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

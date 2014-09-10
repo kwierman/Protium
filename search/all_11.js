@@ -1,10 +1,11 @@
 var searchData=
 [
   ['the_20protium_20libraries',['The Protium Libraries',['../index.html',1,'']]],
+  ['t_5f',['t_',['../unionProtium_1_1Singleton_1_1CreateStatic_1_1MaxAlign.html#a2655b06b841cce62d716776ceb02f7d5',1,'Protium::Singleton::CreateStatic::MaxAlign']]],
   ['tail',['Tail',['../structProtium_1_1Design_1_1Typelist.html#a4d3fd18ab36805f1d8cd9fd2bc072c94',1,'Protium::Design::Typelist']]],
   ['tailresult',['TailResult',['../structProtium_1_1Design_1_1Sequence.html#ac1491bb2ea680f3410ff71152d981d7e',1,'Protium::Design::Sequence']]],
   ['temp',['temp',['../structProtium_1_1Design_1_1IndexOf_3_01Typelist_3_01Head_00_01Tail_01_4_00_01T_01_4.html#ae030920d3165c149a540698864a63a29a027417e25c30f1ea0fad0aca703b5a8d',1,'Protium::Design::IndexOf&lt; Typelist&lt; Head, Tail &gt;, T &gt;']]],
-  ['temperature',['Temperature',['../namespaceProtium.html#aee9d3ef8291792065f0a326ec5dcf0c9',1,'Protium::Temperature()'],['../namespaceProtium_1_1Design.html#ac549fd6b6a3900c30e6dd3ffc8baccf8',1,'Protium::Design::temperature()']]],
+  ['temperature',['temperature',['../namespaceProtium_1_1Design.html#ac549fd6b6a3900c30e6dd3ffc8baccf8',1,'Protium::Design::temperature()'],['../namespaceProtium.html#aee9d3ef8291792065f0a326ec5dcf0c9',1,'Protium::Temperature()']]],
   ['tenvector',['TenVector',['../namespaceProtium_1_1LinearAlgebra.html#aabba48f31184651fd2a617e30121c0ee',1,'Protium::LinearAlgebra']]],
   ['thirteenvector',['ThirteenVector',['../namespaceProtium_1_1LinearAlgebra.html#a652da552af6be724bbe49181cfb0588d',1,'Protium::LinearAlgebra']]],
   ['threadingpolicy_2eh',['ThreadingPolicy.h',['../ThreadingPolicy_8h.html',1,'']]],
@@ -14,7 +15,8 @@ var searchData=
   ['threadtype',['ThreadType',['../classProtium_1_1Allocation_1_1SmallObjectBase.html#a6c9b5f200d5c3124b4b87658b1d40b20',1,'Protium::Allocation::SmallObjectBase']]],
   ['threematrix',['ThreeMatrix',['../namespaceProtium_1_1LinearAlgebra.html#a4bcf47449ac43357ac1c3f905a0b30bc',1,'Protium::LinearAlgebra']]],
   ['threevector',['ThreeVector',['../namespaceProtium_1_1LinearAlgebra.html#a0ca65b79fe3d58ce8ec9d9ec3cc2637c',1,'Protium::LinearAlgebra']]],
-  ['time',['time',['../namespaceProtium_1_1Design.html#a0589ce1473d51f8e265b60384d9f239b',1,'Protium::Design::time()'],['../namespaceProtium.html#acd25d2f05e34d4c3e98f3fbe7f2650fd',1,'Protium::Time()']]],
+  ['time',['Time',['../namespaceProtium.html#acd25d2f05e34d4c3e98f3fbe7f2650fd',1,'Protium::Time()'],['../namespaceProtium_1_1Design.html#a0589ce1473d51f8e265b60384d9f239b',1,'Protium::Design::time()']]],
+  ['trackerlist',['TrackerList',['../namespaceProtium_1_1Singleton.html#af62d57c1abd7964b3a0b6ccf5da98e84',1,'Protium::Singleton']]],
   ['transpose',['Transpose',['../classProtium_1_1LinearAlgebra_1_1Matrix.html#a0ea8b9490835b8764299fa3daf0e4720',1,'Protium::LinearAlgebra::Matrix']]],
   ['trimchunklist',['TrimChunkList',['../classProtium_1_1Allocation_1_1FixedAllocator.html#a4e31a2479ca6475e9de85379ede53f5c',1,'Protium::Allocation::FixedAllocator']]],
   ['trimemptychunk',['TrimEmptyChunk',['../classProtium_1_1Allocation_1_1FixedAllocator.html#af8ee2ca8748195cae5955bfc0ccc5ae0',1,'Protium::Allocation::FixedAllocator']]],
@@ -22,7 +24,7 @@ var searchData=
   ['twelvevector',['TwelveVector',['../namespaceProtium_1_1LinearAlgebra.html#aaf5886f3a870e380f53f89eb6b0d4e39',1,'Protium::LinearAlgebra']]],
   ['twomatrix',['TwoMatrix',['../namespaceProtium_1_1LinearAlgebra.html#ad160f88e14c911d1a99316905eb28ea0',1,'Protium::LinearAlgebra']]],
   ['twovector',['TwoVector',['../namespaceProtium_1_1LinearAlgebra.html#af0b8c9c22a756bf73ecd139a4de4fe12',1,'Protium::LinearAlgebra']]],
-  ['type',['Type',['../structProtium_1_1Design_1_1DimensionAdd.html#ac588ac9cb09c19dc3553a8f0120e0973',1,'Protium::Design::DimensionAdd::Type()'],['../structProtium_1_1Design_1_1DimensionSubtract.html#a08ceb224fe80bd1c327a4b141e519ffc',1,'Protium::Design::DimensionSubtract::Type()'],['../structProtium_1_1Design_1_1Sequence.html#adffa29ef5d951abb75985e335a34fe94',1,'Protium::Design::Sequence::Type()'],['../structProtium_1_1Design_1_1Sequence_3_4.html#a7d4fc2c92f9c0f4544a8a7e46ff15f44',1,'Protium::Design::Sequence&lt;&gt;::Type()']]],
+  ['type',['Type',['../structProtium_1_1Design_1_1DimensionAdd.html#ac588ac9cb09c19dc3553a8f0120e0973',1,'Protium::Design::DimensionAdd::Type()'],['../structProtium_1_1Design_1_1DimensionSubtract.html#a08ceb224fe80bd1c327a4b141e519ffc',1,'Protium::Design::DimensionSubtract::Type()'],['../structProtium_1_1Design_1_1Sequence.html#adffa29ef5d951abb75985e335a34fe94',1,'Protium::Design::Sequence::Type()'],['../structProtium_1_1Design_1_1Sequence_3_4.html#a7d4fc2c92f9c0f4544a8a7e46ff15f44',1,'Protium::Design::Sequence&lt;&gt;::Type()'],['../structProtium_1_1Singleton_1_1Deleter.html#adba49812779d676524865a7114f7b9fb',1,'Protium::Singleton::Deleter::Type()']]],
   ['typelist',['Typelist',['../structProtium_1_1Design_1_1Typelist.html',1,'Protium::Design']]],
   ['types_2eh',['Types.h',['../Types_8h.html',1,'']]],
   ['typetype',['TypeType',['../structProtium_1_1Design_1_1TypeType.html',1,'Protium::Design']]]

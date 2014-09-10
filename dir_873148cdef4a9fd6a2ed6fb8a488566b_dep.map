@@ -1,18 +1,29 @@
 <map id="Protium" name="Protium">
-<area shape="rect" id="node2" href="dir_0faebd73daceb3a3018c322ece623ab6.html" title="Allocation" alt="" coords="113,255,191,303"/>
-<area shape="rect" id="node7" href="dir_c79eace5a984b700f2f1858f77962141.html" title="Threads" alt="" coords="116,351,188,399"/>
-<area shape="rect" id="edge6-headlabel" href="dir_000003_000006.html" title="3" alt="" coords="156,325,164,340"/>
-<area shape="rect" id="node3" href="dir_fe5cc9bda77c4670acab51236bb805c8.html" title="Applications" alt="" coords="134,63,225,111"/>
-<area shape="rect" id="node6" href="dir_e4b31142246768653e9ad8d0e165067d.html" title="LinearAlgebra" alt="" coords="88,159,189,207"/>
-<area shape="rect" id="edge7-headlabel" href="dir_000008_000005.html" title="1" alt="" coords="160,138,168,153"/>
-<area shape="rect" id="edge8-headlabel" href="dir_000008_000006.html" title="3" alt="" coords="188,334,196,349"/>
-<area shape="rect" id="node4" href="dir_d6844315c4172a606c907eac5f2ad17b.html" title="Design" alt="" coords="51,447,123,495"/>
-<area shape="rect" id="node5" href="dir_78c6e56f223cc0f2400ca54337523bec.html" title="Include" alt="" coords="37,63,109,111"/>
-<area shape="rect" id="edge4-headlabel" href="dir_000007_000004.html" title="1" alt="" coords="86,420,94,435"/>
-<area shape="rect" id="edge3-headlabel" href="dir_000007_000005.html" title="1" alt="" coords="115,131,123,146"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000005_000003.html" title="1" alt="" coords="151,228,159,243"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000005_000004.html" title="1" alt="" coords="88,420,96,435"/>
-<area shape="rect" id="edge5-headlabel" href="dir_000006_000004.html" title="1" alt="" coords="116,429,124,444"/>
-<area shape="rect" id="clust2" href="dir_873148cdef4a9fd6a2ed6fb8a488566b.html" alt="" coords="27,52,333,505"/>
-<area shape="rect" id="clust1" href="dir_283f486959b366052a9b1da7268a634e.html" title="kjw_software" alt="" coords="16,16,344,516"/>
+<area shape="rect" id="node2" href="dir_0faebd73daceb3a3018c322ece623ab6.html" title="Allocation" alt="" coords="214,255,292,303"/>
+<area shape="rect" id="node7" href="dir_065ebfe48a9372b6f4e0c744e5d1df7c.html" title="Singleton" alt="" coords="151,351,227,399"/>
+<area shape="rect" id="edge13-headlabel" href="dir_000003_000005.html" title="4" alt="" coords="218,333,226,348"/>
+<area shape="rect" id="node8" href="dir_c79eace5a984b700f2f1858f77962141.html" title="Threads" alt="" coords="153,447,225,495"/>
+<area shape="rect" id="edge12-headlabel" href="dir_000003_000007.html" title="3" alt="" coords="224,429,232,444"/>
+<area shape="rect" id="node3" href="dir_fe5cc9bda77c4670acab51236bb805c8.html" title="Applications" alt="" coords="158,63,249,111"/>
+<area shape="rect" id="node6" href="dir_e4b31142246768653e9ad8d0e165067d.html" title="LinearAlgebra" alt="" coords="219,159,320,207"/>
+<area shape="rect" id="edge15-headlabel" href="dir_000009_000006.html" title="1" alt="" coords="246,131,254,146"/>
+<area shape="rect" id="edge17-headlabel" href="dir_000009_000007.html" title="1" alt="" coords="227,431,235,446"/>
+<area shape="rect" id="node9" href="dir_7fe5210b531e866ecd3f900f33233b0d.html" title="Utilities" alt="" coords="91,255,163,303"/>
+<area shape="rect" id="edge16-headlabel" href="dir_000009_000010.html" title="1" alt="" coords="147,233,155,248"/>
+<area shape="rect" id="node4" href="dir_d6844315c4172a606c907eac5f2ad17b.html" title="Design" alt="" coords="153,543,225,591"/>
+<area shape="rect" id="node5" href="dir_78c6e56f223cc0f2400ca54337523bec.html" title="Include" alt="" coords="61,63,133,111"/>
+<area shape="rect" id="edge7-headlabel" href="dir_000008_000003.html" title="1" alt="" coords="225,228,233,242"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000008_000004.html" title="1" alt="" coords="140,518,148,532"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000008_000006.html" title="1" alt="" coords="211,135,219,150"/>
+<area shape="rect" id="edge8-headlabel" href="dir_000008_000005.html" title="1" alt="" coords="192,325,200,339"/>
+<area shape="rect" id="edge6-headlabel" href="dir_000008_000007.html" title="1" alt="" coords="153,420,161,435"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000008_000010.html" title="1" alt="" coords="125,228,133,243"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000006_000003.html" title="1" alt="" coords="265,231,273,245"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000006_000004.html" title="1" alt="" coords="221,525,229,540"/>
+<area shape="rect" id="edge14-headlabel" href="dir_000005_000007.html" title="2" alt="" coords="194,421,202,436"/>
+<area shape="rect" id="edge11-headlabel" href="dir_000007_000004.html" title="1" alt="" coords="194,517,202,532"/>
+<area shape="rect" id="edge10-headlabel" href="dir_000010_000005.html" title="1" alt="" coords="167,323,175,338"/>
+<area shape="rect" id="edge9-headlabel" href="dir_000010_000007.html" title="2" alt="" coords="160,419,168,434"/>
+<area shape="rect" id="clust2" href="dir_873148cdef4a9fd6a2ed6fb8a488566b.html" alt="" coords="27,52,357,601"/>
+<area shape="rect" id="clust1" href="dir_283f486959b366052a9b1da7268a634e.html" title="kjw_software" alt="" coords="16,16,368,612"/>
 </map>

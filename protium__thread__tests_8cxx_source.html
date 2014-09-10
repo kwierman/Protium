@@ -108,67 +108,62 @@ $(document).ready(function(){initNavTree('protium__thread__tests_8cxx_source.htm
 </div><!--header-->
 <div class="contents">
 <a href="protium__thread__tests_8cxx.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Mutex_8h.html">Protium/Threads/Mutex.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ThreadingPolicy_8h.html">Protium/Threads/ThreadingPolicy.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ThreadingPolicy_8h.html">Protium/Threads/ThreadingPolicy.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Threads_8h.html">Protium/Threads/Threads.h</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">class </span>Printer{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">int</span> fMember;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    Printer(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; x) : fMember(x) {}</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> Print(){std::cout&lt;&lt;<span class="stringliteral">&quot;This is Printer: &quot;</span>&lt;&lt;fMember&lt;&lt;std::endl;}</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">class </span>Printer{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">int</span> fMember;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    Printer(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; x) : fMember(x) {}</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> Print(){std::cout&lt;&lt;<span class="stringliteral">&quot;This is Printer: &quot;</span>&lt;&lt;fMember&lt;&lt;std::endl;}</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;};</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">template</span>&lt; <span class="keyword">template</span>&lt;<span class="keyword">class</span>, <span class="keyword">class</span>&gt;<span class="keyword">class </span>ThreadingPolicy&gt;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">class </span>ThreadedObject : <span class="keyword">public</span> ThreadingPolicy&lt;Printer, Protium::Threads::Mutex&gt;, <span class="keyword">public</span> Printer {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> ThreadingPolicy&lt;Printer, Protium::Threads::Mutex&gt;::Lock lock;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">template</span>&lt; <span class="keyword">template</span>&lt;<span class="keyword">class</span>, <span class="keyword">class</span>&gt;<span class="keyword">class </span>ThreadingPolicy&gt;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">class </span>ThreadedObject : <span class="keyword">public</span> ThreadingPolicy&lt;Printer, Protium::Threads::Mutex&gt;, <span class="keyword">public</span> Printer {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> ThreadingPolicy&lt;Printer, Protium::Threads::Mutex&gt;::Lock lock;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    ThreadedObject(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; x) : Printer(x) {}</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> Print(){</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        lock x(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        Printer::Print();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    ThreadedObject(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; x) : Printer(x) {}</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> Print(){</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        lock x(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        Printer::Print();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="protium__thread__tests_8cxx.html#a17a4daaeed664e5709c9496bb3dbbf39">   29</a></span>&#160;<span class="keyword">typedef</span> ThreadedObject&lt;Protium::Threads::InSingleThread&gt; <a class="code" href="protium__thread__tests_8cxx.html#a17a4daaeed664e5709c9496bb3dbbf39">Single</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="protium__thread__tests_8cxx.html#aa2e3d4409f988bd7e675066d67d3978c">   30</a></span>&#160;<span class="keyword">typedef</span> ThreadedObject&lt;Protium::Threads::InstanceLocked&gt; <a class="code" href="protium__thread__tests_8cxx.html#aa2e3d4409f988bd7e675066d67d3978c">Multi1</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="protium__thread__tests_8cxx.html#a1c72325ce05fcc485ee87ab3220a936a">   31</a></span>&#160;<span class="keyword">typedef</span> ThreadedObject&lt;Protium::Threads::StaticLocked&gt; <a class="code" href="protium__thread__tests_8cxx.html#a1c72325ce05fcc485ee87ab3220a936a">Multi2</a>;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="protium__thread__tests_8cxx.html#a17a4daaeed664e5709c9496bb3dbbf39">   33</a></span>&#160;<span class="keyword">typedef</span> ThreadedObject&lt;Protium::Threads::InSingleThread&gt; <a class="code" href="protium__thread__tests_8cxx.html#a17a4daaeed664e5709c9496bb3dbbf39">Single</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="protium__thread__tests_8cxx.html#aa2e3d4409f988bd7e675066d67d3978c">   34</a></span>&#160;<span class="keyword">typedef</span> ThreadedObject&lt;Protium::Threads::InstanceLocked&gt; <a class="code" href="protium__thread__tests_8cxx.html#aa2e3d4409f988bd7e675066d67d3978c">Multi1</a>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="protium__thread__tests_8cxx.html#a1c72325ce05fcc485ee87ab3220a936a">   35</a></span>&#160;<span class="keyword">typedef</span> ThreadedObject&lt;Protium::Threads::StaticLocked&gt; <a class="code" href="protium__thread__tests_8cxx.html#a1c72325ce05fcc485ee87ab3220a936a">Multi2</a>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="protium__thread__tests_8cxx.html#a0ddf1224851353fc92bfbff6f499fa97">   36</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="protium__thread__tests_8cxx.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[]){</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="protium__thread__tests_8cxx.html#a0ddf1224851353fc92bfbff6f499fa97">   40</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="protium__thread__tests_8cxx.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[]){</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="protium__thread__tests_8cxx.html#a17a4daaeed664e5709c9496bb3dbbf39">Single</a> x(1);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    x.Print();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="protium__thread__tests_8cxx.html#aa2e3d4409f988bd7e675066d67d3978c">Multi1</a> y(2);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    y.Print();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="protium__thread__tests_8cxx.html#a1c72325ce05fcc485ee87ab3220a936a">Multi2</a> z(3);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    z.Print();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="protium__thread__tests_8cxx.html#a17a4daaeed664e5709c9496bb3dbbf39">Single</a> x(1);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    x.Print();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="protium__thread__tests_8cxx.html#aa2e3d4409f988bd7e675066d67d3978c">Multi1</a> y(2);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    y.Print();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="protium__thread__tests_8cxx.html#a1c72325ce05fcc485ee87ab3220a936a">Multi2</a> z(3);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    z.Print();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
 <div class="ttc" id="ThreadingPolicy_8h_html"><div class="ttname"><a href="ThreadingPolicy_8h.html">ThreadingPolicy.h</a></div></div>
-<div class="ttc" id="Threads_8h_html"><div class="ttname"><a href="Threads_8h.html">Threads.h</a></div></div>
-<div class="ttc" id="protium__thread__tests_8cxx_html_a17a4daaeed664e5709c9496bb3dbbf39"><div class="ttname"><a href="protium__thread__tests_8cxx.html#a17a4daaeed664e5709c9496bb3dbbf39">Single</a></div><div class="ttdeci">ThreadedObject&lt; Protium::Threads::InSingleThread &gt; Single</div><div class="ttdef"><b>Definition:</b> <a href="protium__thread__tests_8cxx_source.html#l00033">protium_thread_tests.cxx:33</a></div></div>
-<div class="ttc" id="Mutex_8h_html"><div class="ttname"><a href="Mutex_8h.html">Mutex.h</a></div><div class="ttdoc">Defines mutexes and policies to be used by threaded objects. </div></div>
-<div class="ttc" id="protium__thread__tests_8cxx_html_a1c72325ce05fcc485ee87ab3220a936a"><div class="ttname"><a href="protium__thread__tests_8cxx.html#a1c72325ce05fcc485ee87ab3220a936a">Multi2</a></div><div class="ttdeci">ThreadedObject&lt; Protium::Threads::StaticLocked &gt; Multi2</div><div class="ttdef"><b>Definition:</b> <a href="protium__thread__tests_8cxx_source.html#l00035">protium_thread_tests.cxx:35</a></div></div>
-<div class="ttc" id="protium__thread__tests_8cxx_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="protium__thread__tests_8cxx.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="protium__thread__tests_8cxx_source.html#l00040">protium_thread_tests.cxx:40</a></div></div>
-<div class="ttc" id="protium__thread__tests_8cxx_html_aa2e3d4409f988bd7e675066d67d3978c"><div class="ttname"><a href="protium__thread__tests_8cxx.html#aa2e3d4409f988bd7e675066d67d3978c">Multi1</a></div><div class="ttdeci">ThreadedObject&lt; Protium::Threads::InstanceLocked &gt; Multi1</div><div class="ttdef"><b>Definition:</b> <a href="protium__thread__tests_8cxx_source.html#l00034">protium_thread_tests.cxx:34</a></div></div>
+<div class="ttc" id="protium__thread__tests_8cxx_html_a17a4daaeed664e5709c9496bb3dbbf39"><div class="ttname"><a href="protium__thread__tests_8cxx.html#a17a4daaeed664e5709c9496bb3dbbf39">Single</a></div><div class="ttdeci">ThreadedObject&lt; Protium::Threads::InSingleThread &gt; Single</div><div class="ttdef"><b>Definition:</b> <a href="protium__thread__tests_8cxx_source.html#l00029">protium_thread_tests.cxx:29</a></div></div>
+<div class="ttc" id="protium__thread__tests_8cxx_html_a1c72325ce05fcc485ee87ab3220a936a"><div class="ttname"><a href="protium__thread__tests_8cxx.html#a1c72325ce05fcc485ee87ab3220a936a">Multi2</a></div><div class="ttdeci">ThreadedObject&lt; Protium::Threads::StaticLocked &gt; Multi2</div><div class="ttdef"><b>Definition:</b> <a href="protium__thread__tests_8cxx_source.html#l00031">protium_thread_tests.cxx:31</a></div></div>
+<div class="ttc" id="protium__thread__tests_8cxx_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="protium__thread__tests_8cxx.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="protium__thread__tests_8cxx_source.html#l00036">protium_thread_tests.cxx:36</a></div></div>
+<div class="ttc" id="protium__thread__tests_8cxx_html_aa2e3d4409f988bd7e675066d67d3978c"><div class="ttname"><a href="protium__thread__tests_8cxx.html#aa2e3d4409f988bd7e675066d67d3978c">Multi1</a></div><div class="ttdeci">ThreadedObject&lt; Protium::Threads::InstanceLocked &gt; Multi1</div><div class="ttdef"><b>Definition:</b> <a href="protium__thread__tests_8cxx_source.html#l00030">protium_thread_tests.cxx:30</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_0a585ff1efea11fca44babfc8b89c5d0.html">Source</a></li><li class="navelem"><a class="el" href="dir_283f486959b366052a9b1da7268a634e.html">kjw_software</a></li><li class="navelem"><a class="el" href="dir_873148cdef4a9fd6a2ed6fb8a488566b.html">Protium</a></li><li class="navelem"><a class="el" href="dir_fe5cc9bda77c4670acab51236bb805c8.html">Applications</a></li><li class="navelem"><a class="el" href="protium__thread__tests_8cxx.html">protium_thread_tests.cxx</a></li>
-    <li class="footer">Generated on Fri Aug 15 2014 12:59:49 for Protium by
+    <li class="footer">Generated on Wed Sep 10 2014 05:43:20 for Protium by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

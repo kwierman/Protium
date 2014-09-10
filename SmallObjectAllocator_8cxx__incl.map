@@ -1,8 +1,11 @@
 <map id="SmallObjectAllocator.cxx" name="SmallObjectAllocator.cxx">
-<area shape="rect" id="node2" href="$SmallObjectAllocator_8h.html" title="Protium/Allocation\l/SmallObjectAllocator.h" alt="" coords="537,81,695,122"/>
-<area shape="rect" id="node14" href="$FixedAllocator_8h.html" title="Protium//Allocation\l/FixedAllocator.h" alt="" coords="995,81,1127,122"/>
-<area shape="rect" id="node3" href="$ThreadingPolicy_8h.html" title="Protium/Threads/Threading\lPolicy.h" alt="" coords="73,171,252,213"/>
-<area shape="rect" id="node4" href="$Mutex_8h.html" title="Defines mutexes and policies to be used by threaded objects. " alt="" coords="143,261,309,288"/>
-<area shape="rect" id="node5" href="$Assert_8h.html" title="Protium/Design/Assert.h" alt="" coords="5,336,164,363"/>
-<area shape="rect" id="node15" href="$Chunk_8h.html" title="Protium/Allocation\l/Chunk.h" alt="" coords="997,171,1125,213"/>
+<area shape="rect" id="node2" href="$SmallObjectAllocator_8h.html" title="Protium/Allocation\l/SmallObjectAllocator.h" alt="" coords="429,81,587,122"/>
+<area shape="rect" id="node19" href="$FixedAllocator_8h.html" title="Protium//Allocation\l/FixedAllocator.h" alt="" coords="727,81,859,122"/>
+<area shape="rect" id="node3" href="$ThreadingPolicy_8h.html" title="Protium/Threads/Threading\lPolicy.h" alt="" coords="137,262,316,303"/>
+<area shape="rect" id="node4" href="$Mutex_8h.html" title="Defines mutexes and policies to be used by threaded objects. " alt="" coords="143,352,309,379"/>
+<area shape="rect" id="node10" href="$DeletionPolicies_8h.html" title="Protium/Singleton/Deletion\lPolicies.h" alt="" coords="391,262,567,303"/>
+<area shape="rect" id="node15" href="$CreationPolicies_8h.html" title="Protium/Singleton/Creation\lPolicies.h" alt="" coords="591,262,768,303"/>
+<area shape="rect" id="node17" href="$Singleton_8h.html" title="Protium/Singleton/Singleton.h" alt="" coords="277,179,469,205"/>
+<area shape="rect" id="node5" href="$Assert_8h.html" title="Protium/Design/Assert.h" alt="" coords="5,427,164,453"/>
+<area shape="rect" id="node20" href="$Chunk_8h.html" title="Protium/Allocation\l/Chunk.h" alt="" coords="729,171,857,213"/>
 </map>
