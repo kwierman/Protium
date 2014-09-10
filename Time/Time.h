@@ -2,6 +2,8 @@
 #define Protium_Time_h_
 
 #include <ctime>
+#include <string>
+#include <iomanip>
 
 namespace Protium{
 	namespace Time{
@@ -15,6 +17,10 @@ namespace Protium{
 			time_t fTime;
 		public:
 			TimePrimitive(const time_t& t) : fTime(t) {}
+			TimePrimitive(const TimePrimitive& t) : fTime(t.fTime) {}
+			TimePrimitive& operator=(const TimePrimitive& other) {
+				fTime = other.fTime;
+			}
 			virtual ~ TimePrimitive(){}
 			inline time_t GetTime() const {return fTime;}
 			inline void SetTime(const time_t& t) {fTime=t;}
@@ -53,8 +59,28 @@ namespace Protium{
 				this->fTime = mktime(&fTM);
 			}
 
+			Time(const TimePrimitive& other) : TimePrimitive(other){
+				time_t t = other.GetTime();
+				this->fTM = *std::localtime( &t );
+			}
+
 			inline time_t GetTimeLocal() const {return fTime ;}
 			inline time_t GetTimeGM() const {return mktime(std::gmtime(&fTime)) ;}
+
+			std::string AsFormat(const char* frmt){
+				char buffer[80];
+
+				strftime(buffer, 80, frmt, &fTM);
+
+				return std::string(buffer);
+			}
+
+			static Time FromFormat(){
+				//put something
+
+				return Time();
+			}
+
 		};
 	}
 }
