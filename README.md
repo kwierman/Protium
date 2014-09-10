@@ -1,4 +1,4 @@
 Protium
 ----------------------
 
-Lowest level library for Tritium framework.
+Framework and primitive definitions for Tritium libraries

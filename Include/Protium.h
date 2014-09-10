@@ -5,8 +5,21 @@
 
 	\section intro Introduction
 
-	This is the placeholder simulation for Neutron Flux at low depths (NeutronFlux, or NeuFlux for short).
-	The purpose of this software is to 
+	The Tritium APIs are designed to provide a highly modular approach to cross-machine analysis and simulation tasks.
+	The API's are split into 3 levels to isolate functionality between systems to avoid a "Do-All" API.
+
+	The three API's are:
+
+	- Protium
+	    - Base framework and primitive functionality.
+	    - Designed to run on low-level systems.
+	- Deuterium
+	    - Networking and Filesystem functionality. Future scripting functionality.
+	    - Designed to run on host-side machines.
+	- Tritium
+	    - Graphics and advanced mathematical functionality.
+	    - Designed to run on client machines.
+	    -
 	
 	\section downloading Downloading Software
 
