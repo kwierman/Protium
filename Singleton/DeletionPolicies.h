@@ -58,7 +58,7 @@ namespace Protium{
         inline DeletionTracker::~DeletionTracker(){}
 
         //! Queue for deletion. Elements may be added, subtracted, and at the end of exection finalized.
-        std::list<DeletionTracker*> TrackerList;
+        static std::list<DeletionTracker*> TrackerList;
 
         //! Concrete templated instance of a deletion tracker
         //! \param Host Type of object to be tracked

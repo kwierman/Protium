@@ -51,6 +51,7 @@ namespace Protium{
 		template<class Host>
 		class ThreadingPrototype{
 		public:
+			//! Use to access Host class from derived templates
 			typedef Host VolatileType;
 		};
 
@@ -61,8 +62,11 @@ namespace Protium{
 			//! Dummy internal class which locks nothing
 			class Lock{
 			public:
+				//! On creation, does nothing
 				Lock(){}
+				//! For instance locking
 				explicit Lock(const InSingleThread& ){}
+				//! For static locking
 				explicit Lock(const InSingleThread* ){}
 			};
 		};
@@ -70,10 +74,14 @@ namespace Protium{
 		//! Use to specify instance-locked items
 		template<class Host, class MutexPolicy=Mutex>
 		class InstanceLocked : public ThreadingPrototype<Host>{
+			//! Contains the mutex used to lock this class
 			mutable MutexPolicy fMtx;
 		public:
+			//! Defaults to Mutex being unlocked
 	        InstanceLocked() : fMtx() {}
+	        //! On copy, the copy instance is unlocked
     	    InstanceLocked(const InstanceLocked&) : fMtx() {}
+    	    //! Destruction unlocks class
         	~InstanceLocked() {}
 
         	//! Internal class which locks the host whenever invoked
@@ -83,20 +91,27 @@ namespace Protium{
         	friend class Lock;
 
 	        class Lock{
+	        	//! Reference to hosted class
 	        	const InstanceLocked& fHost;
+	        	//! No default Locking
 	        	Lock(){}
+	        	//! No Copy locking
 	        	Lock(const Lock&){}
 
+	        	//! No Assignment locking
 	        	Lock& operator=(const Lock&){}
 	        public:
+	        	//! Lock on host when constructed
 	            explicit Lock(const InstanceLocked& host) : fHost(host){
 	                fHost.fMtx.Lock();
 	            }
 
+	            //! Lock on host pointer when constructed
 	            explicit Lock(const InstanceLocked* host) : fHost(*host){
 	                fHost.fMtx.Lock();
 	            }
 
+	            //! Unlock on destruction
 	            ~Lock(){
 	                fHost.fMtx.Unlock();
 	            }
@@ -120,11 +135,12 @@ namespace Protium{
 	            //! Static mutex for all instances
 	            MutexPolicy fMtx;
 
+	            //! On construction creates the mutex
 	            Initializer() : fIsInit(false), fMtx()
 	            {
 	                fIsInit = true;
 	            }
-
+	            //! makes it impossible to destroy the initializer before it's created
 	            ~Initializer()
 	            {
 	                assert(fIsInit);
@@ -132,44 +148,41 @@ namespace Protium{
 	        } fInitializer;
 
 	    public:
-	    	//! Internal class which 
 	    	class Lock;
         	friend class Lock;
 
+        	//! Lock on instance creation uses the static initializer to lock all instances of host
         	class Lock{
 	        public:
 
-    	        Lock()
-        	    {
+    	        Lock(){
             	    assert(fInitializer.fIsInit);
                 	fInitializer.fMtx.Lock();
             	}
 
-            	/// Lock class
+            	//! For COmpatibility with instance locked
             	explicit Lock(const StaticLocked&){
                 	assert(fInitializer.fIsInit);
                 	fInitializer.fMtx.Lock();
             	}
 
-            /// Lock class
-            explicit Lock(const StaticLocked*)
-            {
-                assert(fInitializer.fIsInit);
-                fInitializer.fMtx.Lock();
-            }
+			    //! For compatibility with instance locked
+			    explicit Lock(const StaticLocked*)
+			    {
+			        assert(fInitializer.fIsInit);
+			        fInitializer.fMtx.Lock();
+			    }
 
-            /// Unlock class
-            ~Lock()
-            {
-                assert(fInitializer.fIsInit);
-                fInitializer.fMtx.Unlock();
-            }
+			    //! Unlocks class
+			    ~Lock(){
+			        assert(fInitializer.fIsInit);
+			        fInitializer.fMtx.Unlock();
+			    }
 
-        private:
-            Lock(const Lock&);
-            Lock& operator=(const Lock&);
-        };
-
+			private:
+			    Lock(const Lock&);
+			    Lock& operator=(const Lock&);
+			};
 
 		};
 
