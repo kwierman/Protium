@@ -6,6 +6,8 @@
 #include "Protium/LinearAlgebra/Matrix.h"
 #include "Protium/Containers/Histogram.h"
 #include "Protium/Math/MathFunctions.h"
+#include "Protium/Time/Time.h"
+#include "Protium/Time/Clock.h"
 
 #include <iostream>
 #include <iomanip>
@@ -227,4 +229,32 @@ int main(int argc, char* argv[]){
 			h.SetNewBin(98.75, 1.0);
 		}
 	}
+	std::cout<<"Testing Time Functions"<<std::endl;
+	{
+		using namespace Time;
+		
+		SingleClocker clk;
+		std::cout<<"Testing Single Clock at: "<<ClockPrimitive::CPS()<<" CPS"<<std::endl;
+		clk.Stop();
+		std::cout<<"Single Clock Output"<<clk.GetTime()<<std::endl;
+		clk.Stop();
+		std::cout<<"Single Clock Output"<<clk.GetTime()<<std::endl;
+		clk.Stop();
+		std::cout<<"Single Clock Output"<<clk.GetTime()<<std::endl;
+		RepeatClocker rpt;
+		for(int i=0; i<100;i++)
+			rpt.Clock();
+		std::cout<<"Testing RepeatClocker: Start Time: "<<rpt.GetStart();
+		for(int i=0; i<rpt.GetNClocks();i++)
+			std::cout<<" Clock: "<<rpt.Get(i)<<" Offset: "<<rpt.GetOffset(i)<<std::endl;
+
+		std::cout<<"Testing Time..."<<std::endl;
+		TimePrimitive prim = TimePrimitive::Now();
+		TimeDate t(prim);
+		std::cout<<"The Time now is: "<<t.AsFormat()<<std::endl;
+		TimeDate other = TimeDate::FromFormat("1/4/1988 19:30:15");
+		std::cout<<"Other Time is: "<<other.AsFormat()<<std::endl;
+
+	}
 }
+

@@ -33,10 +33,10 @@ namespace Protium{
 			}
 
 		};
-		class Time : public TimePrimitive{
+		class TimeDate : public TimePrimitive{
 			tm fTM;
 		public:
-			Time(	const int& sec=0, 
+			TimeDate(	const int& sec=0, 
 					const int& min=0, 
 					const int& hour =0, 
 					const int& day=0, 
@@ -54,12 +54,12 @@ namespace Protium{
 				fTM.tm_isdst = dst? 1 : 0;
 				fTime = mktime(&fTM); 
 			}
-			Time(const Time& other) : TimePrimitive(std::time(NULL) ) {
+			TimeDate(const TimeDate& other) : TimePrimitive(std::time(NULL) ) {
 				this->fTM = other.fTM;
 				this->fTime = mktime(&fTM);
 			}
 
-			Time(const TimePrimitive& other) : TimePrimitive(other){
+			TimeDate(const TimePrimitive& other) : TimePrimitive(other){
 				time_t t = other.GetTime();
 				this->fTM = *std::localtime( &t );
 			}
@@ -67,18 +67,23 @@ namespace Protium{
 			inline time_t GetTimeLocal() const {return fTime ;}
 			inline time_t GetTimeGM() const {return mktime(std::gmtime(&fTime)) ;}
 
-			std::string AsFormat(const char* frmt){
+			std::string AsFormat(const std::string& frmt = "%d/%m/%Y %H:%M:%S"){
 				char buffer[80];
 
-				strftime(buffer, 80, frmt, &fTM);
+				const char* format = frmt.c_str();
+				strftime(buffer, 80, format, &fTM);
 
 				return std::string(buffer);
 			}
 
-			static Time FromFormat(){
+			static TimeDate FromFormat(const std::string& t, const std::string& fmt="%d/%m/%Y %H:%M:%S"){
 				//put something
-
-				return Time();
+				TimeDate tm;
+				const char* time_as_string = t.c_str();
+				const char* format = fmt.c_str();
+				strptime(time_as_string, format, &tm.fTM);
+				tm.fTime = mktime(&tm.fTM);
+				return tm;
 			}
 
 		};
