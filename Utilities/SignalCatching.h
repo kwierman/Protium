@@ -55,6 +55,5 @@ namespace Protium{
 }
 
 
-
 #endif //Protium_SignalCatching_h_
 
