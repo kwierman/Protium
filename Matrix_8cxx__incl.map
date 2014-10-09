@@ -1,0 +1,13 @@
+<map id="Matrix.cxx" name="Matrix.cxx">
+<area shape="rect" id="node2" href="$Matrix_8h.html" title="Protium/LinearAlgebra\l/Matrix.h" alt="" coords="769,81,919,122"/>
+<area shape="rect" id="node3" href="$Vector_8h.html" title="Protium/LinearAlgebra\l/Vector.h" alt="" coords="769,171,919,213"/>
+<area shape="rect" id="node4" href="$SmallObject_8h.html" title="Protium/Allocation\l/SmallObject.h" alt="" coords="400,262,528,303"/>
+<area shape="rect" id="node8" href="$Assert_8h.html" title="Protium/Design/Assert.h" alt="" coords="561,773,720,800"/>
+<area shape="rect" id="node5" href="$SmallObjectAllocator_8h.html" title="Protium/Allocation\l/SmallObjectAllocator.h" alt="" coords="283,443,441,485"/>
+<area shape="rect" id="node6" href="$ThreadingPolicy_8h.html" title="Protium/Threads/Threading\lPolicy.h" alt="" coords="5,609,184,650"/>
+<area shape="rect" id="node13" href="$DeletionPolicies_8h.html" title="Protium/Singleton/Deletion\lPolicies.h" alt="" coords="517,609,693,650"/>
+<area shape="rect" id="node22" href="$STLAdapter_8h.html" title="Protium/Allocation\l/STLAdapter.h" alt="" coords="299,353,427,394"/>
+<area shape="rect" id="node7" href="$Mutex_8h.html" title="Defines mutexes and policies to be used by threaded objects. " alt="" coords="161,699,327,725"/>
+<area shape="rect" id="node18" href="$CreationPolicies_8h.html" title="Protium/Singleton/Creation\lPolicies.h" alt="" coords="315,609,492,650"/>
+<area shape="rect" id="node20" href="$Singleton_8h.html" title="Protium/Singleton/Singleton.h" alt="" coords="266,533,459,560"/>
+</map>
