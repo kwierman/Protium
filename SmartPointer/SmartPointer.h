@@ -5,6 +5,17 @@ namespace Protium{
 
     namespace SmartPointer{
 
+        template<class Host>
+        class BasicPointer{
+            Host* fHost;
+        public:
+            BasicPointer() : fHost(0) {}
+            BasicPointer(const BasicPointer&)
+        };
+
+
+
+
         template<class Pointee>
         class HeapPointer{
             Pointee* fPointee;
