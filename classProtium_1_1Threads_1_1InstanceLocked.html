@@ -136,15 +136,19 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2aeb3eb454f07f3706bcd855eccede12"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProtium_1_1Threads_1_1InstanceLocked.html#a2aeb3eb454f07f3706bcd855eccede12">InstanceLocked</a> ()</td></tr>
+<tr class="memdesc:a2aeb3eb454f07f3706bcd855eccede12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defaults to <a class="el" href="classProtium_1_1Threads_1_1Mutex.html" title="Wrapper class for pthreads-style mutexes. ">Mutex</a> being unlocked.  <a href="#a2aeb3eb454f07f3706bcd855eccede12">More...</a><br/></td></tr>
 <tr class="separator:a2aeb3eb454f07f3706bcd855eccede12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add05c60ab0e9bd62a7a261a99048ad28"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProtium_1_1Threads_1_1InstanceLocked.html#add05c60ab0e9bd62a7a261a99048ad28">InstanceLocked</a> (const <a class="el" href="classProtium_1_1Threads_1_1InstanceLocked.html">InstanceLocked</a> &amp;)</td></tr>
+<tr class="memdesc:add05c60ab0e9bd62a7a261a99048ad28"><td class="mdescLeft">&#160;</td><td class="mdescRight">On copy, the copy instance is unlocked.  <a href="#add05c60ab0e9bd62a7a261a99048ad28">More...</a><br/></td></tr>
 <tr class="separator:add05c60ab0e9bd62a7a261a99048ad28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f06c5307d25ade2c3ab83eb3e2fbc44"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProtium_1_1Threads_1_1InstanceLocked.html#a9f06c5307d25ade2c3ab83eb3e2fbc44">~InstanceLocked</a> ()</td></tr>
+<tr class="memdesc:a9f06c5307d25ade2c3ab83eb3e2fbc44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destruction unlocks class.  <a href="#a9f06c5307d25ade2c3ab83eb3e2fbc44">More...</a><br/></td></tr>
 <tr class="separator:a9f06c5307d25ade2c3ab83eb3e2fbc44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a40077553b807ae50279392c7f37cbded"><td class="memItemLeft" align="right" valign="top">MutexPolicy&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProtium_1_1Threads_1_1InstanceLocked.html#a40077553b807ae50279392c7f37cbded">fMtx</a></td></tr>
+<tr class="memdesc:a40077553b807ae50279392c7f37cbded"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the mutex used to lock this class.  <a href="#a40077553b807ae50279392c7f37cbded">More...</a><br/></td></tr>
 <tr class="separator:a40077553b807ae50279392c7f37cbded"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
@@ -157,6 +161,7 @@ Friends</h2></td></tr>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_types_classProtium_1_1Threads_1_1ThreadingPrototype"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classProtium_1_1Threads_1_1ThreadingPrototype')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classProtium_1_1Threads_1_1ThreadingPrototype.html">Protium::Threads::ThreadingPrototype&lt; Host &gt;</a></td></tr>
 <tr class="memitem:a42af5049d9ae8bfcec762643a562bb0b inherit pub_types_classProtium_1_1Threads_1_1ThreadingPrototype"><td class="memItemLeft" align="right" valign="top">typedef Host&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProtium_1_1Threads_1_1ThreadingPrototype.html#a42af5049d9ae8bfcec762643a562bb0b">VolatileType</a></td></tr>
+<tr class="memdesc:a42af5049d9ae8bfcec762643a562bb0b inherit pub_types_classProtium_1_1Threads_1_1ThreadingPrototype"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use to access Host class from derived templates.  <a href="#a42af5049d9ae8bfcec762643a562bb0b">More...</a><br/></td></tr>
 <tr class="separator:a42af5049d9ae8bfcec762643a562bb0b inherit pub_types_classProtium_1_1Threads_1_1ThreadingPrototype"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -165,7 +170,7 @@ class Protium::Threads::InstanceLocked&lt; Host, MutexPolicy &gt;</h3>
 
 <p>Use to specify instance-locked items. </p>
 
-<p>Definition at line <a class="el" href="ThreadingPolicy_8h_source.html#l00072">72</a> of file <a class="el" href="ThreadingPolicy_8h_source.html">ThreadingPolicy.h</a>.</p>
+<p>Definition at line <a class="el" href="ThreadingPolicy_8h_source.html#l00080">80</a> of file <a class="el" href="ThreadingPolicy_8h_source.html">ThreadingPolicy.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a2aeb3eb454f07f3706bcd855eccede12"></a>
 <div class="memitem">
@@ -190,7 +195,9 @@ template&lt;class Host , class MutexPolicy  = Mutex&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ThreadingPolicy_8h_source.html#l00075">75</a> of file <a class="el" href="ThreadingPolicy_8h_source.html">ThreadingPolicy.h</a>.</p>
+<p>Defaults to <a class="el" href="classProtium_1_1Threads_1_1Mutex.html" title="Wrapper class for pthreads-style mutexes. ">Mutex</a> being unlocked. </p>
+
+<p>Definition at line <a class="el" href="ThreadingPolicy_8h_source.html#l00085">85</a> of file <a class="el" href="ThreadingPolicy_8h_source.html">ThreadingPolicy.h</a>.</p>
 
 </div>
 </div>
@@ -218,7 +225,9 @@ template&lt;class Host , class MutexPolicy  = Mutex&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ThreadingPolicy_8h_source.html#l00076">76</a> of file <a class="el" href="ThreadingPolicy_8h_source.html">ThreadingPolicy.h</a>.</p>
+<p>On copy, the copy instance is unlocked. </p>
+
+<p>Definition at line <a class="el" href="ThreadingPolicy_8h_source.html#l00087">87</a> of file <a class="el" href="ThreadingPolicy_8h_source.html">ThreadingPolicy.h</a>.</p>
 
 </div>
 </div>
@@ -245,7 +254,9 @@ template&lt;class Host , class MutexPolicy  = Mutex&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ThreadingPolicy_8h_source.html#l00077">77</a> of file <a class="el" href="ThreadingPolicy_8h_source.html">ThreadingPolicy.h</a>.</p>
+<p>Destruction unlocks class. </p>
+
+<p>Definition at line <a class="el" href="ThreadingPolicy_8h_source.html#l00089">89</a> of file <a class="el" href="ThreadingPolicy_8h_source.html">ThreadingPolicy.h</a>.</p>
 
 </div>
 </div>
@@ -272,7 +283,7 @@ template&lt;class Host , class MutexPolicy  = Mutex&gt; </div>
 
 <p><a class="el" href="classProtium_1_1Threads_1_1InstanceLocked_1_1Lock.html">Lock</a> is friended to the host. </p>
 
-<p>Definition at line <a class="el" href="ThreadingPolicy_8h_source.html#l00080">80</a> of file <a class="el" href="ThreadingPolicy_8h_source.html">ThreadingPolicy.h</a>.</p>
+<p>Definition at line <a class="el" href="ThreadingPolicy_8h_source.html#l00092">92</a> of file <a class="el" href="ThreadingPolicy_8h_source.html">ThreadingPolicy.h</a>.</p>
 
 </div>
 </div>
@@ -297,7 +308,9 @@ template&lt;class Host , class MutexPolicy  = Mutex&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="ThreadingPolicy_8h_source.html#l00073">73</a> of file <a class="el" href="ThreadingPolicy_8h_source.html">ThreadingPolicy.h</a>.</p>
+<p>Contains the mutex used to lock this class. </p>
+
+<p>Definition at line <a class="el" href="ThreadingPolicy_8h_source.html#l00082">82</a> of file <a class="el" href="ThreadingPolicy_8h_source.html">ThreadingPolicy.h</a>.</p>
 
 </div>
 </div>
@@ -307,7 +320,7 @@ template&lt;class Host , class MutexPolicy  = Mutex&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceProtium.html">Protium</a></li><li class="navelem"><a class="el" href="namespaceProtium_1_1Threads.html">Threads</a></li><li class="navelem"><a class="el" href="classProtium_1_1Threads_1_1InstanceLocked.html">InstanceLocked</a></li>
-    <li class="footer">Generated on Wed Sep 10 2014 05:43:21 for Protium by
+    <li class="footer">Generated on Thu Oct 9 2014 07:01:07 for Protium by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

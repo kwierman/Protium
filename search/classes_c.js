@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['threadingprototype',['ThreadingPrototype',['../classProtium_1_1Threads_1_1ThreadingPrototype.html',1,'Protium::Threads']]],
-  ['typelist',['Typelist',['../structProtium_1_1Design_1_1Typelist.html',1,'Protium::Design']]],
-  ['typetype',['TypeType',['../structProtium_1_1Design_1_1TypeType.html',1,'Protium::Design']]]
+  ['rebind',['rebind',['../structProtium_1_1Allocation_1_1STLAdapter_1_1rebind.html',1,'Protium::Allocation::STLAdapter']]],
+  ['reftovalue',['RefToValue',['../classProtium_1_1Design_1_1RefToValue.html',1,'Protium::Design']]],
+  ['repeatclocker',['RepeatClocker',['../classProtium_1_1Time_1_1RepeatClocker.html',1,'Protium::Time']]]
 ];

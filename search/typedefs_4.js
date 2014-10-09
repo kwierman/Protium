@@ -9,5 +9,7 @@ var searchData=
   ['fourmatrix',['FourMatrix',['../namespaceProtium_1_1LinearAlgebra.html#ae788b5909601dda2934eddfd1aa8e636',1,'Protium::LinearAlgebra']]],
   ['fourteenvector',['FourteenVector',['../namespaceProtium_1_1LinearAlgebra.html#a5374a5bdfe8a306c5e2c6c43a8c04cc9',1,'Protium::LinearAlgebra']]],
   ['fourvector',['FourVector',['../namespaceProtium_1_1LinearAlgebra.html#aab247d2c0b89457b35567d84de4f71f8',1,'Protium::LinearAlgebra']]],
-  ['func_5fmap',['func_map',['../classProtium_1_1Design_1_1FunctionMapped.html#a3126b719b65f505337e1683592c94893',1,'Protium::Design::FunctionMapped']]]
+  ['func_5fmap',['func_map',['../classProtium_1_1Design_1_1FunctionMapped.html#a3126b719b65f505337e1683592c94893',1,'Protium::Design::FunctionMapped']]],
+  ['function1d',['Function1D',['../namespaceProtium_1_1Collections.html#af5060141e3bf31ebfefd41c3c2389586',1,'Protium::Collections']]],
+  ['function2d',['Function2D',['../namespaceProtium_1_1Collections.html#a8aba1374395e82868d76035c7ad44641',1,'Protium::Collections']]]
 ];

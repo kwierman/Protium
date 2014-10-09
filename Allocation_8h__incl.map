@@ -1,11 +1,11 @@
 <map id="Allocation.h" name="Allocation.h">
-<area shape="rect" id="node2" href="$SmallObject_8h.html" title="Protium/Allocation\l/SmallObject.h" alt="" coords="388,81,516,122"/>
-<area shape="rect" id="node3" href="$SmallObjectAllocator_8h.html" title="Protium/Allocation\l/SmallObjectAllocator.h" alt="" coords="373,262,531,303"/>
-<area shape="rect" id="node4" href="$ThreadingPolicy_8h.html" title="Protium/Threads/Threading\lPolicy.h" alt="" coords="568,427,747,469"/>
-<area shape="rect" id="node11" href="$DeletionPolicies_8h.html" title="Protium/Singleton/Deletion\lPolicies.h" alt="" coords="115,427,291,469"/>
-<area shape="rect" id="node20" href="$STLAdapter_8h.html" title="Protium/Allocation\l/STLAdapter.h" alt="" coords="439,171,567,213"/>
-<area shape="rect" id="node5" href="$Mutex_8h.html" title="Defines mutexes and policies to be used by threaded objects. " alt="" coords="574,517,740,544"/>
+<area shape="rect" id="node2" href="$SmallObject_8h.html" title="Protium/Allocation\l/SmallObject.h" alt="" coords="415,81,543,122"/>
+<area shape="rect" id="node20" href="$STLAdapter_8h.html" title="Protium/Allocation\l/STLAdapter.h" alt="" coords="313,171,441,213"/>
+<area shape="rect" id="node3" href="$SmallObjectAllocator_8h.html" title="Protium/Allocation\l/SmallObjectAllocator.h" alt="" coords="349,262,507,303"/>
+<area shape="rect" id="node4" href="$ThreadingPolicy_8h.html" title="Protium/Threads/Threading\lPolicy.h" alt="" coords="11,427,189,469"/>
+<area shape="rect" id="node11" href="$DeletionPolicies_8h.html" title="Protium/Singleton/Deletion\lPolicies.h" alt="" coords="517,427,693,469"/>
+<area shape="rect" id="node5" href="$Mutex_8h.html" title="Defines mutexes and policies to be used by threaded objects. " alt="" coords="143,517,309,544"/>
 <area shape="rect" id="node16" href="$CreationPolicies_8h.html" title="Protium/Singleton/Creation\lPolicies.h" alt="" coords="315,427,492,469"/>
-<area shape="rect" id="node18" href="$Singleton_8h.html" title="Protium/Singleton/Singleton.h" alt="" coords="433,352,625,379"/>
-<area shape="rect" id="node6" href="$Assert_8h.html" title="Protium/Design/Assert.h" alt="" coords="436,592,595,619"/>
+<area shape="rect" id="node18" href="$Singleton_8h.html" title="Protium/Singleton/Singleton.h" alt="" coords="265,352,457,379"/>
+<area shape="rect" id="node6" href="$Assert_8h.html" title="Protium/Design/Assert.h" alt="" coords="5,592,164,619"/>
 </map>

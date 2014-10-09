@@ -1,17 +1,21 @@
 <map id="ThreadingPolicy.h" name="ThreadingPolicy.h">
-<area shape="rect" id="node2" href="$Threads_8h.html" title="Threads.h" alt="" coords="656,304,734,331"/>
-<area shape="rect" id="node4" href="$protium__thread__tests_8cxx.html" title="protium_thread_tests.cxx" alt="" coords="776,80,939,107"/>
-<area shape="rect" id="node5" href="$SmallObject_8h.html" title="SmallObject.h" alt="" coords="216,304,318,331"/>
-<area shape="rect" id="node11" href="$SmallObjectAllocator_8h.html" title="SmallObjectAllocator.h" alt="" coords="215,155,369,181"/>
-<area shape="rect" id="node14" href="$Singleton_8h.html" title="Singleton.h" alt="" coords="368,80,454,107"/>
-<area shape="rect" id="node15" href="$SignalCatching_8h.html" title="SignalCatching.h" alt="" coords="445,155,563,181"/>
-<area shape="rect" id="node3" href="$Protium_8h.html" title="Protium.h" alt="" coords="331,603,407,629"/>
-<area shape="rect" id="node6" href="$Vector_8h.html" title="Vector.h" alt="" coords="233,379,302,405"/>
-<area shape="rect" id="node10" href="$Allocation_8h.html" title="Allocation.h" alt="" coords="139,453,227,480"/>
-<area shape="rect" id="node7" href="$LinearAlgebra_8h.html" title="Includes and namespace definition for linear algebra objects. " alt="" coords="221,528,331,555"/>
-<area shape="rect" id="node8" href="$Matrix_8h.html" title="Matrix.h" alt="" coords="303,453,370,480"/>
-<area shape="rect" id="node9" href="$protium__unit__tests_8cxx.html" title="protium_unit_tests.cxx" alt="" coords="407,528,555,555"/>
-<area shape="rect" id="node12" href="$SmallObjectAllocator_8cxx.html" title="SmallObjectAllocator.cxx" alt="" coords="27,229,193,256"/>
-<area shape="rect" id="node13" href="$STLAdapter_8h.html" title="STLAdapter.h" alt="" coords="218,229,319,256"/>
-<area shape="rect" id="node16" href="$SignalCatching_8cxx.html" title="SignalCatching.cxx" alt="" coords="570,229,699,256"/>
+<area shape="rect" id="node2" href="$Threads_8h.html" title="Threads.h" alt="" coords="683,304,761,331"/>
+<area shape="rect" id="node4" href="$protium__thread__tests_8cxx.html" title="protium_thread_tests.cxx" alt="" coords="825,80,988,107"/>
+<area shape="rect" id="node5" href="$SmallObject_8h.html" title="SmallObject.h" alt="" coords="219,304,321,331"/>
+<area shape="rect" id="node14" href="$SmallObjectAllocator_8h.html" title="SmallObjectAllocator.h" alt="" coords="277,155,431,181"/>
+<area shape="rect" id="node17" href="$Singleton_8h.html" title="Singleton.h" alt="" coords="513,80,599,107"/>
+<area shape="rect" id="node19" href="$SignalCatching_8h.html" title="SignalCatching.h" alt="" coords="630,155,748,181"/>
+<area shape="rect" id="node3" href="$Protium_8h.html" title="Protium.h" alt="" coords="441,603,517,629"/>
+<area shape="rect" id="node6" href="$Vector_8h.html" title="Vector.h" alt="" coords="175,379,244,405"/>
+<area shape="rect" id="node12" href="$Allocation_8h.html" title="Allocation.h" alt="" coords="347,379,436,405"/>
+<area shape="rect" id="node13" href="$SmallObject_8cxx.html" title="SmallObject.cxx" alt="" coords="36,379,151,405"/>
+<area shape="rect" id="node7" href="$LinearAlgebra_8h.html" title="Includes and namespace definition for linear algebra objects. " alt="" coords="5,528,115,555"/>
+<area shape="rect" id="node8" href="$Matrix_8h.html" title="Matrix.h" alt="" coords="176,453,243,480"/>
+<area shape="rect" id="node11" href="$Vector_8cxx.html" title="Vector.cxx" alt="" coords="19,453,100,480"/>
+<area shape="rect" id="node9" href="$Matrix_8cxx.html" title="Matrix.cxx" alt="" coords="139,528,217,555"/>
+<area shape="rect" id="node10" href="$protium__unit__tests_8cxx.html" title="protium_unit_tests.cxx" alt="" coords="243,528,391,555"/>
+<area shape="rect" id="node15" href="$SmallObjectAllocator_8cxx.html" title="SmallObjectAllocator.cxx" alt="" coords="99,229,265,256"/>
+<area shape="rect" id="node16" href="$STLAdapter_8h.html" title="STLAdapter.h" alt="" coords="341,229,443,256"/>
+<area shape="rect" id="node18" href="$Singleton_8cxx.html" title="Singleton.cxx" alt="" coords="507,155,605,181"/>
+<area shape="rect" id="node20" href="$SignalCatching_8cxx.html" title="SignalCatching.cxx" alt="" coords="619,229,748,256"/>
 </map>

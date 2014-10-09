@@ -1,4 +1,31 @@
 var searchData=
 [
-  ['emptytype',['EmptyType',['../classProtium_1_1Design_1_1EmptyType.html',1,'Protium::Design']]]
+  ['daemon',['Daemon',['../classProtium_1_1Threads_1_1Daemon.html',1,'Protium::Threads']]],
+  ['data1d',['Data1D',['../structProtium_1_1Containers_1_1Data1D.html',1,'Protium::Containers']]],
+  ['data2d',['Data2D',['../structProtium_1_1Containers_1_1Data2D.html',1,'Protium::Containers']]],
+  ['data3d',['Data3D',['../structProtium_1_1Containers_1_1Data3D.html',1,'Protium::Containers']]],
+  ['deletecomposite',['DeleteComposite',['../classProtium_1_1Singleton_1_1DeleteComposite.html',1,'Protium::Singleton']]],
+  ['deletefirst',['DeleteFirst',['../structProtium_1_1Singleton_1_1DeleteFirst.html',1,'Protium::Singleton']]],
+  ['deletelast',['DeleteLast',['../structProtium_1_1Singleton_1_1DeleteLast.html',1,'Protium::Singleton']]],
+  ['deletenever',['DeleteNever',['../structProtium_1_1Singleton_1_1DeleteNever.html',1,'Protium::Singleton']]],
+  ['deletenexttolast',['DeleteNextToLast',['../structProtium_1_1Singleton_1_1DeleteNextToLast.html',1,'Protium::Singleton']]],
+  ['deleteonce',['DeleteOnce',['../structProtium_1_1Singleton_1_1DeleteOnce.html',1,'Protium::Singleton']]],
+  ['deleter',['Deleter',['../structProtium_1_1Singleton_1_1Deleter.html',1,'Protium::Singleton']]],
+  ['deleterandom',['DeleteRandom',['../classProtium_1_1Singleton_1_1DeleteRandom.html',1,'Protium::Singleton']]],
+  ['deletetwice',['DeleteTwice',['../classProtium_1_1Singleton_1_1DeleteTwice.html',1,'Protium::Singleton']]],
+  ['deletewithfixedpriority',['DeleteWithFixedPriority',['../classProtium_1_1Singleton_1_1DeleteWithFixedPriority.html',1,'Protium::Singleton']]],
+  ['deletewithfixedpriority_3c_200x0_2c_20host_20_3e',['DeleteWithFixedPriority&lt; 0x0, Host &gt;',['../classProtium_1_1Singleton_1_1DeleteWithFixedPriority.html',1,'Protium::Singleton']]],
+  ['deletewithfixedpriority_3c_200xfffffffe_2c_20host_20_3e',['DeleteWithFixedPriority&lt; 0xFFFFFFFE, Host &gt;',['../classProtium_1_1Singleton_1_1DeleteWithFixedPriority.html',1,'Protium::Singleton']]],
+  ['deletewithfixedpriority_3c_200xffffffff_2c_20host_20_3e',['DeleteWithFixedPriority&lt; 0xFFFFFFFF, Host &gt;',['../classProtium_1_1Singleton_1_1DeleteWithFixedPriority.html',1,'Protium::Singleton']]],
+  ['deletewithpriority',['DeleteWithPriority',['../classProtium_1_1Singleton_1_1DeleteWithPriority.html',1,'Protium::Singleton']]],
+  ['deletiontracker',['DeletionTracker',['../classProtium_1_1Singleton_1_1DeletionTracker.html',1,'Protium::Singleton']]],
+  ['derivedregister',['DerivedRegister',['../structProtium_1_1Design_1_1DerivedRegister.html',1,'Protium::Design']]],
+  ['destroyafter',['DestroyAfter',['../structProtium_1_1Singleton_1_1DeleteComposite_1_1DestroyAfter.html',1,'Protium::Singleton::DeleteComposite']]],
+  ['destroywith',['DestroyWith',['../structProtium_1_1Singleton_1_1DeleteComposite_1_1DestroyWith.html',1,'Protium::Singleton::DeleteComposite']]],
+  ['destroywithheader',['DestroyWithHeader',['../structProtium_1_1Singleton_1_1DeleteComposite_1_1DestroyWith_1_1DestroyWithHeader.html',1,'Protium::Singleton::DeleteComposite::DestroyWith']]],
+  ['determinant',['Determinant',['../structProtium_1_1LinearAlgebra_1_1Determinant.html',1,'Protium::LinearAlgebra']]],
+  ['determinant_3c_20t_2c_201_2c_201_20_3e',['Determinant&lt; T, 1, 1 &gt;',['../structProtium_1_1LinearAlgebra_1_1Determinant_3_01T_00_011_00_011_01_4.html',1,'Protium::LinearAlgebra']]],
+  ['determinant_3c_20t_2c_20n_2c_20n_20_3e',['Determinant&lt; T, n, n &gt;',['../structProtium_1_1LinearAlgebra_1_1Determinant_3_01T_00_01n_00_01n_01_4.html',1,'Protium::LinearAlgebra']]],
+  ['dimensionadd',['DimensionAdd',['../structProtium_1_1Design_1_1DimensionAdd.html',1,'Protium::Design']]],
+  ['dimensionsubtract',['DimensionSubtract',['../structProtium_1_1Design_1_1DimensionSubtract.html',1,'Protium::Design']]]
 ];

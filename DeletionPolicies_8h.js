@@ -34,6 +34,5 @@ var DeletionPolicies_8h =
     [ "exit_function_pointer_type", "DeletionPolicies_8h.html#aa22eb6898d78c9b57833c1d39fbb3b74", null ],
     [ "AtExitFn", "DeletionPolicies_8h.html#a77be9486be827168550ca34e5a42a6a6", null ],
     [ "SetPriority", "DeletionPolicies_8h.html#a35404372aaea6beae7238189c9158837", null ],
-    [ "SetPriority", "DeletionPolicies_8h.html#ab3b6a8bf33bacc3e07a0a128c5d1d8cb", null ],
-    [ "TrackerList", "DeletionPolicies_8h.html#af62d57c1abd7964b3a0b6ccf5da98e84", null ]
+    [ "SetPriority", "DeletionPolicies_8h.html#ab3b6a8bf33bacc3e07a0a128c5d1d8cb", null ]
 ];

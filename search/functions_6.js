@@ -1,5 +1,24 @@
 var searchData=
 [
-  ['hasavailable',['HasAvailable',['../classProtium_1_1Allocation_1_1Chunk.html#a88844e00e570d115332afb5c3f631be5',1,'Protium::Allocation::Chunk']]],
-  ['hasblock',['HasBlock',['../classProtium_1_1Allocation_1_1Chunk.html#a08d0875b6b26e949cde1b30f56b45397',1,'Protium::Allocation::Chunk::HasBlock()'],['../classProtium_1_1Allocation_1_1FixedAllocator.html#ae73a1fa8260e03c39e65621f2da9e1b2',1,'Protium::Allocation::FixedAllocator::HasBlock(void *p) const '],['../classProtium_1_1Allocation_1_1FixedAllocator.html#a961f46192a86ddaef5c41c04807b0ce1',1,'Protium::Allocation::FixedAllocator::HasBlock(void *p)']]]
+  ['get',['Get',['../classProtium_1_1Time_1_1ClockPrimitive.html#a6fdd78f73b8ff6d44fdd473f0fb88b07',1,'Protium::Time::ClockPrimitive::Get()'],['../classProtium_1_1Time_1_1RepeatClocker.html#a61c39846841d99aeb6865c956395d844',1,'Protium::Time::RepeatClocker::Get()']]],
+  ['getalignment',['GetAlignment',['../classProtium_1_1Allocation_1_1SmallObjectAllocatorImplementation.html#a2174d5ec67763d5b6caa3699aed46ace',1,'Protium::Allocation::SmallObjectAllocatorImplementation']]],
+  ['getbincontentbyi',['GetBinContentByI',['../classProtium_1_1Containers_1_1Histogram.html#aee39601469802fbb22772176a82874d5',1,'Protium::Containers::Histogram']]],
+  ['getbinwidthbyi',['GetBinWidthByI',['../classProtium_1_1Containers_1_1Histogram.html#a7da0f1a0c1ec14bb579a5e9a0c6ce89e',1,'Protium::Containers::Histogram']]],
+  ['getdeterminant',['GetDeterminant',['../classProtium_1_1LinearAlgebra_1_1Matrix.html#adaef85bfe990506fcaa3a0725604ce6c',1,'Protium::LinearAlgebra::Matrix']]],
+  ['getloweredgebyi',['GetLowerEdgeByI',['../classProtium_1_1Containers_1_1Histogram.html#a7601cc612a359ed80dde6bc2400c281d',1,'Protium::Containers::Histogram']]],
+  ['getmap',['getMap',['../structProtium_1_1Design_1_1VirtualFactory.html#af258d77d111800fcf944053ab69aaa69',1,'Protium::Design::VirtualFactory']]],
+  ['getmaxobjectsize',['GetMaxObjectSize',['../classProtium_1_1Allocation_1_1SmallObjectAllocatorImplementation.html#a4ae13b99e2b4d64fdc1259e35a4ed905',1,'Protium::Allocation::SmallObjectAllocatorImplementation']]],
+  ['getnbins',['GetNBins',['../classProtium_1_1Containers_1_1Histogram.html#aa1b3a61841aec3945779b74cb5d9b823',1,'Protium::Containers::Histogram']]],
+  ['getnclocks',['GetNClocks',['../classProtium_1_1Time_1_1RepeatClocker.html#af2ec361d43ea0f066a475f3e31a46011',1,'Protium::Time::RepeatClocker']]],
+  ['getncolumns',['GetNColumns',['../classProtium_1_1LinearAlgebra_1_1Matrix.html#af787252d4b5f4b22fc7a80e0a3854532',1,'Protium::LinearAlgebra::Matrix']]],
+  ['getnrows',['GetNRows',['../classProtium_1_1LinearAlgebra_1_1Matrix.html#a02ba85864a3f6ce457d8f34d30b75fa9',1,'Protium::LinearAlgebra::Matrix']]],
+  ['getoffset',['GetOffset',['../classProtium_1_1Time_1_1RepeatClocker.html#a4a72432b9b77d5c001a81cec426b83ed',1,'Protium::Time::RepeatClocker::GetOffset()'],['../SmallObjectAllocator_8cxx.html#a5ef8f7c6a9c192d051c862ef3beef719',1,'GetOffset():&#160;SmallObjectAllocator.cxx']]],
+  ['getpriority',['GetPriority',['../namespaceProtium_1_1Allocation.html#a4f41af01c233a160bdb45d7f70c58878',1,'Protium::Allocation']]],
+  ['getstart',['GetStart',['../classProtium_1_1Time_1_1RepeatClocker.html#a973118357c9ab5d3d9cfaa81f6306369',1,'Protium::Time::RepeatClocker']]],
+  ['getsubmatrix',['GetSubMatrix',['../classProtium_1_1LinearAlgebra_1_1Matrix.html#ae930291ad07b5ca405f6f83c1a97b64c',1,'Protium::LinearAlgebra::Matrix']]],
+  ['getsubvector',['GetSubVector',['../classProtium_1_1LinearAlgebra_1_1Vector.html#a40c9625ec5270c8f53ef1e8dbe0035bb',1,'Protium::LinearAlgebra::Vector']]],
+  ['gettime',['GetTime',['../classProtium_1_1Time_1_1SingleClocker.html#a59877afc4c64ebb406cb75828a0ac72e',1,'Protium::Time::SingleClocker::GetTime()'],['../classProtium_1_1Time_1_1TimePrimitive.html#a8ceac1a8ca71f44c5729c7abc7cdbd60',1,'Protium::Time::TimePrimitive::GetTime()']]],
+  ['gettimegm',['GetTimeGM',['../classProtium_1_1Time_1_1TimeDate.html#a32205f1c55014aabc403622eb1199e73',1,'Protium::Time::TimeDate']]],
+  ['gettimelocal',['GetTimeLocal',['../classProtium_1_1Time_1_1TimeDate.html#a887dee308d693fe23f8434befa782ce2',1,'Protium::Time::TimeDate']]],
+  ['gracefuldelete',['GracefulDelete',['../classProtium_1_1Singleton_1_1DeleteRandom.html#a21673043859d8611511995a9761061b7',1,'Protium::Singleton::DeleteRandom']]]
 ];

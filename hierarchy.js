@@ -1,8 +1,15 @@
 var hierarchy =
 [
+    [ "Abstract", "classAbstract.html", null ],
+    [ "Protium::Threads::AbstractThread", "classProtium_1_1Threads_1_1AbstractThread.html", null ],
     [ "Protium::Singleton::Adapter< T >", "structProtium_1_1Singleton_1_1Adapter.html", null ],
     [ "Protium::Singleton::CreateAlloc< Alloc >::Allocator< T >", "structProtium_1_1Singleton_1_1CreateAlloc_1_1Allocator.html", null ],
+    [ "Protium::Containers::Histogram< BinType >::Bin", "structProtium_1_1Containers_1_1Histogram_1_1Bin.html", null ],
+    [ "Protium::Containers::BinByLowerEdge", "structProtium_1_1Containers_1_1BinByLowerEdge.html", null ],
+    [ "Protium::Containers::BinByMidPoint", "structProtium_1_1Containers_1_1BinByMidPoint.html", null ],
+    [ "Protium::Containers::BinByUpperEdge", "structProtium_1_1Containers_1_1BinByUpperEdge.html", null ],
     [ "Protium::Allocation::Chunk", "classProtium_1_1Allocation_1_1Chunk.html", null ],
+    [ "Protium::Time::ClockPrimitive", "classProtium_1_1Time_1_1ClockPrimitive.html", null ],
     [ "CompileTimeError< int >", "structCompileTimeError.html", null ],
     [ "CompileTimeError< true >", "structCompileTimeError_3_01true_01_4.html", null ],
     [ "Protium::Singleton::DeleteComposite::Composite< Host >", "classProtium_1_1Singleton_1_1DeleteComposite_1_1Composite.html", null ],
@@ -11,6 +18,10 @@ var hierarchy =
     [ "Protium::Singleton::CreateMalloc< T >", "structProtium_1_1Singleton_1_1CreateMalloc.html", null ],
     [ "Protium::Singleton::CreateNew< T >", "structProtium_1_1Singleton_1_1CreateNew.html", null ],
     [ "Protium::Singleton::CreateStatic< T >", "structProtium_1_1Singleton_1_1CreateStatic.html", null ],
+    [ "Protium::Threads::Daemon", "classProtium_1_1Threads_1_1Daemon.html", null ],
+    [ "Protium::Containers::Data1D< Type >", "structProtium_1_1Containers_1_1Data1D.html", null ],
+    [ "Protium::Containers::Data2D< Type >", "structProtium_1_1Containers_1_1Data2D.html", null ],
+    [ "Protium::Containers::Data3D< Type >", "structProtium_1_1Containers_1_1Data3D.html", null ],
     [ "Protium::Singleton::DeleteComposite", "classProtium_1_1Singleton_1_1DeleteComposite.html", null ],
     [ "Protium::Singleton::DeleteNever< Host >", "structProtium_1_1Singleton_1_1DeleteNever.html", null ],
     [ "Protium::Singleton::DeleteOnce< Host >", "structProtium_1_1Singleton_1_1DeleteOnce.html", null ],
@@ -44,21 +55,24 @@ var hierarchy =
     [ "Protium::Design::FunctionMappedPrototype", "classProtium_1_1Design_1_1FunctionMappedPrototype.html", [
       [ "Protium::Design::FunctionMapped< Derived >", "classProtium_1_1Design_1_1FunctionMapped.html", null ]
     ] ],
+    [ "Protium::Collections::FunctionPrototype< XType, YType >", "classProtium_1_1Collections_1_1FunctionPrototype.html", null ],
+    [ "Protium::Containers::Histogram< BinType >", "classProtium_1_1Containers_1_1Histogram.html", null ],
     [ "Protium::Design::IndexOf< TList, T >", "structProtium_1_1Design_1_1IndexOf.html", null ],
     [ "Protium::Design::IndexOf< NullType, T >", "structProtium_1_1Design_1_1IndexOf_3_01NullType_00_01T_01_4.html", null ],
     [ "Protium::Design::IndexOf< Typelist< Head, Tail >, T >", "structProtium_1_1Design_1_1IndexOf_3_01Typelist_3_01Head_00_01Tail_01_4_00_01T_01_4.html", null ],
     [ "Protium::Design::IndexOf< Typelist< T, Tail >, T >", "structProtium_1_1Design_1_1IndexOf_3_01Typelist_3_01T_00_01Tail_01_4_00_01T_01_4.html", null ],
     [ "Protium::Design::IntType< v >", "structProtium_1_1Design_1_1IntType.html", null ],
     [ "Protium::Singleton::DeleteComposite::DestroyAfter< DestructionPolicy >::IsDestroyed< Host >", "structProtium_1_1Singleton_1_1DeleteComposite_1_1DestroyAfter_1_1IsDestroyed.html", null ],
-    [ "Protium::Threads::InSingleThread< Host, MutexPolicy >::Lock", "classProtium_1_1Threads_1_1InSingleThread_1_1Lock.html", null ],
     [ "Protium::Threads::InstanceLocked< Host, MutexPolicy >::Lock", "classProtium_1_1Threads_1_1InstanceLocked_1_1Lock.html", null ],
     [ "Protium::Threads::StaticLocked< Host, MutexPolicy >::Lock", "classProtium_1_1Threads_1_1StaticLocked_1_1Lock.html", null ],
+    [ "Protium::Threads::InSingleThread< Host, MutexPolicy >::Lock", "classProtium_1_1Threads_1_1InSingleThread_1_1Lock.html", null ],
     [ "Protium::Singleton::CreateStatic< T >::MaxAlign", "unionProtium_1_1Singleton_1_1CreateStatic_1_1MaxAlign.html", null ],
     [ "Protium::Threads::Mutex", "classProtium_1_1Threads_1_1Mutex.html", null ],
     [ "Protium::Design::NullType", "structProtium_1_1Design_1_1NullType.html", null ],
     [ "Protium::Design::Quantity< T, Dimensions >", "structProtium_1_1Design_1_1Quantity.html", null ],
     [ "Protium::Allocation::STLAdapter< Host, AllocType >::rebind< T >", "structProtium_1_1Allocation_1_1STLAdapter_1_1rebind.html", null ],
     [ "Protium::Design::RefToValue< T >", "classProtium_1_1Design_1_1RefToValue.html", null ],
+    [ "Protium::Time::RepeatClocker", "classProtium_1_1Time_1_1RepeatClocker.html", null ],
     [ "Protium::Design::SameType< T, U >", "structProtium_1_1Design_1_1SameType.html", null ],
     [ "Protium::Design::SameType< T, T >", "structProtium_1_1Design_1_1SameType_3_01T_00_01T_01_4.html", null ],
     [ "Protium::Design::Sequence< T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20 >", "structProtium_1_1Design_1_1Sequence.html", null ],
@@ -66,6 +80,7 @@ var hierarchy =
     [ "Protium::Utilities::SignalCatchingImplementation", "classProtium_1_1Utilities_1_1SignalCatchingImplementation.html", [
       [ "Protium::Utilities::SignalCatcher", "classProtium_1_1Utilities_1_1SignalCatcher.html", null ]
     ] ],
+    [ "Protium::Time::SingleClocker", "classProtium_1_1Time_1_1SingleClocker.html", null ],
     [ "Protium::Singleton::Singleton< Host, CreationPolicy, DeletionPolicy, ThreadingPolicy, MutexPolicy >", "classProtium_1_1Singleton_1_1Singleton.html", null ],
     [ "Protium::Allocation::SmallObjectAllocatorImplementation", "classProtium_1_1Allocation_1_1SmallObjectAllocatorImplementation.html", [
       [ "Protium::Allocation::SmallObjectAllocator< ThreadingModel, chunkSize, maxSmallObjectSize, objectAlignSize, LifetimePolicy, MutexPolicy >", "classProtium_1_1Allocation_1_1SmallObjectAllocator.html", null ]
@@ -86,10 +101,14 @@ var hierarchy =
     [ "Protium::LinearAlgebra::SubVector< T, n >", "structProtium_1_1LinearAlgebra_1_1SubVector.html", null ],
     [ "Protium::LinearAlgebra::SubVector< T, 1 >", "structProtium_1_1LinearAlgebra_1_1SubVector_3_01T_00_011_01_4.html", null ],
     [ "Protium::LinearAlgebra::SubVector< T, 2 >", "structProtium_1_1LinearAlgebra_1_1SubVector_3_01T_00_012_01_4.html", null ],
+    [ "Protium::Threads::ThreadAttribute", "classProtium_1_1Threads_1_1ThreadAttribute.html", null ],
     [ "Protium::Threads::ThreadingPrototype< Host >", "classProtium_1_1Threads_1_1ThreadingPrototype.html", [
       [ "Protium::Threads::InSingleThread< Host, MutexPolicy >", "classProtium_1_1Threads_1_1InSingleThread.html", null ],
       [ "Protium::Threads::InstanceLocked< Host, MutexPolicy >", "classProtium_1_1Threads_1_1InstanceLocked.html", null ],
       [ "Protium::Threads::StaticLocked< Host, MutexPolicy >", "classProtium_1_1Threads_1_1StaticLocked.html", null ]
+    ] ],
+    [ "Protium::Time::TimePrimitive", "classProtium_1_1Time_1_1TimePrimitive.html", [
+      [ "Protium::Time::TimeDate", "classProtium_1_1Time_1_1TimeDate.html", null ]
     ] ],
     [ "Protium::Design::Typelist< H, T >", "structProtium_1_1Design_1_1Typelist.html", null ],
     [ "Protium::Design::TypeType< T >", "structProtium_1_1Design_1_1TypeType.html", null ],

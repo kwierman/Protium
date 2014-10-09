@@ -4,7 +4,7 @@ var searchData=
   ['indexof_3c_20nulltype_2c_20t_20_3e',['IndexOf&lt; NullType, T &gt;',['../structProtium_1_1Design_1_1IndexOf_3_01NullType_00_01T_01_4.html',1,'Protium::Design']]],
   ['indexof_3c_20typelist_3c_20head_2c_20tail_20_3e_2c_20t_20_3e',['IndexOf&lt; Typelist&lt; Head, Tail &gt;, T &gt;',['../structProtium_1_1Design_1_1IndexOf_3_01Typelist_3_01Head_00_01Tail_01_4_00_01T_01_4.html',1,'Protium::Design']]],
   ['indexof_3c_20typelist_3c_20t_2c_20tail_20_3e_2c_20t_20_3e',['IndexOf&lt; Typelist&lt; T, Tail &gt;, T &gt;',['../structProtium_1_1Design_1_1IndexOf_3_01Typelist_3_01T_00_01Tail_01_4_00_01T_01_4.html',1,'Protium::Design']]],
-  ['init',['Init',['../classProtium_1_1LinearAlgebra_1_1Matrix.html#af0b6962180d5781cb4c3cc834cf9111d',1,'Protium::LinearAlgebra::Matrix::Init()'],['../classProtium_1_1LinearAlgebra_1_1Vector.html#a2fb9b4c54315ab505e25c04dfe9882f0',1,'Protium::LinearAlgebra::Vector::Init()'],['../classProtium_1_1Allocation_1_1Chunk.html#ac9bebb85bc6b6348d3c0391ee67a4f6b',1,'Protium::Allocation::Chunk::Init()']]],
+  ['init',['Init',['../classProtium_1_1LinearAlgebra_1_1Matrix.html#af0b6962180d5781cb4c3cc834cf9111d',1,'Protium::LinearAlgebra::Matrix::Init()'],['../classProtium_1_1LinearAlgebra_1_1Vector.html#a2fb9b4c54315ab505e25c04dfe9882f0',1,'Protium::LinearAlgebra::Vector::Init()'],['../classProtium_1_1Threads_1_1AbstractThread.html#aef3b32c603916a953ff6ce8b8b87c953',1,'Protium::Threads::AbstractThread::Init()'],['../classProtium_1_1Allocation_1_1Chunk.html#ac9bebb85bc6b6348d3c0391ee67a4f6b',1,'Protium::Allocation::Chunk::Init()']]],
   ['initialize',['Initialize',['../classProtium_1_1Allocation_1_1FixedAllocator.html#a6643e0961ff554a52c2dea558e5ae912',1,'Protium::Allocation::FixedAllocator::Initialize()'],['../classProtium_1_1Singleton_1_1DeleteComposite_1_1Composite.html#a22242d20b5e6956b3082b3de7c424e96',1,'Protium::Singleton::DeleteComposite::Composite::Initialize()']]],
   ['insert',['Insert',['../classProtium_1_1Singleton_1_1DeleteComposite_1_1Composite.html#ac24cff45b83d1ceebd41a5bceaade76a',1,'Protium::Singleton::DeleteComposite::Composite']]],
   ['insinglethread',['InSingleThread',['../classProtium_1_1Threads_1_1InSingleThread.html',1,'Protium::Threads']]],
@@ -19,6 +19,7 @@ var searchData=
   ['iscorrupted',['IsCorrupted',['../classProtium_1_1Allocation_1_1SmallObjectAllocator.html#a819b048dd166e7f87feab64f9736e539',1,'Protium::Allocation::SmallObjectAllocator']]],
   ['isdestroyed',['IsDestroyed',['../structProtium_1_1Singleton_1_1DeleteComposite_1_1DestroyAfter_1_1IsDestroyed.html',1,'Protium::Singleton::DeleteComposite::DestroyAfter']]],
   ['isfilled',['IsFilled',['../classProtium_1_1Allocation_1_1Chunk.html#a3cdbd88e7d634659e46db7e4ef0f0181',1,'Protium::Allocation::Chunk']]],
+  ['isgood',['isGood',['../classProtium_1_1Threads_1_1Daemon.html#afb0adcbb23909eaf662e179482efe0c7',1,'Protium::Threads::Daemon']]],
   ['islocked',['IsLocked',['../classProtium_1_1Threads_1_1Mutex.html#ae0cd608ae3767e431fa4b9e2a3ead651',1,'Protium::Threads::Mutex']]],
   ['iterator',['iterator',['../classProtium_1_1Singleton_1_1DeleteComposite_1_1Composite.html#a416b92f209cf2a1b427cfaa665dced89',1,'Protium::Singleton::DeleteComposite::Composite']]]
 ];

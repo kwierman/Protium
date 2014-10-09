@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['quantity',['Quantity',['../structProtium_1_1Design_1_1Quantity.html#aff18625feb468cfc3cd5b258f817343b',1,'Protium::Design::Quantity::Quantity(T x)'],['../structProtium_1_1Design_1_1Quantity.html#a511364c50a97186b91e69921787aa70e',1,'Protium::Design::Quantity::Quantity(const OtherDimensions &amp;rhs)']]]
+  ['ndimensions',['NDimensions',['../classProtium_1_1LinearAlgebra_1_1Vector.html#a0c76e8b9791c48c01b311d5a5fad9b15',1,'Protium::LinearAlgebra::Vector']]],
+  ['norm',['Norm',['../classProtium_1_1LinearAlgebra_1_1Vector.html#a012a266f5e813a76fb978f63adaac5e2',1,'Protium::LinearAlgebra::Vector']]],
+  ['normalize',['Normalize',['../classProtium_1_1LinearAlgebra_1_1Vector.html#a41653a647a48d94ab3e5bb903530fa77',1,'Protium::LinearAlgebra::Vector']]],
+  ['now',['Now',['../classProtium_1_1Time_1_1TimePrimitive.html#a1ffe027de02349e5bc7a380902f3ee16',1,'Protium::Time::TimePrimitive']]]
 ];

@@ -1,9 +1,12 @@
 <map id="STLAdapter.h" name="STLAdapter.h">
-<area shape="rect" id="node2" href="$SmallObject_8h.html" title="SmallObject.h" alt="" coords="169,80,271,107"/>
-<area shape="rect" id="node3" href="$Vector_8h.html" title="Vector.h" alt="" coords="131,155,200,181"/>
-<area shape="rect" id="node8" href="$Allocation_8h.html" title="Allocation.h" alt="" coords="270,229,359,256"/>
-<area shape="rect" id="node4" href="$LinearAlgebra_8h.html" title="Includes and namespace definition for linear algebra objects. " alt="" coords="5,304,115,331"/>
-<area shape="rect" id="node6" href="$Matrix_8h.html" title="Matrix.h" alt="" coords="132,229,199,256"/>
-<area shape="rect" id="node5" href="$Protium_8h.html" title="Protium.h" alt="" coords="155,379,231,405"/>
-<area shape="rect" id="node7" href="$protium__unit__tests_8cxx.html" title="protium_unit_tests.cxx" alt="" coords="140,304,288,331"/>
+<area shape="rect" id="node2" href="$Allocation_8h.html" title="Allocation.h" alt="" coords="5,155,93,181"/>
+<area shape="rect" id="node4" href="$SmallObject_8h.html" title="SmallObject.h" alt="" coords="98,80,200,107"/>
+<area shape="rect" id="node3" href="$Protium_8h.html" title="Protium.h" alt="" coords="28,379,104,405"/>
+<area shape="rect" id="node5" href="$Vector_8h.html" title="Vector.h" alt="" coords="119,155,188,181"/>
+<area shape="rect" id="node11" href="$SmallObject_8cxx.html" title="SmallObject.cxx" alt="" coords="212,155,327,181"/>
+<area shape="rect" id="node6" href="$LinearAlgebra_8h.html" title="Includes and namespace definition for linear algebra objects. " alt="" coords="58,304,168,331"/>
+<area shape="rect" id="node7" href="$Matrix_8h.html" title="Matrix.h" alt="" coords="151,229,217,256"/>
+<area shape="rect" id="node10" href="$Vector_8cxx.html" title="Vector.cxx" alt="" coords="242,229,323,256"/>
+<area shape="rect" id="node8" href="$Matrix_8cxx.html" title="Matrix.cxx" alt="" coords="193,304,271,331"/>
+<area shape="rect" id="node9" href="$protium__unit__tests_8cxx.html" title="protium_unit_tests.cxx" alt="" coords="296,304,444,331"/>
 </map>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['scalar',['scalar',['../namespaceProtium_1_1Design.html#acedd7c24f5dbec7073e91bac9017491f',1,'Protium::Design::scalar()'],['../namespaceProtium.html#a291a940df05685b500c85bd8b8e31dce',1,'Protium::Scalar()']]],
+  ['scalar',['Scalar',['../namespaceProtium.html#a291a940df05685b500c85bd8b8e31dce',1,'Protium::Scalar()'],['../namespaceProtium_1_1Design.html#acedd7c24f5dbec7073e91bac9017491f',1,'Protium::Design::scalar()']]],
   ['sevenmatrix',['SevenMatrix',['../namespaceProtium_1_1LinearAlgebra.html#ac0bdc999f06934a33e5ddc855272c733',1,'Protium::LinearAlgebra']]],
   ['sevenvector',['SevenVector',['../namespaceProtium_1_1LinearAlgebra.html#a14bfbf08c1fb97c067a2f7c7b8addb7c',1,'Protium::LinearAlgebra']]],
   ['signalcatchersingleton',['SignalCatcherSingleton',['../classProtium_1_1Utilities_1_1SignalCatcher.html#aa53750454c75ea9957673be94605c453',1,'Protium::Utilities::SignalCatcher']]],

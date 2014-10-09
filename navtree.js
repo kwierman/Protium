@@ -18,7 +18,6 @@ var NAVTREE =
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
-        [ "Variables", "namespacemembers_vars.html", null ],
         [ "Typedefs", "namespacemembers_type.html", null ]
       ] ]
     ] ],
@@ -50,8 +49,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Allocation_8h.html",
-"classProtium_1_1Allocation_1_1SmallValueObject.html#a92c1a1805629f0100427175d74fd46ef",
-"structProtium_1_1Design_1_1IndexOf.html"
+"classProtium_1_1Allocation_1_1SmallObjectAllocator.html#a4ff08c6647264209310584b832e6ae48",
+"classProtium_1_1Utilities_1_1SignalCatcher.html#aa53750454c75ea9957673be94605c453"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

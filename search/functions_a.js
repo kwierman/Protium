@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['ndimensions',['NDimensions',['../classProtium_1_1LinearAlgebra_1_1Vector.html#a0c76e8b9791c48c01b311d5a5fad9b15',1,'Protium::LinearAlgebra::Vector']]],
-  ['norm',['Norm',['../classProtium_1_1LinearAlgebra_1_1Vector.html#a012a266f5e813a76fb978f63adaac5e2',1,'Protium::LinearAlgebra::Vector']]],
-  ['normalize',['Normalize',['../classProtium_1_1LinearAlgebra_1_1Vector.html#a41653a647a48d94ab3e5bb903530fa77',1,'Protium::LinearAlgebra::Vector']]]
+  ['kill',['Kill',['../classProtium_1_1Threads_1_1AbstractThread.html#a9068e678198978e13eadba2a0d7da65e',1,'Protium::Threads::AbstractThread']]],
+  ['killgrandparent',['killGrandParent',['../classProtium_1_1Threads_1_1Daemon.html#ac51afef93579e4203c10f4245f95f426',1,'Protium::Threads::Daemon']]]
 ];

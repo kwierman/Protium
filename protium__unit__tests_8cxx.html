@@ -111,8 +111,10 @@ $(document).ready(function(){initNavTree('protium__unit__tests_8cxx.html','');})
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="SignalCatching_8h_source.html">Protium/Utilities/SignalCatching.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="Matrix_8h_source.html">Protium/LinearAlgebra/Matrix.h</a>&quot;</code><br/>
-<code>#include &quot;Protium/Containers/Histogram.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="Histogram_8h_source.html">Protium/Containers/Histogram.h</a>&quot;</code><br/>
 <code>#include &quot;Protium/Math/MathFunctions.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="Time_8h_source.html">Protium/Time/Time.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="Clock_8h_source.html">Protium/Time/Clock.h</a>&quot;</code><br/>
 <code>#include &lt;iostream&gt;</code><br/>
 <code>#include &lt;iomanip&gt;</code><br/>
 <code>#include &lt;vector&gt;</code><br/>
@@ -121,7 +123,7 @@ Include dependency graph for protium_unit_tests.cxx:</div>
 <div class="dyncontent">
 <div class="center"><img src="protium__unit__tests_8cxx__incl.png" border="0" usemap="#protium__unit__tests_8cxx" alt=""/></div>
 <map name="protium__unit__tests_8cxx" id="protium__unit__tests_8cxx">
-<area shape="rect" id="node2" href="SignalCatching_8h.html" title="Protium/Utilities/Signal\lCatching.h" alt="" coords="934,443,1086,485"/><area shape="rect" id="node19" href="Matrix_8h.html" title="Protium/LinearAlgebra\l/Matrix.h" alt="" coords="15,81,165,122"/><area shape="rect" id="node3" href="Singleton_8h.html" title="Protium/Singleton/Singleton.h" alt="" coords="579,533,772,560"/><area shape="rect" id="node11" href="ThreadingPolicy_8h.html" title="Protium/Threads/Threading\lPolicy.h" alt="" coords="768,609,946,650"/><area shape="rect" id="node12" href="Mutex_8h.html" title="Defines mutexes and policies to be used by threaded objects. " alt="" coords="711,699,877,725"/><area shape="rect" id="node4" href="CreationPolicies_8h.html" title="Protium/Singleton/Creation\lPolicies.h" alt="" coords="464,609,641,650"/><area shape="rect" id="node6" href="DeletionPolicies_8h.html" title="Protium/Singleton/Deletion\lPolicies.h" alt="" coords="264,609,440,650"/><area shape="rect" id="node13" href="Assert_8h.html" title="Protium/Design/Assert.h" alt="" coords="573,773,732,800"/><area shape="rect" id="node20" href="Vector_8h.html" title="Protium/LinearAlgebra\l/Vector.h" alt="" coords="71,171,221,213"/><area shape="rect" id="node21" href="SmallObject_8h.html" title="Protium/Allocation\l/SmallObject.h" alt="" coords="325,262,453,303"/><area shape="rect" id="node22" href="SmallObjectAllocator_8h.html" title="Protium/Allocation\l/SmallObjectAllocator.h" alt="" coords="411,443,569,485"/><area shape="rect" id="node24" href="STLAdapter_8h.html" title="Protium/Allocation\l/STLAdapter.h" alt="" coords="426,353,554,394"/></map>
+<area shape="rect" id="node2" href="SignalCatching_8h.html" title="Protium/Utilities/Signal\lCatching.h" alt="" coords="823,443,976,485"/><area shape="rect" id="node19" href="Matrix_8h.html" title="Protium/LinearAlgebra\l/Matrix.h" alt="" coords="567,81,717,122"/><area shape="rect" id="node26" href="Histogram_8h.html" title="Protium/Containers\l/Histogram.h" alt="" coords="1683,81,1815,122"/><area shape="rect" id="node29" href="Time_8h.html" title="Protium/Time/Time.h" alt="" coords="1839,88,1981,115"/><area shape="rect" id="node33" href="Clock_8h.html" title="Protium/Time/Clock.h" alt="" coords="1189,88,1336,115"/><area shape="rect" id="node3" href="Singleton_8h.html" title="Protium/Singleton/Singleton.h" alt="" coords="475,533,668,560"/><area shape="rect" id="node11" href="ThreadingPolicy_8h.html" title="Protium/Threads/Threading\lPolicy.h" alt="" coords="643,609,821,650"/><area shape="rect" id="node12" href="Mutex_8h.html" title="Defines mutexes and policies to be used by threaded objects. " alt="" coords="586,699,752,725"/><area shape="rect" id="node4" href="CreationPolicies_8h.html" title="Protium/Singleton/Creation\lPolicies.h" alt="" coords="339,609,516,650"/><area shape="rect" id="node6" href="DeletionPolicies_8h.html" title="Protium/Singleton/Deletion\lPolicies.h" alt="" coords="139,609,315,650"/><area shape="rect" id="node13" href="Assert_8h.html" title="Protium/Design/Assert.h" alt="" coords="448,773,607,800"/><area shape="rect" id="node20" href="Vector_8h.html" title="Protium/LinearAlgebra\l/Vector.h" alt="" coords="309,171,459,213"/><area shape="rect" id="node21" href="SmallObject_8h.html" title="Protium/Allocation\l/SmallObject.h" alt="" coords="320,262,448,303"/><area shape="rect" id="node22" href="SmallObjectAllocator_8h.html" title="Protium/Allocation\l/SmallObjectAllocator.h" alt="" coords="305,443,463,485"/><area shape="rect" id="node24" href="STLAdapter_8h.html" title="Protium/Allocation\l/STLAdapter.h" alt="" coords="269,353,397,394"/></map>
 </div>
 </div>
 <p><a href="protium__unit__tests_8cxx_source.html">Go to the source code of this file.</a></p>
@@ -130,7 +132,7 @@ Include dependency graph for protium_unit_tests.cxx:</div>
 Functions</h2></td></tr>
 <tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="protium__unit__tests_8cxx.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
 <tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5644cbd462530d2908350f489278ad1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="protium__unit__tests_8cxx.html#a5644cbd462530d2908350f489278ad1f">PrintHistogram</a> (const Containers::Histo1D &amp;h)</td></tr>
+<tr class="memitem:a5644cbd462530d2908350f489278ad1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="protium__unit__tests_8cxx.html#a5644cbd462530d2908350f489278ad1f">PrintHistogram</a> (const <a class="el" href="namespaceProtium_1_1Containers.html#a78eaf69a88ebf4692c37dedad4f159d0">Containers::Histo1D</a> &amp;h)</td></tr>
 <tr class="separator:a5644cbd462530d2908350f489278ad1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2acfec5612b7d3f9b2fffdab2d3c2da2"><td class="memTemplParams" colspan="2">template&lt;typename T , int n, int m&gt; </td></tr>
 <tr class="memitem:a2acfec5612b7d3f9b2fffdab2d3c2da2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="protium__unit__tests_8cxx.html#a2acfec5612b7d3f9b2fffdab2d3c2da2">PrintMatrix</a> (const <a class="el" href="classProtium_1_1LinearAlgebra_1_1Matrix.html">LinearAlgebra::Matrix</a>&lt; T, n, m &gt; &amp;matrix)</td></tr>
@@ -164,7 +166,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="protium__unit__tests_8cxx_source.html#l00045">45</a> of file <a class="el" href="protium__unit__tests_8cxx_source.html">protium_unit_tests.cxx</a>.</p>
+<p>Definition at line <a class="el" href="protium__unit__tests_8cxx_source.html#l00047">47</a> of file <a class="el" href="protium__unit__tests_8cxx_source.html">protium_unit_tests.cxx</a>.</p>
 
 </div>
 </div>
@@ -175,14 +177,14 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void PrintHistogram </td>
           <td>(</td>
-          <td class="paramtype">const Containers::Histo1D &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespaceProtium_1_1Containers.html#a78eaf69a88ebf4692c37dedad4f159d0">Containers::Histo1D</a> &amp;&#160;</td>
           <td class="paramname"><em>h</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="protium__unit__tests_8cxx_source.html#l00035">35</a> of file <a class="el" href="protium__unit__tests_8cxx_source.html">protium_unit_tests.cxx</a>.</p>
+<p>Definition at line <a class="el" href="protium__unit__tests_8cxx_source.html#l00037">37</a> of file <a class="el" href="protium__unit__tests_8cxx_source.html">protium_unit_tests.cxx</a>.</p>
 
 </div>
 </div>
@@ -202,7 +204,7 @@ template&lt;typename T , int n, int m&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="protium__unit__tests_8cxx_source.html#l00024">24</a> of file <a class="el" href="protium__unit__tests_8cxx_source.html">protium_unit_tests.cxx</a>.</p>
+<p>Definition at line <a class="el" href="protium__unit__tests_8cxx_source.html#l00026">26</a> of file <a class="el" href="protium__unit__tests_8cxx_source.html">protium_unit_tests.cxx</a>.</p>
 
 </div>
 </div>
@@ -222,7 +224,7 @@ template&lt;typename T , int n&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="protium__unit__tests_8cxx_source.html#l00017">17</a> of file <a class="el" href="protium__unit__tests_8cxx_source.html">protium_unit_tests.cxx</a>.</p>
+<p>Definition at line <a class="el" href="protium__unit__tests_8cxx_source.html#l00019">19</a> of file <a class="el" href="protium__unit__tests_8cxx_source.html">protium_unit_tests.cxx</a>.</p>
 
 </div>
 </div>
@@ -232,7 +234,7 @@ template&lt;typename T , int n&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_0a585ff1efea11fca44babfc8b89c5d0.html">Source</a></li><li class="navelem"><a class="el" href="dir_283f486959b366052a9b1da7268a634e.html">kjw_software</a></li><li class="navelem"><a class="el" href="dir_873148cdef4a9fd6a2ed6fb8a488566b.html">Protium</a></li><li class="navelem"><a class="el" href="dir_fe5cc9bda77c4670acab51236bb805c8.html">Applications</a></li><li class="navelem"><a class="el" href="protium__unit__tests_8cxx.html">protium_unit_tests.cxx</a></li>
-    <li class="footer">Generated on Wed Sep 10 2014 05:43:20 for Protium by
+    <li class="footer">Generated on Thu Oct 9 2014 07:01:06 for Protium by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['fixedallocator',['FixedAllocator',['../classProtium_1_1Allocation_1_1FixedAllocator.html#ad56f6d13bf46485f6aa89ddb06994941',1,'Protium::Allocation::FixedAllocator::FixedAllocator(const FixedAllocator &amp;)'],['../classProtium_1_1Allocation_1_1FixedAllocator.html#a477ee3f1140c65ccf4ad2d389f7e101e',1,'Protium::Allocation::FixedAllocator::FixedAllocator()']]]
+  ['equal',['equal',['../classProtium_1_1Threads_1_1AbstractThread.html#ae1ccf5f0b39be35af6fe41309ccb0494',1,'Protium::Threads::AbstractThread']]],
+  ['eval',['Eval',['../classProtium_1_1Collections_1_1FunctionPrototype.html#a28c3a104a0d918ade803d99c5c330b4c',1,'Protium::Collections::FunctionPrototype']]],
+  ['exit',['Exit',['../classProtium_1_1Threads_1_1AbstractThread.html#acb1ee0d63b1ce4d9d641c9bdc2a9fdfa',1,'Protium::Threads::AbstractThread']]]
 ];

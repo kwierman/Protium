@@ -1,9 +1,11 @@
 var searchData=
 [
   ['falignsize',['fAlignSize',['../classProtium_1_1Allocation_1_1SmallObjectAllocatorImplementation.html#a060d9577fb2beccc4ea164e3d2c09f71',1,'Protium::Allocation::SmallObjectAllocatorImplementation']]],
-  ['fcomponents',['fComponents',['../classProtium_1_1LinearAlgebra_1_1Matrix.html#a045ad8129aa1a8ca54f3772b5f97c9e5',1,'Protium::LinearAlgebra::Matrix::fComponents()'],['../classProtium_1_1LinearAlgebra_1_1Vector.html#a43b47b5903f0c23a242422db6d6f27bb',1,'Protium::LinearAlgebra::Vector::fComponents()']]],
+  ['fclock',['fClock',['../classProtium_1_1Time_1_1ClockPrimitive.html#a7aef3bd2ae4d932b73ec0237bc25547c',1,'Protium::Time::ClockPrimitive']]],
+  ['fcomponents',['fComponents',['../classProtium_1_1LinearAlgebra_1_1Matrix.html#a045ad8129aa1a8ca54f3772b5f97c9e5',1,'Protium::LinearAlgebra::Matrix::fComponents()'],['../classProtium_1_1LinearAlgebra_1_1Vector.html#a43b47b5903f0c23a242422db6d6f27bb',1,'Protium::LinearAlgebra::Vector::fComponents()'],['../classProtium_1_1Collections_1_1FunctionPrototype.html#ae7658ca3d1d38d2404c2d862807517f1',1,'Protium::Collections::FunctionPrototype::fComponents()']]],
   ['fcontainer',['fContainer',['../classProtium_1_1Singleton_1_1DeleteComposite_1_1Composite.html#a5c21b2f936d78303187e28191857206e',1,'Protium::Singleton::DeleteComposite::Composite']]],
-  ['fdata',['fData',['../classProtium_1_1Allocation_1_1Chunk.html#a773059b6fb3e9c9c6e0504a44c1736df',1,'Protium::Allocation::Chunk']]],
+  ['fcontents',['fContents',['../classProtium_1_1Containers_1_1Histogram.html#a134ca675e2253165eb61ff446ef24418',1,'Protium::Containers::Histogram']]],
+  ['fdata',['fData',['../classProtium_1_1Allocation_1_1Chunk.html#a773059b6fb3e9c9c6e0504a44c1736df',1,'Protium::Allocation::Chunk::fData()'],['../classProtium_1_1Time_1_1RepeatClocker.html#a109181dc2e9ccc34d187475cdf4268ed',1,'Protium::Time::RepeatClocker::fData()']]],
   ['fdead',['fDead',['../classProtium_1_1Singleton_1_1DeleteRandom.html#a3136d5c9ca7aa2f0f25ff1f852332a3c',1,'Protium::Singleton::DeleteRandom']]],
   ['fdestroyed',['fDestroyed',['../classProtium_1_1Singleton_1_1DeleteTwice.html#acf9629e7c4139cf829c5986420947754',1,'Protium::Singleton::DeleteTwice::fDestroyed()'],['../classProtium_1_1Singleton_1_1Singleton.html#a1ddf38dced13c70bfc5eac02b5cad633',1,'Protium::Singleton::Singleton::fDestroyed()']]],
   ['fdestroyer',['fDestroyer',['../classProtium_1_1Singleton_1_1ConcreteDeletionTracker.html#a25e5315fc4ada0d8257db52fc99b2078',1,'Protium::Singleton::ConcreteDeletionTracker']]],
@@ -21,5 +23,9 @@ var searchData=
   ['fpool',['fPool',['../classProtium_1_1Allocation_1_1SmallObjectAllocatorImplementation.html#ade6dd38dc99adbeaee0b892c740625cd',1,'Protium::Allocation::SmallObjectAllocatorImplementation']]],
   ['fpriority',['fPriority',['../classProtium_1_1Singleton_1_1DeletionTracker.html#ad66c61c21586bf3a7168c4989c24fd14',1,'Protium::Singleton::DeletionTracker']]],
   ['fref',['fRef',['../classProtium_1_1Design_1_1RefToValue.html#aa61e6591b720ae47b534b7a771839cae',1,'Protium::Design::RefToValue']]],
+  ['fstart',['fStart',['../classProtium_1_1Time_1_1SingleClocker.html#a41942e434f2f80f15e5b24fbcc50bad9',1,'Protium::Time::SingleClocker::fStart()'],['../classProtium_1_1Time_1_1RepeatClocker.html#abcca816f8156074f47b1a414bb71c49d',1,'Protium::Time::RepeatClocker::fStart()']]],
+  ['fstop',['fStop',['../classProtium_1_1Time_1_1SingleClocker.html#ad8da1e26dea57a5f12d247541da416fb',1,'Protium::Time::SingleClocker']]],
+  ['ftime',['fTime',['../classProtium_1_1Time_1_1TimePrimitive.html#af79afa94fd5912ddb39ce7e483597dae',1,'Protium::Time::TimePrimitive']]],
+  ['ftm',['fTM',['../classProtium_1_1Time_1_1TimeDate.html#aae46861d7ea1f97c3fb71599bb05efaa',1,'Protium::Time::TimeDate']]],
   ['fvalue',['fValue',['../structProtium_1_1Design_1_1Quantity.html#a4205de81351be250c8377e7e8211f3d4',1,'Protium::Design::Quantity']]]
 ];
