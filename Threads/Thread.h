@@ -1,14 +1,44 @@
-#ifndef Protium_Thread_h_
-#define Protium_Thread_h_
-
+#ifndef Protium_Thread_hh_
+#define Protium_Thread_hh_
 
 namespace Protium{
 
 	namespace Threads{
 
-		//Use this to call up the thread, the owning object will then
-		void threadingFunction(AbstractThread* thread){
-			thread->start();
+		/**
+			\file Thread.h
+			\author Kevin Wierman
+			\date \today
+
+			\brief An object-oriented thread class
+
+			To be used as such:
+
+			~~~~~~~~
+			class MyThreadedTask : AbstractThread{
+				...Some Fields...
+			public:
+				virtual void start(){
+					std::cout<<"In the start method of the thread"<<std::endl;
+				}
+				...
+			};
+
+			//Then later on in code:
+
+			MyThreadedTask mytask;
+			//Start the thread
+
+			myTask.Create();
+
+			~~~~~~~~
+		**/
+
+		namespace Private{
+			//Use this to call up the thread via the owning object, which should 
+			void threadingFunction(AbstractThread* thread){
+				thread->start();
+			}
 		}
 
 		/**
@@ -19,6 +49,7 @@ namespace Protium{
 		**/
 		class AbstractThread{
 			pthread_t thread;
+			pthread_attr_ attr;
 			//Add this to 
 
 			void Create(){
@@ -40,7 +71,7 @@ namespace Protium{
 			//Override this for a threading routine
 			void start() =0;
 			//TODO: Add in joining
-			void join(){
+			void Join(){
 				 pthread_join(thread[t], &status);
 			}
 
@@ -53,15 +84,15 @@ namespace Protium{
 			}
 
 
-pthread_attr_getstacksize (attr, stacksize)
+//pthread_attr_getstacksize (attr, stacksize)
 
-pthread_attr_setstacksize (attr, stacksize)
+//pthread_attr_setstacksize (attr, stacksize)
 
-pthread_attr_getstackaddr (attr, stackaddr)
+//pthread_attr_getstackaddr (attr, stackaddr)
 
-pthread_attr_setstackaddr (attr, stackaddr) 
+//pthread_attr_setstackaddr (attr, stackaddr) 
 			void setstacksize(){
-				pthread_attr_setstacksize(/*It's over NINE THOUSAND!!!*/);
+				//pthread_attr_setstacksize(/*It's over NINE THOUSAND!!!*/);
 			}
 		};
 

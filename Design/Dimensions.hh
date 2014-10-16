@@ -1,7 +1,7 @@
 #ifndef Protium_Dimensions_hh
 #define Protium_Dimensions_hh
 
-#include "Protium/Design/Types.h"
+#include "Protium/Design/Types.hh"
 
 /**
 	\file Dimensions.hh

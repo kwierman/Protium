@@ -1,4 +1,4 @@
-#include "Protium/Threads/Mutex.h"
+#include "Protium/Threads/Mutex.hh"
 
 Protium::Threads::Mutex::Mutex() : fIsLocked(false){
     pthread_mutex_init(&fMtx, 0);

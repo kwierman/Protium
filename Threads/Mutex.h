@@ -1,15 +1,12 @@
 /*! \file Mutex.h
-    \brief Defines mutexes and policies to be used by threaded objects.
+    \brief Defines a very basic object-oriented mutex.
     \author Kevin Wierman
  */
 
-#ifndef Protium_Threads_h_
-#define Protium_Threads_h_
-
-#include "Protium/Design/Assert.h" //For compile-time assertions
+#ifndef Protium_Threads_hh_
+#define Protium_Threads_hh_
 
 #include <pthread.h> //For access to pthreads
-#include <cassert> //For static-assertions
 
 namespace Protium{
     namespace Threads{
@@ -17,7 +14,19 @@ namespace Protium{
         /*! \class Mutex
             \brief Wrapper class for pthreads-style mutexes
         
-            Provides the ability to lock mutexes at the object level
+            Provides the ability to lock mutexes at the object level.
+            Use as such:
+
+            ~~~~~~~~
+                Mutex mtx;
+                mtx.Lock();
+                if(mtx.IsLocked() )
+                {
+                    ...do some things...
+                }
+                mtx.Unlock();
+            ~~~~~~~~
+
          */
         class Mutex{
             Mutex(const Mutex&);

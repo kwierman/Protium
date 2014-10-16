@@ -1,8 +1,8 @@
 #ifndef Protium_Quantities_hh_
 #define Protium_Quantities_hh_ 
 
-#include "Protium/Design/Assert.h"
-#include "Protium/Design/Dimensions.h"
+#include "Protium/Design/Assert.hh"
+#include "Protium/Design/Dimensions.hh"
 
 /**
 	\file Quantities.hh
