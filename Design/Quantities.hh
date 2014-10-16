@@ -1,11 +1,11 @@
-#ifndef Protium_Quantities_h_
-#define Protium_Quantities_h_ 
+#ifndef Protium_Quantities_hh_
+#define Protium_Quantities_hh_ 
 
 #include "Protium/Design/Assert.h"
 #include "Protium/Design/Dimensions.h"
 
 /**
-	\file Dimensions.hh
+	\file Quantities.hh
 	\author Kevin Wierman
 	\date A Long Long Time Ago
 
@@ -14,31 +14,41 @@
 	If you want to define a dimensionful quantitity, you can use:
 
 	~~~~~~~~
-		Protium::Design::rate myRate;
+		Protium::Design::Energy myEnergy;
 	~~~~~~~~
 
 	If you want to like dimensions:
 
 	~~~~~~~~
-		Protium::Design::rate myRate1;
-		Protium::Design::rate myRate2;
-		Protium::Design::rate myRate3;				
+		Protium::Design::Rate myRate1;
+		Protium::Design::Rate myRate2;
+		Protium::Design::Rate myRate3;				
 	    myRate1 = myRate2+myRate3;
 	~~~~~~~~
 
 	This works. However, adding non-like dimensions as such:
 
 	~~~~~~~~
-		Protium::Design::rate myRate;
-		Protium::Design::time myTime;
+		Protium::Design::Rate myRate;
+		Protium::Design::Time myTime;
 		myRate+myTime		
 	~~~~~~~~
 
 	Will produce the following error:
 
 	~~~~~~~~
-		error:undefined class error: PROTIUM_NON
+		error:undefined class error: ERROR_QUANTITIES_NOT_EQUAL_DIMENSIONS();
 	~~~~~~~~
+
+	Similarly, you can create  and assign instances of other types using multiplication and addition:
+
+	~~~~~~~~
+	Protium::Design::Time time;
+	Protium::Design::Rate rate;
+	Protium::Design::Scalar scalar = time*rate;
+	~~~~~~~~
+
+	The will cause a compiler error if the Quantitities don't have equal dimensions.
 
 **/
 
