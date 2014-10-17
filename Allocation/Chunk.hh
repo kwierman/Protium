@@ -2,8 +2,8 @@
 	\author kwierman
  */
 
-#ifndef Protium_Chunk_h_
-#define Protium_Chunk_h_
+#ifndef Protium_Chunk_hh_
+#define Protium_Chunk_hh_
 
 #include <cstddef>
 

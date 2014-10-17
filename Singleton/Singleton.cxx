@@ -1,1 +1,0 @@
-#include "Protium/Singleton/Singleton.h"

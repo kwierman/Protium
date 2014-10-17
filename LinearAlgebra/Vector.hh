@@ -1,8 +1,8 @@
-#ifndef Protium_Vector_h_
-#define Protium_Vector_h_
+#ifndef Protium_Vector_hh_
+#define Protium_Vector_hh_
 
-#include "Protium/Allocation/SmallObject.h"
-#include "Protium/Design/Assert.h"
+#include "Protium/Allocation/SmallObject.hh"
+#include "Protium/Design/Assert.hh"
 
 #include <vector>
 #include <cmath>

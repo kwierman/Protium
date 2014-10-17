@@ -1,4 +1,4 @@
-#include "Protium/Utilities/SignalCatching.h"
+#include "Protium/Utilities/SignalCatching.hh"
 
 #include <iostream>
 #include <stdio.h>

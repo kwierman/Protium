@@ -1,5 +1,5 @@
-#ifndef Protium_Time_h_
-#define Protium_Time_h_
+#ifndef Protium_Time_hh_
+#define Protium_Time_hh_
 
 #include <ctime>
 #include <string>

@@ -1,5 +1,5 @@
-#ifndef Protium_Clock_h_
-#define Protium_Clock_h_
+#ifndef Protium_Clock_hh_
+#define Protium_Clock_hh_
 
 #include <time.h>       /* clock_t, clock, CLOCKS_PER_SEC */
 #include <vector>

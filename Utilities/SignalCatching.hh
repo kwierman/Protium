@@ -1,9 +1,9 @@
-#ifndef Protium_SignalCatching_h_
-#define Protium_SignalCatching_h_ 
+#ifndef Protium_SignalCatching_hh_
+#define Protium_SignalCatching_hh_ 
 
-#include "Protium/Singleton/Singleton.h"
-#include "Protium/Threads/ThreadingPolicy.h"
-#include "Protium/Threads/Mutex.h"
+#include "Protium/Singleton/Singleton.hh"
+#include "Protium/Threads/ThreadingPolicy.hh"
+#include "Protium/Threads/Mutex.hh"
 
 #include <signal.h>
 

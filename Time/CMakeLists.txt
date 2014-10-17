@@ -1,5 +1,5 @@
 #Get together the sources
-file(GLOB module_sources *.cxx)
+file(GLOB module_sources *.cc)
 file(GLOB module_headers *.h)
 
 #Make the library

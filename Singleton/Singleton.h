@@ -1,10 +1,10 @@
 #ifndef Protium_Singleton_h_
 #define Protium_Singleton_h_
 
-#include "Protium/Singleton/CreationPolicies.h"
-#include "Protium/Singleton/DeletionPolicies.h"
-#include "Protium/Threads/ThreadingPolicy.h"
-#include "Protium/Threads/Mutex.h"
+#include "Protium/Singleton/CreationPolicies.hh"
+#include "Protium/Singleton/DeletionPolicies.hh"
+#include "Protium/Threads/ThreadingPolicy.hh"
+#include "Protium/Threads/Mutex.hh"
 
 namespace Protium{
 

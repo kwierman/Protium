@@ -1,7 +1,7 @@
-#ifndef Protium_FixedAllocator_h_
-#define Protium_FixedAllocator_h_
+#ifndef Protium_FixedAllocator_hh_
+#define Protium_FixedAllocator_hh_
 
-#include "Protium/Allocation/Chunk.h"
+#include "Protium/Allocation/Chunk.hh"
 
 #include <vector>
 

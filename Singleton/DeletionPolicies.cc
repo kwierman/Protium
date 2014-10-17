@@ -1,4 +1,4 @@
-#include "Protium/Singleton/DeletionPolicies.h"
+#include "Protium/Singleton/DeletionPolicies.hh"
 
 
 #include <assert.h>

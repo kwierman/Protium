@@ -1,4 +1,4 @@
-#include "Protium/Math/MathFunctions.h"
+#include "Protium/Math/MathFunctions.hh"
 
 namespace Protium{
 

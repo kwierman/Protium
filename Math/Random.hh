@@ -1,5 +1,5 @@
-#ifndef Protium_Random_h_
-#define Protium_Random_h_
+#ifndef Protium_Random_hh_
+#define Protium_Random_hh_
 
 #include <ctime>
 

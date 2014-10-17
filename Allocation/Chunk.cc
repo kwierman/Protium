@@ -1,10 +1,10 @@
-#include "Protium/Allocation/Chunk.h"
+#include "Protium/Allocation/Chunk.hh"
 
 #include <assert.h>
 #include <bitset>
 
 bool Protium::Allocation::Chunk::Init( std::size_t blockSize, unsigned char blocks ){
-    assert(blockSize > 0 && blocks >0);
+    assert(blockSize > 0 && blocks > 0 );
     const std::size_t totalSize= blockSize*blocks;
     assert( totalSize / blockSize == blocks);
     fData = static_cast<unsigned char* > (operator new(totalSize) );

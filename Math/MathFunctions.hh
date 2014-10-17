@@ -1,5 +1,5 @@
-#ifndef Protium_MathFunction_h_
-#define Protium_MathFunction_h_
+#ifndef Protium_MathFunction_hh_
+#define Protium_MathFunction_hh_
 
 namespace Protium{
 

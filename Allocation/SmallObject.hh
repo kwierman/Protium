@@ -1,9 +1,9 @@
-#ifndef Protium_SmallObject_h_
-#define Protium_SmallObject_h_
+#ifndef Protium_SmallObject_hh_
+#define Protium_SmallObject_hh_
 
-#include "Protium/Allocation/SmallObjectAllocator.h"
-#include "Protium/Singleton/DeletionPolicies.h"
-#include "Protium/Threads/ThreadingPolicy.h"
+#include "Protium/Allocation/SmallObjectAllocator.hh"
+#include "Protium/Singleton/DeletionPolicies.hh"
+#include "Protium/Threads/ThreadingPolicy.hh"
 
 
 namespace Protium{

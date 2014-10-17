@@ -1,7 +1,7 @@
-#ifndef Protium_Matrix_h_
-#define Protium_Matrix_h_
+#ifndef Protium_Matrix_hh_
+#define Protium_Matrix_hh_
 
-#include "Protium/LinearAlgebra/Vector.h"
+#include "Protium/LinearAlgebra/Vector.hh"
 
 #include <vector>
 #include <cmath>

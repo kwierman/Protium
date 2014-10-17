@@ -1,5 +1,5 @@
-#include "Protium/Allocation/SmallObjectAllocator.h"
-#include "Protium//Allocation/FixedAllocator.h"
+#include "Protium/Allocation/SmallObjectAllocator.hh"
+#include "Protium//Allocation/FixedAllocator.hh"
 
 inline std::size_t GetOffset( std::size_t numBytes, std::size_t alignment ){
     return ( numBytes + alignment-1 ) / alignment;

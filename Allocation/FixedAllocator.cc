@@ -1,11 +1,9 @@
-#include "Protium/Allocation/FixedAllocator.h"
+#include "Protium/Allocation/FixedAllocator.hh"
 
 #include <assert.h>
 
 unsigned char Protium::Allocation::FixedAllocator::MinObjectsPerChunk_ = 8;
 unsigned char Protium::Allocation::FixedAllocator::MaxObjectsPerChunk_ = 255;
-
-// FixedAllocator::FixedAllocator ---------------------------------------------
 
 Protium::Allocation::FixedAllocator::FixedAllocator()
     : blockSize_( 0 )
@@ -17,19 +15,12 @@ Protium::Allocation::FixedAllocator::FixedAllocator()
 {
 }
 
-// FixedAllocator::~FixedAllocator --------------------------------------------
-
 Protium::Allocation::FixedAllocator::~FixedAllocator()
 {
-#ifdef DO_EXTRA_LOKI_TESTS
-    TrimEmptyChunk();
-    assert( chunks_.empty() && "Memory leak detected!" );
-#endif
     for ( ChunkIter i( chunks_.begin() ); i != chunks_.end(); ++i )
        i->Release();
 }
 
-// FixedAllocator::Initialize -------------------------------------------------
 
 void Protium::Allocation::FixedAllocator::Initialize( std::size_t blockSize, std::size_t pageSize )
 {
@@ -45,27 +36,9 @@ void Protium::Allocation::FixedAllocator::Initialize( std::size_t blockSize, std
     assert(numBlocks_ == numBlocks);
 }
 
-// FixedAllocator::CountEmptyChunks -------------------------------------------
-
 std::size_t Protium::Allocation::FixedAllocator::CountEmptyChunks( void ) const{
-#ifdef DO_EXTRA_LOKI_TESTS
-    // This code is only used for specialized tests of the allocator.
-    // It is #ifdef-ed so that its O(C) complexity does not overwhelm the
-    // functions which call it.
-    std::size_t count = 0;
-    for ( ChunkCIter it( chunks_.begin() ); it != chunks_.end(); ++it )
-    {
-        const Chunk & chunk = *it;
-        if ( chunk.HasAvailable( numBlocks_ ) )
-            ++count;
-    }
-    return count;
-#else
     return ( NULL == emptyChunk_ ) ? 0 : 1;
-#endif
 }
-
-// FixedAllocator::IsCorrupt --------------------------------------------------
 
 bool Protium::Allocation::FixedAllocator::IsCorrupt( void ) const {
     const bool isEmpty = chunks_.empty();
@@ -179,8 +152,6 @@ bool Protium::Allocation::FixedAllocator::IsCorrupt( void ) const {
     return false;
 }
 
-// FixedAllocator::HasBlock ---------------------------------------------------
-
 const Protium::Allocation::Chunk* Protium::Allocation::FixedAllocator::HasBlock( void * p ) const {
     const std::size_t chunkLength = numBlocks_ * blockSize_;
     for ( ChunkCIter it( chunks_.begin() ); it != chunks_.end(); ++it )
@@ -192,7 +163,6 @@ const Protium::Allocation::Chunk* Protium::Allocation::FixedAllocator::HasBlock(
     return NULL;
 }
 
-// FixedAllocator::TrimEmptyChunk ---------------------------------------------
 
 bool Protium::Allocation::FixedAllocator::TrimEmptyChunk( void )
 {
@@ -236,8 +206,6 @@ bool Protium::Allocation::FixedAllocator::TrimEmptyChunk( void )
 
     return true;
 }
-
-// FixedAllocator::TrimChunkList ----------------------------------------------
 
 bool Protium::Allocation::FixedAllocator::TrimChunkList( void )
 {
