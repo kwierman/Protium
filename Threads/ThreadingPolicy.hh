@@ -1,6 +1,8 @@
 #ifndef Protium_ThreadingPolicy_hh_
 #define Protium_ThreadingPolicy_hh_
 
+#include <cassert>
+
 #include "Protium/Threads/Mutex.hh"
 
 

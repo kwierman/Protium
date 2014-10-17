@@ -1,3 +1,4 @@
+
 #ifndef Protium_SmallObject_hh_
 #define Protium_SmallObject_hh_
 
@@ -176,6 +177,6 @@ namespace Protium{
     }
 }
 
-#include "Protium/Allocation/STLAdapter.h"
+#include "Protium/Allocation/STLAdapter.hh"
 
 #endif //Protium_SmallObject_h_
