@@ -27,13 +27,6 @@ if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "Install path prefix, prepended onto install directories." FORCE)
 endif()
 #----------------------------------------------------------------------------
-#
-#file(RELATIVE_PATH REL_INCLUDE_DIR "${INSTALL_CMAKE_DIR}" "${INSTALL_INCLUDE_DIR}")
-#set(CONF_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}" "${PROJECT_BINARY_DIR}")
-#configure_file(ProtiumConfig.cmake.in "${PROJECT_BINARY_DIR}/ProtiumConfig.cmake" @ONLY)
-#set(CONF_INCLUDE_DIRS "\${Protium_CMAKE_DIR}/${REL_INCLUDE_DIR}")
-#configure_file(ProtiumConfig.cmake.in "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/ProtiumConfig.cmake" @ONLY)
-#----------------------------------------------------------------------------
 # Locate sources and headers for this project
 include_directories(${PROJECT_SOURCE_DIR}/..)
 add_subdirectory(Design)
@@ -46,7 +39,7 @@ add_subdirectory(Math)
 add_subdirectory(LinearAlgebra)
 add_subdirectory(Containers)
 add_subdirectory(Applications)
-#THIS ONE ALWAYS COMES LAST
+###############THIS ONE ALWAYS COMES LAST################
 add_subdirectory(Include)
 #----------------------------------------------------------------------------
 #Add in Documentation
@@ -58,7 +51,7 @@ configure_file(
     "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
     IMMEDIATE @ONLY)
 
-add_custom_target(uninstall
+add_custom_target(uninstall 
     COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake)
 #----------------------------------------------------------------------------
 #Export everything just made
