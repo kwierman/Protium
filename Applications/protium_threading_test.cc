@@ -1,23 +1,25 @@
 
 #include "Protium/Threads/Thread.hh"
 
-class TerminatorThread : Protium::Threads::AbstractThread<ChildThread>{
+#include <iostream>
+/*
+class TerminatorThread : Protium::Threads::Thread{
 
 public:
 	virtual void start(){
 		for(int i=0; i<3;i++){
-			std::cout<<"Now in thread: "<<this->getPID()<<std::endl;	
+			//std::cout<<"Now in thread: "<<this->getPID()<<std::endl;	
 		}
 	}
 };
 
 
-class ChildThread : Protium::Threads::AbstractThread<ChildThread>{
+class ChildThread : Protium::Threads::Thread{
 	//maybe replace this with something that 
 public:
-	virtual void start()(){
+	virtual void start(){
 		for(int i=0; i<3;i++){
-			std::cout<<"Now in thread: "<<this->getPID()<<" starting child thread..."<<std::endl;
+			//std::cout<<"Now in thread: "<<this->getPID()<<" starting child thread..."<<std::endl;
 			this->CreateChild<TerminatorThread>()->Start();
 		}
 		std::cout<<"Waiting for child threads to finish out..."<<std::endl;
@@ -29,10 +31,12 @@ public:
 		}
 	}
 };
-
+*/
 
 int main(int argc, char* argv[]){
-	//create the direct child thread and let it go
+	//Protium::Threads::RootThread::GetRootThread();
+
+/*	//create the direct child thread and let it go
 	for(int i=0; i< 3; i++)
 		Protium::Threads::RootThread::GetInstance().CreateChild<ChildThread>()->Start();
 	//now wait for all the threads to join up. Maybe move this to the parent process.
@@ -43,4 +47,5 @@ int main(int argc, char* argv[]){
 			std::cout<<"Warning: parent thread could not kill child thread"<<std::endl;
 		}
 	} 
+	*/
 }

@@ -1,6 +1,13 @@
 #ifndef Protium_Thread_hh_
 #define Protium_Thread_hh_
 
+#include <pthread.h>
+#include <vector>
+#include <unistd.h>
+#include <algorithm>
+
+#include "Protium/Threads/ThreadingPolicy.hh"
+
 namespace Protium{
 
 	namespace Threads{
@@ -36,89 +43,40 @@ namespace Protium{
 
 		namespace Private{
 			//Use this to call up the thread via the owning object, which should 
-			void threadingFunction(AbstractThreadThread* thread){
-				thread->start();
-			}
+			void* threadingFunction(void* thread);
 		}
 
-		/**
-			\class Abstract Thread
-
-			\When starting a new thread, this class is meant to be 
-
-		**/
-		class Thread : {
-			typedef typename InstanceLocked<Thread, Mutex>::Lock lock;
-			//now, in each method that needs to be locked, you need to use lock l(this);
-			//followed by (void)l;
-
-		private:
+		class AbstractThread : InstanceLocked<AbstractThread, Mutex>{
 			//! Holds the thread in question
 			pthread_t thread;
 			//! Holds the thread attributes
-			pthread_attr_* attr;
+			pthread_attr_t* attr;
 
-			//! Represents a thread status
+		private:
+			//! Thread status indication
 			enum Status{
-				idle, running, exited, killed;
-			}
+				idle, running, exited, killed
+			};
 
-			//! Holds this thread status
+			//! This thread's status
 			Status stat;
 
-			//The children of this node
-			std::vector<Thread> fChildren;
-			typedef std::vector<Thread>::iterator ThreadIt;
-			const Thread* fParent;//Points to the parent node. Does not own
-			//now for the root thread
-			class RootThread: Thread{
-				pid_t fThreadID;
-				RootThread() : Thread(NULL){
-					atexit(&FinishThreads);
-					fThreadID = thisThread();
-				}
-				~RootThread(){
-
-				}
-				void FinishThreads(){
-					delete fRoot;
-					fRoot=null;
-				}
-			};
-			static RootThread* fRoot;
-
-			static Thread GetRootThread(){
-				//Since the root thread will always be instantiated in the main thread, we can assume the 
-
-				if(!fRoot)
-					fRoot = new RootThread();
-				return fRoot;
-			}
-
-
-			//this
-			Thread(const Thread* parent) : stat(idle), fParent(parent){
-				Init();
-			}
-
-			virtual ~Thread(){
-				Kill();
-				for(ThreadIt it = fChildren.begin(); it!= fChildren.end(); ++it){
-					this->Join(*it);
-				}
-			}
-
+		protected:
+			typedef InstanceLocked< AbstractThread, Mutex > ThreadModel;
+			typedef typename ThreadModel::Lock lock;
 		public:
 			//! Starts this thread from the parent thread. Needs to be overriden for root thread
 			virtual void Create(){
-				pthread_create (thread,attr,threadingFunction,this);				
+				lock l(this);
+				(void)l;
+				pthread_create(&thread,attr,::Protium::Threads::Private::threadingFunction,this);				
 			}
 
 		protected:
 
 			//! Calls exit on the current thread
 			void Exit(){
-				pthread_exit (*stat);
+				pthread_exit (&stat);
 			}
 
 		public:
@@ -128,7 +86,7 @@ namespace Protium{
 				pthread_cancel (thread);				
 			}
 
-		private:
+		protected:
 
 			//! Initiates this thread's attributes
 			void Init(){
@@ -141,29 +99,76 @@ namespace Protium{
 		public:
 
 			//Override this for a threading routine
-			void start() =0;
+			virtual void start()=0;
 
 			//Call this to join with the child thread. Blocks calling thread until the child thread joins.
-			//void Join(){
-				//pthread_join(thread[t], &status);
-			//}
+			virtual void Join(const AbstractThread& other){
+				//pthread_join(other.thread, &status);
+			}
 
-			pid_t thisThread(){
+			static pid_t thisThreadID() {
 				return pthread_self();
 			}
 
-			bool equal(pid_t& other){
-				return  (this->pid, other);
-			}
+			//bool equal(pid_t& other){
+			//	return  (this->pid, other);
+			//}
 
 			void sleep_for(unsigned time){
-				sleep(time);
+				usleep(time);
 			}
 
-			const ThreadNode* getParent(){
+		};
+
+		class RootThread : public AbstractThread {
+			pid_t fThreadID;
+			static RootThread* fRoot;
+			RootThread() {
+				std::atexit(&Protium::Threads::RootThread::FinishThreads);
+				fThreadID = thisThreadID();
+			}
+			~RootThread(){
+
+			}
+		public:
+			void start(){}
+			static void FinishThreads(){
+				delete fRoot;
+				fRoot=NULL;
+			}
+		};
+
+		class Thread : public AbstractThread {
+		private:
+
+			//The children of this node
+			std::vector<Thread> fChildren;
+			typedef std::vector<Thread>::iterator ThreadIt;
+			const Thread* fParent;//Points to the parent node. Does not own
+			//now for the root thread
+
+			
+
+			//static Thread GetRootThread(){
+				//Since the root thread will always be instantiated in the main thread, we can assume the 
+				//if(!fRoot)
+				//	fRoot = new RootThread();
+				//return fRoot;
+			//}
+			//this
+			Thread(const Thread* parent) : fParent(parent){
+				Init();
+			}
+		public:
+			virtual ~Thread(){
+				AbstractThread::Kill();
+				for(ThreadIt it = fChildren.begin(); it!= fChildren.end(); ++it){
+					//this->Join(*it);
+				}
+			}
+			const AbstractThread* getParent(){
 				return fParent;
 			}
-
 			template<class T>
 			const T* Create(){
 				T* temp = new T();
@@ -171,8 +176,8 @@ namespace Protium{
 				return temp;
 			}
 			//create is used to get the thread for the parent object to hold onto, now for the wierd part
-			template<class T=Thread>
-			const T* Get(pid_t id){
+			
+			const Thread* Get(pid_t id){
 				return NULL;
 			}
 
@@ -181,6 +186,22 @@ namespace Protium{
 						this->Join(*it);
 					}
 			}
+		public:
+			void start(){}
+		};
+
+
+
+
+
+			
+
+
+
+
+
+
+
 
 
 
@@ -194,8 +215,6 @@ namespace Protium{
 			//void setstacksize(){
 				//pthread_attr_setstacksize(/*It's over NINE THOUSAND!!!*/);
 			//}
-		};
-
 
 
 	}

@@ -1,3 +1,9 @@
 #include "Protium/Threads/Thread.hh"
 
-Protium::Threads::Thread::fRoot = NULL;
+void* Protium::Threads::Private::threadingFunction(void* thread){
+	Thread* t = static_cast<Thread*>(thread);
+	t->start();
+	return NULL;
+}
+
+Protium::Threads::RootThread* Protium::Threads::RootThread::fRoot = NULL;
