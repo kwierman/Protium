@@ -1,6 +1,15 @@
 #include "Protium/Math/Random.hh"
 
+#include <ctime>
+#include <cassert>
+
 Protium::Math::Random::Random(unsigned seed):fSeed(seed?seed : static_cast<unsigned>( std::time(0) ) ) {}
+
+void Protium::Math::Random::setSeed(unsigned seed){
+	fSeed = (seed? seed : static_cast<unsigned>(std::time(0)));
+}
+unsigned Protium::Math::Random::getSeed(){return fSeed;}
+
 
 unsigned short Protium::Math::Random::nextShort(){
 
@@ -9,7 +18,6 @@ unsigned short Protium::Math::Random::nextShort(){
     return static_cast<unsigned short>(fSeed =a*(fSeed & 65535)+ (fSeed >> 16) );
 }
 
-unsigned Protium::Math::Random::getSeed(){return fSeed;}
 
 
 unsigned int Protium::Math::Random::nextUint()

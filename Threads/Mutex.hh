@@ -35,6 +35,7 @@ namespace Protium{
             bool fIsLocked;
         public:
             Mutex();
+            ~Mutex();
             //! Attempts to lock the mutex and blocks until mutex is available. 
             void Lock();
             //! Unlocks the mutex for the next usage.

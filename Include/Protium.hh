@@ -19,7 +19,6 @@
 	- Tritium
 	    - Graphics and advanced mathematical functionality.
 	    - Designed to run on client machines.
-	    -
 	
 	\section downloading Downloading Software
 

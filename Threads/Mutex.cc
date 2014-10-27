@@ -4,6 +4,10 @@ Protium::Threads::Mutex::Mutex() : fIsLocked(false){
     pthread_mutex_init(&fMtx, 0);
 }
 
+Protium::Threads::Mutex::~Mutex(){
+	pthread_mutex_destroy(&fMtx);
+}
+
 void Protium::Threads::Mutex::Lock(){
     pthread_mutex_lock(&fMtx); 
     fIsLocked = true;

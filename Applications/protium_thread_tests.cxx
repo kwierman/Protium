@@ -43,5 +43,4 @@ int main(int argc, char* argv[]){
 
 	Multi2 z(3);
 	z.Print();
-
 }
