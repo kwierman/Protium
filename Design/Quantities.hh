@@ -20,8 +20,8 @@
 	If you want to like dimensions:
 
 	~~~~~~~~
-		Protium::Design::Rate myRate1;
-		Protium::Design::Rate myRate2;
+		Protium::Design::Rate myRate1 = Protium::Design::Rate(5.0);
+		Protium::Design::Rate myRate2; //initializes to 0.0
 		Protium::Design::Rate myRate3;				
 	    myRate1 = myRate2+myRate3;
 	~~~~~~~~
@@ -48,7 +48,7 @@
 	Protium::Design::Scalar scalar = time*rate;
 	~~~~~~~~
 
-	The will cause a compiler error if the Quantitities don't have equal dimensions.
+	The will cause a compiler error if the Quantities don't have equal dimensions.
 
 **/
 
@@ -65,8 +65,8 @@ namespace Protium{
 
 		    template<class OtherDimensions>
 		    Quantity(const OtherDimensions& rhs ) :fValue(rhs.Value()){
-		    	PROTIUM_STATIC_ASSERT( (SameType< Dimensions , OtherDimensions >::value),
-		    							ERROR_QUANTITIES_NOT_EQUAL_DIMENSIONS() );
+					PROTIUM_STATIC_ASSERT( (SameType< Dimensions , OtherDimensions >::value),
+											ERROR_QUANTITIES_NOT_EQUAL_DIMENSIONS() );
 		    }
 
 		    T Value() const { return fValue; }

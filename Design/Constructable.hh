@@ -16,8 +16,10 @@
 	In class header:
 	
 	~~~~~~~~
-	class MyClass : ConstructablePrototype{
-	    REGISTER_DECLARE_TYPE(MyClass, MyGroup);
+	namespace MyNamespace{
+		class MyClass : ConstructablePrototype{
+		    REGISTER_DECLARE_TYPE(MyClass, MyGroup);
+		}
 	}
 	~~~~~~~~
 

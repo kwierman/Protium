@@ -1,10 +1,13 @@
 #include "Protium/Math/Random.hh"
+#include "Protium/Utilities/SignalCatching.hh"
 
 #include <iostream>
 #include <fstream>
 #include <iomanip>
 
 int main(int argc, char* argv[]){
+
+	Protium::Utilities::SignalCatcher::Instance().Setup();
 
 	std::cout<<"Calculating Pi"<<std::endl;
 

@@ -16,6 +16,7 @@ namespace Protium{
 			//! Data
 			time_t fTime;
 		public:
+			TimePrimitive(){fTime = 0;}
 			TimePrimitive(const time_t& t) : fTime(t) {}
 			TimePrimitive(const TimePrimitive& t) : fTime(t.fTime) {}
 			TimePrimitive& operator=(const TimePrimitive& other) {
@@ -36,6 +37,13 @@ namespace Protium{
 		class TimeDate : public TimePrimitive{
 			tm fTM;
 		public:
+			TimeDate(const time_t& t) : TimePrimitive(t)  {
+				time_t temp = this->GetTime();
+				tm* temp2 = localtime( &temp );
+				fTM = *temp2;
+				//delete temp2; 
+			}
+
 			TimeDate(	const int& sec=0, 
 					const int& min=0, 
 					const int& hour =0, 

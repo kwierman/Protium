@@ -20,7 +20,7 @@ namespace Protium{
 	namespace Utilities{
 
 		class SignalCatchingImplementation{
-			protected: 
+			public: 
 				SignalCatchingImplementation(){}
 				virtual ~SignalCatchingImplementation(){}
 			public:
@@ -36,6 +36,12 @@ namespace Protium{
 		};
 
 
+		typedef Protium::Singleton::Singleton<SignalCatchingImplementation, 
+		Protium::Singleton::CreateStatic, 
+		Protium::Singleton::DeleteNever, 
+		Protium::Threads::StaticLocked> SignalCatcher;
+
+		/*
 		class SignalCatcher: public SignalCatchingImplementation{
 
 	        typedef Protium::Singleton::Singleton< SignalCatcher, Protium::Singleton::CreateStatic,
@@ -48,8 +54,9 @@ namespace Protium{
 	        }
 
 	        inline SignalCatcher() : SignalCatchingImplementation() {}
-	        inline ~SignalCatcher( void ) {}
+	        inline ~SignalCatcher( ) {}
 		};
+		*/
 
 	}
 }

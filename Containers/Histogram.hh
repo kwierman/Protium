@@ -1,47 +1,97 @@
 #ifndef Protium_Histogram_hh_
 #define Protium_Histogram_hh_
 
+#include "Protium/Containers/Functional.hh"
+
 #include <map>
 
 namespace Protium{
 
 	namespace Containers{
 
+		template<typename BinType>
+		struct Bin{
+			BinType loweredge;
+			BinType width;
+
+			Bin(const Bin& other) : loweredge(other.loweredge) , width(other.width) {}
+
+			Bin() : loweredge(0), width(0) {}
+
+			Bin& operator=(const Bin& other){
+				this->loweredge = other.loweredge;
+				this->width = other.width;
+				return *this;
+			}
+
+			bool operator<(const Bin& rhs) const{
+				return ( (this->loweredge) < (rhs.loweredge) );
+			}
+
+			bool operator>(const Bin& rhs) const{
+				return ( (this->loweredge) > (rhs.loweredge) );
+			}
+
+			bool operator==(const Bin& rhs) const{
+				return ( (this->loweredge) == (rhs.loweredge) );
+			}
+
+			bool operator<(const BinType& rhs) const{
+				return ( (this->loweredge) < rhs );
+			}
+
+			bool operator>(const BinType& rhs) const{
+				return (this->loweredge + this->width) > (rhs) ;
+			}
+
+			bool operator==(const BinType& rhs) const{
+				return ((rhs>this->lowerEdge) && (rhs< this->lowerEdge+this->width) ) ;
+			}
+
+		};
+		typedef Bin<double> DBin;
+		typedef Bin<int> IBin;
+		typedef Bin<unsigned> UBin;
+		typedef Bin<float> FBin;
+
+
+		/*
+			\page Histogramming
+
+			\section 1D Histogramming
+
+			The idea here is this:
+			You can either know your range of histogramming, and granularity, or you can not.
+			Either way, we should be able to optimize this
+		*/
+
 		template<class BinType=double>
-		class Histogram{
+		class Histogram1D : public Functional1D< Bin<BinType> , unsigned > {
 
-			struct Bin{
-				BinType loweredge;
-				BinType width;
-
-				bool operator<(const Bin& rhs) const{
-					return (this->loweredge) < (rhs.loweredge) ;
-				}
-
-				bool operator>(const Bin& rhs) const{
-					return (this->loweredge) > (rhs.loweredge) ;
-				}
-
-				bool operator==(const Bin& rhs) const{
-					return (this->loweredge) == (rhs.loweredge) ;
-				}
-			};
-
-			std::map<Bin, unsigned> fContents;
+			typedef Functional1D< Bin<BinType>, unsigned > HistType;
+			typedef std::map< Bin<BinType>, unsigned >		DataType;
+			typedef typename DataType::iterator DataIt;
 
 		public:
 			//! Most Basic Histogram instantiation. Creates uniform size bins
-			Histogram( const BinType& lowerEdge, const BinType& upperEdge, const unsigned& nBins){
+			//! \param lowerEdge Specifies the lowest value that this histogram should accept
+			//! \param upperEdge Specifies the highest value that this histogram should accept.
+			//! \param nBins Specifies the number of bins that this histogram should have
+			//! \note The number of bins this histogram creates is nBins+2. The extra bins are for underflow/overflow. These can be probed by looking for values that are below the lowest edge or above the highest edge.
+			Histogram1D( const BinType& lowerEdge, const BinType& upperEdge, const unsigned& nBins){
+				double width = (upperEdge-lowerEdge)/double(nBins);
 				for(unsigned i=0; i<nBins; i++){
-					Bin tempBin;
-					tempBin.width=(upperEdge-lowerEdge)/( (double)nBins );
-					tempBin.loweredge = double(i)* (upperEdge-lowerEdge)/( (double)nBins );
-					fContents.insert(std::make_pair<Bin, unsigned>(tempBin,0) );
+					Bin<BinType> tempBin;
+					tempBin.width = width;
+					tempBin.loweredge = lowerEdge+double(i)*width;
+					this->fData.insert(std::make_pair< Bin<BinType>, unsigned>(tempBin,0) );
 				}
 			}
 
+
+
 			unsigned GetNBins() const{
-				return fContents.size();
+				return HistType::fData.size();
 			}
 
 			//! Use this for Rebinning. 
@@ -50,7 +100,7 @@ namespace Protium{
 			//!    The bin overlapping the upper edge gets rebinned to the upper edge
 			//!    The bins overlapping the middle range (inclduing those with matching edges of the new bin)
 			//!    get deleted and replaced by the new bin (bin content gets transferred).
-			void SetNewBin(const BinType& lowerEdge, const BinType& delta ){
+			/*void SetNewBin(const BinType& lowerEdge, const BinType& delta ){
 				Bin newBin;
 				newBin.width=delta;
 				newBin.loweredge = lowerEdge;
@@ -62,62 +112,54 @@ namespace Protium{
 
 				fContents[newBin] = newContent;
 			}
-
-			BinType GetLowerEdgeByI(const int& i) const {
-				int index=0;
-				for(typename std::map<Bin, unsigned>::const_iterator it = fContents.begin(); it!=fContents.end(); ++it){
-					if(i==index++)
-						return (*it).first.loweredge;
-
-				}
-			}
-
-			BinType GetBinWidthByI(const int& i) const {
-				int index=0;
-				for(typename std::map<Bin, unsigned>::const_iterator it = fContents.begin(); it!=fContents.end(); ++it){
-					if(i==index++)
-						return (*it).first.width;
-
-				}	
-			}
-
-			unsigned GetBinContentByI(const int& i) const {
-				int index=0;
-				for(typename std::map<Bin, unsigned>::const_iterator it = fContents.begin(); it!=fContents.end(); ++it){
-					if(i==index++)
-						return (*it).second;
-
-				}
-			}
-
-
-			//Histogram(int nBins, std::vector<double>&binWidths, std::vector<double>& );
-
-
-			//BinType GetBinLowerEdgeByI(const int& i);
-			//BinType GetBinLowerEdgeByPos( const BinType& i);
-
-			//BinType GetBinHigherEdgeByI(const int& i);
-			//BinType GetBinHigherEdgeByPos( const BinType& i);
-
-			//BinType GetBinWidthByI(const int& i);
-			//BinType GetBinWidthByPos( const BinType& i);
-
-			//YType GetBinQuantityByI(const int& i);
-			//YType GetBinQuantityByPos( const BinType& i);
-
+			*/
 			//void AddBin(const BinType& edge, const BinType& width);
 
-			//void Initialize(const int& xbins, const int& ybins, const int& zbins, BinType& defaultBinType );
+			BinType GetLowerEdgeByIndex(const unsigned& i) const {
 
-			//ContentType& IterateBinContent(const BinType& bin );
 
-			//void SetBinContent(const BinType& bin, const ContentType& content);
+				for(unsigned int j =0; j<i; j++){
 
-			//void Normalize();
+				}
+
+
+				return BinType(1e6);
+			}
+
+			BinType GetBinWidthByIndex(const int& i) const {
+				return HistType::fData[i].first.width;	
+			}
+
+			unsigned GetBinContentByIndex(const int& i) const {
+				return HistType::fData[i].second;
+			}
+
+
+
+			BinType GetLowerEdgeByValue(const BinType& i) const {
+
+				return (*HistType::fData.lower_bound(i)).first.loweredge;
+			}
+
+			BinType GetBinWidthByValue(const int& i) const {
+				return (*HistType::fData.lower_bound(i)).first.width;	
+			}
+
+			unsigned GetBinContentByValue(const int& i) const {
+				return (*HistType::fData.lower_bound(i)).width;	
+			}
+
+			void FillByIndex(const unsigned& i){
+				HistType::fData[i].second++;	
+			}
+
+			void FillByValue(const BinType& val){
+				HistType::RefAt(val)++;
+			}
+			
 		};
 
-		typedef Histogram< double> Histo1D;
+		typedef Histogram1D<double> Hist1D;
 	}
 }
 
