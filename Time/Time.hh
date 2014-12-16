@@ -5,7 +5,10 @@
 #include <string>
 #include <iomanip>
 
+#include "Protium/Time/Clock.hh"
+
 namespace Protium{
+	//! Objects that are to be used in timing applications
 	namespace Time{
 
 		/**
@@ -34,6 +37,8 @@ namespace Protium{
 			}
 
 		};
+
+		//! Extends TimePrimitive to include formatting and time zones
 		class TimeDate : public TimePrimitive{
 			tm fTM;
 		public:

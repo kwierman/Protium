@@ -13,32 +13,39 @@ namespace Protium{
 		class ClockPrimitive{
 			clock_t fClock;
 		public:
+			//! Constructor sets up clock to the current time.
 			ClockPrimitive(){
 				Set();
 			}
+			//! Sets the clock to now.
 			inline void Set(){
 				fClock = clock();
 			}
+			//! Getter for the internal structure
+			//! \return the C-Style clock struct
 			inline clock_t Get() const{
 				return fClock;
 			}
+			//! Statically returns the normalization condition for the machine
+			//! \note POSIX requires that this always return 1000000
 			static clock_t CPS(){
 				return CLOCKS_PER_SEC;
 			}
-
+			//! Copy Constructor copies the time interior
 			ClockPrimitive(const ClockPrimitive& other){
 				this->fClock = other.fClock;
 			}
-
+			//! Assignment operator copies time interior
 			ClockPrimitive& operator=(const ClockPrimitive& other){
 				this->fClock = other.fClock;
 				return *this;
 			}
+			//! Forwards this to the time interior structs
 			bool operator==(const ClockPrimitive& other){
 				return (this->fClock == other.fClock );
 			}
 
-
+			//! Returns a time difference for clocking time differentials
 			ClockPrimitive& operator-(const ClockPrimitive& other){
 				this->fClock - other.fClock;
 				return *this;				
@@ -59,7 +66,9 @@ namespace Protium{
 			inline clock_t GetTime(){return fStop.Get() - fStart.Get();}
 		};
 
-
+		/**
+			Gives stop-watch style functionality to clocking applications
+		**/
 		class RepeatClocker{
 			ClockPrimitive fStart;
 			//* Every Time we 

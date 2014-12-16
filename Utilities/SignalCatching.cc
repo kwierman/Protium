@@ -10,7 +10,7 @@
 
 //---------------------------------------------------------------------
 void Protium::Private::signal_callback_handler(int signum){
-  //Protium::Utilities::SignalCatcher::Instance().Handle(signum);
+    Protium::Utilities::SignalCatcher::Instance().Handle(signum);
 	Protium:Private::print_stacktrace();
 	exit(-1);
 }
@@ -28,7 +28,7 @@ static inline void Protium::Private::print_stacktrace(unsigned int stack_depth)
 
     if (!trace_addr_length) 
     {
-    	std::cout<<"Stack Empty"<<std::endl;
+    	std::cout<<std::endl<<"Stack Empty"<<std::endl;
 		return;
     }
     char** trace_symbols = backtrace_symbols(trace_addr, trace_addr_length);

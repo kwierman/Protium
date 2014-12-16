@@ -16,27 +16,13 @@ namespace Protium{
         template<typename Host, typename AllocType = SmallObjectAllocator<> >
         class STLAdapter{
         public:
-            //! Size to be used in allocation
             typedef std::size_t size_type;
-
-            //! Type to be used when calculating distance between pointers
             typedef std::ptrdiff_t difference_type;
-
-            //! Pointer type to host type
             typedef Host* pointer;
-
-            //! Const Pointer to host type
             typedef const Host * const_pointer;
-
-            //! Reference to host type
             typedef Host & reference;
-
-            //! Const Reference to host type
             typedef const Host & const_reference;
-
-            //! Host Type
             typedef Host value_type;
-
             typedef Host* hostPointer;
             typedef const Host* const_hostPointer;
             typedef Host& hostRef;

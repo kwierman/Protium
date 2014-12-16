@@ -9,10 +9,11 @@ namespace Protium{
 
 		template<typename XType=double, typename YType=double>
 		class Functional1D{
-			//data here
 		protected:
-			std::map<XType, YType> fData;
+
 			typedef std::map<XType, YType> DataType;
+			DataType fData;
+
 			typedef typename DataType::iterator DataIt;
 
 			typedef XType              value_type;

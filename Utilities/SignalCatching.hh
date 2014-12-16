@@ -19,7 +19,28 @@ namespace Protium{
 
 	namespace Utilities{
 
+
+		//!Abstract Class to use as a handler for exceptions passed to te SignalCatching Singleton
+		template<int i>
+		class SignalHandler{
+		public:
+			static bool Handles(const int& signum){return signum==i;}
+			virtual ~SignalHandler(){}
+			virtual void Handle()=0;
+		};
+		//! Handles SigInt Signals
+		typedef SignalHandler<SIGINT>  SigIntHandler ;
+		//! Handles SigAbrt handles (doesn't actually, but for completeness)
+		typedef SignalHandler<SIGABRT> SigAbrtHandler ;
+		//! Handles SigBus Errors
+		typedef SignalHandler<SIGBUS>  SigBusHandler ;
+		//! Handles SigSegv signals (for cleanup purposes, not to be used for graceful recovery)
+		typedef SignalHandler<SIGSEGV> SigSegvHandler ;
+
+		//TODO: Implement Signal Raising scheme here.
+
 		class SignalCatchingImplementation{
+
 			public: 
 				SignalCatchingImplementation(){}
 				virtual ~SignalCatchingImplementation(){}
@@ -30,33 +51,20 @@ namespace Protium{
 					signal(SIGBUS , Protium::Private::signal_callback_handler);
 					signal(SIGSEGV , Protium::Private::signal_callback_handler);
 				}
+				//TODO:: Generalize this so that this handles a stack of handlers. 
+					//Any one may interrupt the handler and proceed with calculations
+				bool Handle(int signum){
+					std::cout<<std::endl<<"Handling Signal: "<<signum<<std::endl;
+				}
 			private:
 	    	    SignalCatchingImplementation( const SignalCatchingImplementation & );
 	    	    SignalCatchingImplementation & operator = ( const SignalCatchingImplementation & );
 		};
 
-
 		typedef Protium::Singleton::Singleton<SignalCatchingImplementation, 
 		Protium::Singleton::CreateStatic, 
 		Protium::Singleton::DeleteNever, 
 		Protium::Threads::StaticLocked> SignalCatcher;
-
-		/*
-		class SignalCatcher: public SignalCatchingImplementation{
-
-	        typedef Protium::Singleton::Singleton< SignalCatcher, Protium::Singleton::CreateStatic,
-	            Protium::Singleton::DeleteLast, Protium::Threads::StaticLocked > SignalCatcherSingleton;
-
-	    public:
-
-	        inline static SignalCatcher& Instance(){
-	            return SignalCatcherSingleton::Instance();
-	        }
-
-	        inline SignalCatcher() : SignalCatchingImplementation() {}
-	        inline ~SignalCatcher( ) {}
-		};
-		*/
 
 	}
 }

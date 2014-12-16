@@ -39,7 +39,20 @@ int main(int argc, char* argv[] ){
 		Hist1D hist(0,100,1000);
 		//checking for blank histogram
 		std::cout<<"Number of bins: "<<hist.GetNBins()<<std::endl;
+		//fill each bin with the inverse number of fills
+		for(double i =0.; i<100; i+=0.1 ){
+			for(int j=0; j< int(100.0-i) ;j++){
+				hist.FillByValue(i);
+			}
+		}
+		std::cout<<"Finding Bin Contents By Value: "<<std::endl;
+		for(double i =0.;i<100;i+=0.1 ){
+			std::cout<<"For Value: "<<i<<" bin content: "<<hist.GetByValue(i)<<std::endl;
+		}
+
+
 		//for(unsigned i =0; i< hist.GetNBins() ; i++ ){
+
 		//	std::cout<<"Bin: "<<i<<" content: "<<hist.GetBinContentByIndex(i)<<" loweredge: "<<
 		//	hist.GetLowerEdgeByIndex(i)<<" width: "<<hist.GetBinWidthByIndex(i)<<std::endl;
 		//}

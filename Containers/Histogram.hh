@@ -16,7 +16,7 @@ namespace Protium{
 
 			Bin(const Bin& other) : loweredge(other.loweredge) , width(other.width) {}
 
-			Bin() : loweredge(0), width(0) {}
+			Bin(double lower=0, double w=0) : loweredge(lower), width(w) {}
 
 			Bin& operator=(const Bin& other){
 				this->loweredge = other.loweredge;
@@ -68,6 +68,7 @@ namespace Protium{
 		template<class BinType=double>
 		class Histogram1D : public Functional1D< Bin<BinType> , unsigned > {
 
+			typedef Bin<BinType>							ThisBin;
 			typedef Functional1D< Bin<BinType>, unsigned > HistType;
 			typedef std::map< Bin<BinType>, unsigned >		DataType;
 			typedef typename DataType::iterator DataIt;
@@ -154,7 +155,18 @@ namespace Protium{
 			}
 
 			void FillByValue(const BinType& val){
-				HistType::RefAt(val)++;
+				//replace this with a 
+				ThisBin temp(val);
+				HistType::RefAt(temp)++;
+			}
+
+			unsigned GetByIndex(const unsigned& i){
+				return HistType::fData[i].second;	
+			}
+
+			unsigned GetByValue(const BinType& val){
+				ThisBin temp(val);
+				return HistType::RefAt(temp );
 			}
 			
 		};

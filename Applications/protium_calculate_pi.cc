@@ -7,6 +7,7 @@
 
 int main(int argc, char* argv[]){
 
+	//Setup the debug utilities, this may need to be done with other objects.
 	Protium::Utilities::SignalCatcher::Instance().Setup();
 
 	std::cout<<"Calculating Pi"<<std::endl;
