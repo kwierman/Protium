@@ -7,6 +7,10 @@ namespace Protium{
 
 	namespace Containers{
 
+
+		/** \class Functional1D
+			\brief A base template to deal with the minutia of 
+		**/
 		template<typename XType=double, typename YType=double>
 		class Functional1D{
 		protected:

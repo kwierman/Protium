@@ -204,11 +204,6 @@ namespace Protium{
         static reference failed_rangecheck () {
                 std::out_of_range e("attempt to access element of an empty array");
                 throw e;
-                //
-                // We need to return something here to keep
-                // some compilers happy: however we will never
-                // actually get here....
-                //
                 static T placeholder;
                 return placeholder;
             }

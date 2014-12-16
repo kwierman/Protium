@@ -2,6 +2,7 @@
 #define Protium_Histogram_hh_
 
 #include "Protium/Containers/Functional.hh"
+#include "Protium/Allocation/SmallObject.hh"
 
 #include <map>
 
@@ -9,46 +10,61 @@ namespace Protium{
 
 	namespace Containers{
 
+		/**
+			\struct Bin
+			\brief Represents a single bin with edge and width  
+			\warning This may move to the interior of Histograms
+		**/
 		template<typename BinType>
-		struct Bin{
+		struct Bin : Protium::Allocation::DefaultSmallObject {
 			BinType loweredge;
 			BinType width;
 
+			//! Copy constructor
 			Bin(const Bin& other) : loweredge(other.loweredge) , width(other.width) {}
 
+			//! Default constructor
 			Bin(double lower=0, double w=0) : loweredge(lower), width(w) {}
 
+			//! Assign operator copies contents
 			Bin& operator=(const Bin& other){
 				this->loweredge = other.loweredge;
 				this->width = other.width;
 				return *this;
 			}
 
+			//! if the bin and width fall below this bin and width
 			bool operator<(const Bin& rhs) const{
 				return ( (this->loweredge) < (rhs.loweredge) );
 			}
 
+			//! if the bin and width fall above this bin and width
 			bool operator>(const Bin& rhs) const{
-				return ( (this->loweredge) > (rhs.loweredge) );
+				return ( (this->loweredge+this->width) > (rhs.loweredge+rhs.width) );
 			}
 
+			//! if the bins overlap AT ALL
 			bool operator==(const Bin& rhs) const{
-				return ( (this->loweredge) == (rhs.loweredge) );
+				return ( (this->loweredge) == (rhs.loweredge) && this->width == rhs.width );
 			}
 
+			//! If the value falls below bin and width
 			bool operator<(const BinType& rhs) const{
 				return ( (this->loweredge) < rhs );
 			}
 
+			//! if the value falls above this bin
 			bool operator>(const BinType& rhs) const{
 				return (this->loweredge + this->width) > (rhs) ;
 			}
 
+			//! if the value falls within this  bin
 			bool operator==(const BinType& rhs) const{
 				return ((rhs>this->lowerEdge) && (rhs< this->lowerEdge+this->width) ) ;
 			}
 
 		};
+
 		typedef Bin<double> DBin;
 		typedef Bin<int> IBin;
 		typedef Bin<unsigned> UBin;
@@ -59,10 +75,9 @@ namespace Protium{
 			\page Histogramming
 
 			\section 1D Histogramming
-
-			The idea here is this:
-			You can either know your range of histogramming, and granularity, or you can not.
-			Either way, we should be able to optimize this
+				\note TODO: Rebinning needs to be coded in.
+			\section 2D Histogramming
+				\note TODO: This section is not complete
 		*/
 
 		template<class BinType=double>
@@ -90,7 +105,7 @@ namespace Protium{
 			}
 
 
-
+			//! Returns the number of bins in this histogram
 			unsigned GetNBins() const{
 				return HistType::fData.size();
 			}
@@ -127,50 +142,49 @@ namespace Protium{
 				return BinType(1e6);
 			}
 
+			//! Get the bin width for a given index
 			BinType GetBinWidthByIndex(const int& i) const {
 				return HistType::fData[i].first.width;	
 			}
 
-			unsigned GetBinContentByIndex(const int& i) const {
-				return HistType::fData[i].second;
-			}
-
-
-
+			//! Get the bin lower edge for a given value
 			BinType GetLowerEdgeByValue(const BinType& i) const {
 
 				return (*HistType::fData.lower_bound(i)).first.loweredge;
 			}
 
+			//! Get a bin width for a given value
 			BinType GetBinWidthByValue(const int& i) const {
 				return (*HistType::fData.lower_bound(i)).first.width;	
 			}
 
-			unsigned GetBinContentByValue(const int& i) const {
-				return (*HistType::fData.lower_bound(i)).width;	
+
+			//! Iterates a bin content by a weight (default 1)
+			void FillByIndex(const unsigned& index, const unsigned& weight=1){
+				HistType::fData[index].second+=weight;	
 			}
 
-			void FillByIndex(const unsigned& i){
-				HistType::fData[i].second++;	
-			}
-
-			void FillByValue(const BinType& val){
+			//! Iterates a bin content by a weight (default 1)
+			void FillByValue(const BinType& val, const unsigned& weight=1){
 				//replace this with a 
 				ThisBin temp(val);
-				HistType::RefAt(temp)++;
+				HistType::RefAt(temp)+= weight;
 			}
 
+			//! Find the bin content by index in the map
 			unsigned GetByIndex(const unsigned& i){
 				return HistType::fData[i].second;	
 			}
 
+			//! Find teh bin content by value
 			unsigned GetByValue(const BinType& val){
 				ThisBin temp(val);
 				return HistType::RefAt(temp );
 			}
-			
 		};
 
+		//! \class Hist1D
+		//! \brief A dimensional double float precision histogram
 		typedef Histogram1D<double> Hist1D;
 	}
 }
