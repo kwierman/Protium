@@ -21,7 +21,7 @@ namespace Protium{
         **/
         template<   class Host,
                     template <class> class CreationPolicy = CreateNew,
-                    template <class> class DeletionPolicy = DeleteNever,
+                    template <class> class DeletionPolicy = DeleteOnce,
                     template <class, class> class ThreadingPolicy = Protium::Threads::InstanceLocked,
                     class MutexPolicy = Protium::Threads::Mutex>
         class Singleton{

@@ -32,11 +32,9 @@ namespace Protium{
 				return CLOCKS_PER_SEC;
 			}
 			//! Copy Constructor copies the time interior
-			ClockPrimitive(const ClockPrimitive& other){
-				this->fClock = other.fClock;
-			}
+			ClockPrimitive(const ClockPrimitive& other) : fClock(other.fClock){}
 			//! Assignment operator copies time interior
-			ClockPrimitive& operator=(const ClockPrimitive& other){
+			ClockPrimitive& operator=(const ClockPrimitive& other) {
 				this->fClock = other.fClock;
 				return *this;
 			}

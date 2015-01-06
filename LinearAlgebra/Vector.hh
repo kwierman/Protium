@@ -58,6 +58,14 @@ namespace Protium{
 
 		public:
 
+            typedef T              value_type;
+            typedef T*             iterator;
+            typedef const T*       const_iterator;
+            typedef T&             reference;
+            typedef const T&       const_reference;
+            typedef std::size_t    size_type;
+            typedef std::ptrdiff_t difference_type;
+
 			//! Initialization of vector components to 
 			void Init(){
 				PROTIUM_STATIC_ASSERT(n>0, ERROR_NO_SUBVECTOR_OF_LENGTH_0 );

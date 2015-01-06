@@ -32,9 +32,6 @@ namespace Protium{
 
 			Functional1D(){}
 
-			Functional1D(const XType& low, const XType& high){
-
-			}
 
 			virtual YType At(const XType& val) const{
 				return (*fData.lower_bound(val)).second;

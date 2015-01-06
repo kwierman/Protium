@@ -82,7 +82,7 @@ namespace Protium{
             reference at(size_type i) { rangecheck(i); return elems[i]; }
             const_reference at(size_type i) const { rangecheck(i); return elems[i]; }
 
-                    // swap (note: linear complexity)
+            // swap (note: linear complexity)
             void swap (array<T,N>& y) {
                 std::swap_ranges(begin(),end(),y.begin());
             }
@@ -93,18 +93,19 @@ namespace Protium{
 
             // use array as C array (direct read/write access to data)
             T* c_array() { return elems; }
-        // assignment with type conversion
-        template <typename T2>
-        array<T,N>& operator= (const array<T2,N>& rhs) {
-            std::copy(rhs.begin(),rhs.end(), begin());
-            return *this;
-        }
 
-        // assign one value to all elements
-        void assign (const T& value)
-        {
-            std::fill_n(begin(),size(),value);
-        }
+            // assignment with type conversion
+            template <typename T2>
+            array<T,N>& operator= (const array<T2,N>& rhs) {
+                std::copy(rhs.begin(),rhs.end(), begin());
+                return *this;
+            }
+
+            // assign one value to all elements
+            void assign (const T& value)
+            {
+                std::fill_n(begin(),size(),value);
+            }
 
 
         };

@@ -113,6 +113,14 @@ namespace Protium{
 			//! Data implementation
 			std::vector<  Vector<T,n>, Protium::Allocation::STLAdapter< Vector<T, n> > > fComponents;
 		public:
+			
+            typedef T              value_type;
+            typedef T*             iterator;
+            typedef const T*       const_iterator;
+            typedef T&             reference;
+            typedef const T&       const_reference;
+            typedef std::size_t    size_type;
+            typedef std::ptrdiff_t difference_type;
 
 			//! Standard initialization 
 			void Init(){

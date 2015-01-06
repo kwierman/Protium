@@ -62,8 +62,8 @@ namespace Protium{
 		};
 
 		typedef Protium::Singleton::Singleton<SignalCatchingImplementation, 
-		Protium::Singleton::CreateStatic, 
-		Protium::Singleton::DeleteNever, 
+		Protium::Singleton::CreateNew, 
+		Protium::Singleton::DeleteOnce, 
 		Protium::Threads::StaticLocked> SignalCatcher;
 
 	}

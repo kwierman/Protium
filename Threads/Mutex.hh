@@ -3,8 +3,8 @@
     \author Kevin Wierman
  */
 
-#ifndef Protium_Threads_hh_
-#define Protium_Threads_hh_
+#ifndef Protium_Mutex_hh_
+#define Protium_Mutex_hh_
 
 #include <pthread.h> //For access to pthreads
 

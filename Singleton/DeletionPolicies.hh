@@ -6,6 +6,8 @@
 #include <algorithm>
 #include <stdexcept>
 
+#include <iostream>
+
 namespace Protium{
 
 	namespace Singleton{
@@ -58,7 +60,7 @@ namespace Protium{
         inline DeletionTracker::~DeletionTracker(){}
 
         //! Queue for deletion. Elements may be added, subtracted, and at the end of exection finalized.
-        static std::list<DeletionTracker*> TrackerList;
+        static std::list<DeletionTracker*>* fTrackerList=0;
 
         //! Concrete templated instance of a deletion tracker
         //! \param Host Type of object to be tracked
@@ -90,10 +92,16 @@ namespace Protium{
         //! Helper function for putting an object into the deletion queue
         template <typename Host, typename Destroyer>
         void SetPriority(Host* pDynObject, unsigned int priority, Destroyer d){
+            if(fTrackerList==0){
+                fTrackerList = new std::list<DeletionTracker*>;
+            }
+
             DeletionTracker* p  = new ConcreteDeletionTracker<Host, Destroyer>(pDynObject, priority, d);
-            std::list<DeletionTracker*>::iterator pos = std::upper_bound( TrackerList.begin(), TrackerList.end(), p, DeletionTracker::Compare );
-            TrackerList.insert(pos, p);
+
+            std::list<DeletionTracker*>::iterator pos = std::upper_bound( fTrackerList->begin(), fTrackerList->end(), p, DeletionTracker::Compare );
+            fTrackerList->insert(pos, p);
             std::atexit(AtExitFn);
+            std::cout<<"Adding in new Tracker with list size: "<<fTrackerList->size()<<std::endl;
         }
 
         //! Helper function for setting singleton deletion priority

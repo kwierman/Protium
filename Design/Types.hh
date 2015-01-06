@@ -31,6 +31,16 @@ namespace Protium{
 	        typedef T OType;
 	    };
 
+		template <bool toggle, typename A, typename B>
+		struct Select{
+			typedef A Result;
+		};
+
+		template <typename A, typename B>
+		struct Select<false, A, B>{
+			typedef B Result;
+		};
+
 	    //! Maps to types to a new type
 	    template <typename T, typename U>
 	    struct SameType
