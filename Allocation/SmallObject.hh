@@ -154,7 +154,7 @@ namespace Protium{
             std::size_t chunkSize = 4096,
             std::size_t maxSmallObjectSize = 256,
             std::size_t objectAlignSize = 4,
-            template <class> class LifetimePolicy = Protium::Singleton::DeleteLast,
+            template <class> class LifetimePolicy = Protium::Singleton::DeleteNever,
             class MutexPolicy = Protium::Threads::Mutex >
         class SmallValueObject : public SmallObjectBase< ThreadingModel, chunkSize,
                 maxSmallObjectSize, objectAlignSize, LifetimePolicy, MutexPolicy >

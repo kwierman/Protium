@@ -20,7 +20,7 @@ namespace Protium{
 	namespace Utilities{
 
 
-		//!Abstract Class to use as a handler for exceptions passed to te SignalCatching Singleton
+		//!Abstract Class to use as a handler for exceptions passed to the SignalCatching Singleton
 		template<int i>
 		class SignalHandler{
 		public:
