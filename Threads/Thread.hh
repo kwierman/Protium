@@ -36,6 +36,13 @@ namespace Protium{
 			myThread.ReInit();//Reset the thread state to get it ready to go again.
 			~~~
 
+			//TODO: Policies:
+						Checking
+						Creation
+						Destruction
+						Ownership
+						Detacheability
+						Joinability
 
 		**/
 
