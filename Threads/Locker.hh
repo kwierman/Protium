@@ -8,7 +8,7 @@ namespace Protium{
 
 		/**
 			\class Locker
-			\brief To be used as an unnamed temporary for the intent of locking threaded classes in function calls.
+			\brief Unnamed temporary intended to lock host classes
 			\usage In order to ensure that classes are thread safe when proxied, use the following in return statements:
 			~~~~~~~~
 				return Locker<Host>(fHost);
