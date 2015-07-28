@@ -1,11 +1,13 @@
 #ifndef Protium_Array_hh
 #define Protium_Array_hh
 
+#include "Protium/Design/Assert.hh"
+
 namespace Protium{
     namespace Containers{
         template<class T, std::size_t N>
         class Array{
-            T data[N];
+            T elems[N];
         public:
 
             typedef T              value_type;
@@ -70,20 +72,20 @@ namespace Protium{
             // operator[]
             reference operator[](size_type i) 
             { 
-                PRTIUM_ASSERT( i < N && "out of range" ); 
+                PROTIUM_RUNTIME_ASSERT( i < N , "out of range" ); 
                 return elems[i];
             }
             
             const_reference operator[](size_type i) const 
             {     
-                PROTIUM_ASSERT( i < N && "out of range" ); 
+                PROTIUM_RUNTIME_ASSERT( i < N , "out of range" ); 
                 return elems[i]; 
             }
             reference at(size_type i) { rangecheck(i); return elems[i]; }
             const_reference at(size_type i) const { rangecheck(i); return elems[i]; }
 
             // swap (note: linear complexity)
-            void swap (array<T,N>& y) {
+            void swap (Array<T,N>& y) {
                 std::swap_ranges(begin(),end(),y.begin());
             }
 
@@ -96,7 +98,7 @@ namespace Protium{
 
             // assignment with type conversion
             template <typename T2>
-            array<T,N>& operator= (const array<T2,N>& rhs) {
+            Array<T,N>& operator= (const Array<T2,N>& rhs) {
                 std::copy(rhs.begin(),rhs.end(), begin());
                 return *this;
             }
@@ -128,8 +130,8 @@ namespace Protium{
         iterator end() { return begin(); }
         const_iterator end() const { return begin(); }
 
-        typedef std::reverse_iterator<iterator,T> reverse_iterator;
-        typedef std::reverse_iterator<const_iterator,T> const_reverse_iterator;
+        typedef std::reverse_iterator<iterator> reverse_iterator;
+        typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
 
         reverse_iterator rbegin() { return reverse_iterator(end()); }
         const_reverse_iterator rbegin() const {
@@ -182,7 +184,7 @@ namespace Protium{
         static size_type max_size() { return 0; }
         enum { static_size = 0 };
 
-        void swap (array<T,0>& y) {
+        void swap (Array<T,0>& y) {
         }
 
         // direct access to data (read-only)
@@ -194,7 +196,7 @@ namespace Protium{
 
         // assignment with type conversion
         template <typename T2>
-        array<T,0>& operator= (const array<T2,0>& ) {
+        Array<T,0>& operator= (const Array<T2,0>& ) {
             return *this;
         }
 

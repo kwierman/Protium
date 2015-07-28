@@ -2,9 +2,11 @@
 #define Protium_Vector_hh_
 
 #include "Protium/Allocation/SmallObject.hh"
+using Protium::Allocation::SmallObject;
+#include "Protium/Containers/Array.hh"
+using Protium::Containers::Array;
 #include "Protium/Design/Assert.hh"
 
-#include <vector>
 #include <cmath>
 
 namespace Protium{
@@ -54,7 +56,7 @@ namespace Protium{
 		class Vector : public Protium::Allocation::DefaultSmallObject {
 
 			//! Holds the components of the vector
-			std::vector<T> fComponents;
+			Array<T,n> fComponents;
 
 		public:
 

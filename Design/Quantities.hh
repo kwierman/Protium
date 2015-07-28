@@ -136,7 +136,7 @@ namespace Protium{
 	typedef double Intensity;
 	typedef double Angle;
 
-	//Derived quantities (To be partially speciallized on mec change)
+	//Derived quantities (To be partially specialized on mec change)
 	typedef double Velocity;
 	typedef double Rate;
 	typedef double Energy;

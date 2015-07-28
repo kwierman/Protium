@@ -18,7 +18,7 @@ namespace Protium{
       static unsigned int CountNextCycle( const DoubleLinkedNode* pThis );
       //! Look through the list in the ``prev'' direction and find out if p is in the list
       bool HasPrevNode( const DoubleLinkedNode* p ) const;
-      //!Look through the list in the ``next'' direction and find out if p is in the list
+      //! Look through the list in the ``next'' direction and find out if p is in the list
       bool HasNextNode( const DoubleLinkedNode* p ) const;
     public:
       //! Default constructor assigns both pointees to itself

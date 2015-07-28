@@ -34,6 +34,6 @@ struct CompileTimeError<true> {};
     
 //! Use for runtime assertions
 #define PROTIUM_RUNTIME_ASSERT(expr, msg)\
-    {if(!expr) std::cerr<<##msg<<std::endl; abort();}
+    {if(!expr) std::cerr<<#msg<<std::endl; abort();}
 
 #endif //Protium_Assert_h_
